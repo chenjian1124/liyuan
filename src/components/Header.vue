@@ -1,6 +1,7 @@
 <template>
-  <div class="header">
-    <div class="bar">
+  <div class="header" :class="{ sticky: isSticky }">
+    <!-- 顶部信息条：仅在未吸顶（未滚动）时展示 -->
+    <div class="bar" ref="barRef" v-show="!isSticky">
       <a href="tel:+021-60252388">电话: 021-60252388</a>
       <a href="mailto:innovation@htholding.cn">邮箱: innovation@htholding.cn</a>
     </div>
@@ -73,9 +74,64 @@
 import Logo from "@/assets/logo-w.svg";
 import Language from "@/assets/language.svg";
 import Image11 from "@/assets/img11.png";
+import { onBeforeUnmount, onMounted, ref } from "vue";
+
+// 是否处于吸顶态（滚动后）
+const isSticky = ref(false);
+const barRef = ref(null);
+
+// 滚动阈值：滚动距离超过顶部条高度时，进入吸顶态并隐藏顶部条
+const stickyThreshold = ref(0);
+
+const updateSticky = () => {
+  const y = window.scrollY || 0;
+  const enter = Math.max(1, stickyThreshold.value || 0);
+
+  // 关键：加“回滞”，避免隐藏 bar 导致布局高度变化后又马上触发回退，从而产生闪烁
+  // - 进入吸顶：滚动超过 enter（通常是 bar 的高度）
+  // - 退出吸顶：仅回到页面顶部才退出（y <= 0）
+  if (!isSticky.value && y > enter) {
+    isSticky.value = true;
+    return;
+  }
+  if (isSticky.value && y <= 0) {
+    isSticky.value = false;
+  }
+};
+
+const updateThreshold = () => {
+  const barEl = barRef.value;
+  const h = barEl?.offsetHeight || 0;
+  // bar 隐藏（display:none）时 offsetHeight 会变 0，这里不要覆盖已测得的阈值
+  if (h > 0) stickyThreshold.value = Math.max(1, h);
+};
+
+onMounted(() => {
+  updateThreshold();
+  updateSticky();
+  window.addEventListener("scroll", updateSticky, { passive: true });
+  window.addEventListener("resize", updateThreshold);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", updateSticky);
+  window.removeEventListener("resize", updateThreshold);
+});
 </script>
 
 <style lang="less" scoped>
+.header {
+  /* 吸顶：sticky 不会脱离文档流，体验更自然 */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header.sticky {
+  /* 吸顶时加一点阴影，增强层级感 */
+  box-shadow: 0 6px 18px rgba(4, 28, 47, 0.12);
+}
+
 .bar {
   padding: 13px;
   background-color: #041c2f;
@@ -86,6 +142,7 @@ import Image11 from "@/assets/img11.png";
     color: #fff;
     text-decoration: none;
     font-size: 12px;
+    transition: color 0.18s ease;
     &:hover {
       color: #16ba8f;
     }
@@ -112,7 +169,12 @@ import Image11 from "@/assets/img11.png";
         position: static !important;
         &:hover {
           .children-list {
-            display: flex;
+            /* 下拉菜单：淡入 + 下滑 */
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+            transition-delay: 0s;
           }
         }
         a {
@@ -126,6 +188,8 @@ import Image11 from "@/assets/img11.png";
           padding: 28px 18px 28px 15px;
           text-decoration: none;
           position: relative;
+          transition: color 0.18s ease;
+
           &:hover {
             color: #ff9124;
           }
@@ -146,7 +210,14 @@ import Image11 from "@/assets/img11.png";
           }
         }
         .children-list {
-          display: none;
+          /* 下拉菜单初始隐藏：不占 hover 区域、不抢点击 */
+          display: flex;
+          opacity: 0;
+          transform: translateY(10px);
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 0.18s ease, transform 0.18s ease,
+            visibility 0s linear 0.18s;
           flex-wrap: wrap;
           flex-direction: column;
           gap: 15px;
@@ -170,6 +241,9 @@ import Image11 from "@/assets/img11.png";
               .children-item-title {
                 color: #ff9124;
               }
+              .children-item-image {
+                transform: scale(1.03);
+              }
             }
             .children-item-title {
               font-size: 18px;
@@ -177,11 +251,13 @@ import Image11 from "@/assets/img11.png";
               line-height: 28px;
               margin-bottom: 15px;
               font-weight: 500;
+              transition: color 0.18s ease;
             }
             .children-item-image {
               width: 240px;
               height: 160px;
               object-fit: cover;
+              transition: transform 0.22s ease;
             }
           }
         }
@@ -206,6 +282,7 @@ import Image11 from "@/assets/img11.png";
       font-size: 12px;
       color: #041c2f;
       cursor: pointer;
+      transition: color 0.18s ease;
       &:hover {
         color: #ff9124;
       }
@@ -225,9 +302,23 @@ import Image11 from "@/assets/img11.png";
   font-weight: 500;
   cursor: pointer;
   margin-left: 40px;
+  transition: background-color 0.18s ease, transform 0.18s ease;
   &:hover {
     background: #034460;
     color: #fff;
+    transform: translateY(-1px);
+  }
+}
+
+/* 减少动态偏好：尊重系统设置 */
+@media (prefers-reduced-motion: reduce) {
+  .bar a,
+  .container .nav .nav-list li a,
+  .container .nav .nav-list li .children-list,
+  .container .nav .nav-list li .children-item-image,
+  .language .language-list span,
+  .btn {
+    transition: none !important;
   }
 }
 </style>
