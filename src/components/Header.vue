@@ -2,8 +2,10 @@
   <div class="header" :class="{ sticky: isSticky }">
     <!-- 顶部信息条：仅在未吸顶（未滚动）时展示 -->
     <div class="bar" ref="barRef" v-show="!isSticky">
-      <a href="tel:+021-60252388">电话: 021-60252388</a>
-      <a href="mailto:innovation@htholding.cn">邮箱: innovation@htholding.cn</a>
+      <a href="tel:+021-60252388">{{ t("header.phone") }}: 021-60252388</a>
+      <a href="mailto:innovation@htholding.cn"
+        >{{ t("header.email") }}: innovation@htholding.cn</a
+      >
     </div>
     <div class="container">
       <div class="main-header">
@@ -13,10 +15,12 @@
         <div class="nav">
           <ul class="nav-list">
             <li>
-              <a href="/">首页</a>
+              <a href="/">{{ t("header.nav.home") }}</a>
             </li>
             <li>
-              <a href="/" class="has-children">产品服务</a>
+              <a href="/" class="has-children">{{
+                t("header.nav.products")
+              }}</a>
               <div class="children-list flex-row">
                 <a
                   href="/"
@@ -24,7 +28,9 @@
                   v-for="item in 10"
                   :key="item"
                 >
-                  <span class="children-item-title">国际海运</span>
+                  <span class="children-item-title">{{
+                    t("header.submenu.internationalShipping")
+                  }}</span>
                   <img
                     :src="Image11"
                     alt="arrow-right"
@@ -34,11 +40,13 @@
               </div>
             </li>
             <li class="relative">
-              <a href="/" class="has-children">解决方案</a>
+              <a href="/" class="has-children">{{
+                t("header.nav.solutions")
+              }}</a>
               <div class="children-list"></div>
             </li>
             <li class="relative">
-              <a href="/" class="has-children">关于我们</a>
+              <a href="/" class="has-children">{{ t("header.nav.about") }}</a>
               <div class="children-list">
                 <a
                   href="/"
@@ -50,20 +58,32 @@
               </div>
             </li>
             <li>
-              <a href="/">联系我们</a>
+              <a href="/">{{ t("header.nav.contact") }}</a>
             </li>
           </ul>
         </div>
         <div class="language">
           <img :src="Language" alt="language" />
           <div class="language-list">
-            <span>中文</span>
+            <span
+              :class="{ active: locale === 'zh' }"
+              @click="setLocale('zh')"
+              >{{ t("common.zh") }}</span
+            >
             <span>/</span>
-            <span>EN</span>
+            <span
+              :class="{ active: locale === 'en' }"
+              @click="setLocale('en')"
+              >{{ t("common.en") }}</span
+            >
             <span>/</span>
-            <span>ES</span>
+            <span
+              :class="{ active: locale === 'es' }"
+              @click="setLocale('es')"
+              >{{ t("common.es") }}</span
+            >
           </div>
-          <div class="btn">运价船期</div>
+          <div class="btn">{{ t("header.btn.schedule") }}</div>
         </div>
       </div>
     </div>
@@ -75,6 +95,20 @@ import Logo from "@/assets/logo-w.svg";
 import Language from "@/assets/language.svg";
 import Image11 from "@/assets/img11.png";
 import { onBeforeUnmount, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { LOCALE_STORAGE_KEY } from "@/i18n";
+
+const { t, locale: i18nLocale } = useI18n();
+
+// 仅用于模板里直接判断 active
+const locale = i18nLocale;
+
+// 切换语言并持久化到本地
+const setLocale = (next) => {
+  i18nLocale.value = next;
+  localStorage.setItem(LOCALE_STORAGE_KEY, next);
+  document.documentElement.lang = next;
+};
 
 // 是否处于吸顶态（滚动后）
 const isSticky = ref(false);
