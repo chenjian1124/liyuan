@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import Logo from "@/assets/logo-w.svg";
+import Logo from "@/assets/logo-w-new.svg";
 import Language from "@/assets/language.svg";
 import Image11 from "@/assets/img11.png";
 import { onBeforeUnmount, onMounted, ref } from "vue";
