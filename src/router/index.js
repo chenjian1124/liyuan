@@ -6,7 +6,7 @@ import Workprocess from '../views/Workprocess.vue'
 import Solution from '../views/Solution.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/liyuan/'),
   routes: [
     {
       path: '/',
