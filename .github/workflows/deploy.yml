@@ -38,6 +38,8 @@ jobs:
 
       - name: 构建项目
         run: yarn build
+        env:
+          NODE_ENV: production
 
       - name: 设置 Pages
         uses: actions/configure-pages@v4
