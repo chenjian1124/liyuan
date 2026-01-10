@@ -85,6 +85,26 @@
         </div>
       </div>
     </div>
+    <!-- 网络 -->
+    <div class="network">
+      <div class="layout_container">
+        <div class="network_content">
+          <div class="network_title">
+            网络<span class="text-orange">全国</span>，全球优化<span
+              class="text-orange"
+              >资源配置</span
+            >
+          </div>
+          <div class="network_desc">
+            遍及全球几十个国家，超过100家稳固合作代理，<br />
+            覆盖120多个全球重点港口。立远集团物通世界，荟萃全球！
+          </div>
+          <div class="network_video">
+            <video src="@/assets/video/footer.mov" autoplay muted loop></video>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -330,6 +350,47 @@ const getBiImg = (item) => {
           color: @orange;
         }
       }
+    }
+  }
+}
+
+.network {
+  // 背景色从上到下 一半为#041c2f 一半为#424f65
+  padding-top: 100px;
+  background: linear-gradient(to bottom, #f5f5f5 85%, #424f65 15%);
+
+  .network_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 144px;
+  }
+  .network_title {
+    font-size: 86px;
+    line-height: 100%;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+  }
+  .network_desc {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+  }
+
+  .network_video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

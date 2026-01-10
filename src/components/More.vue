@@ -1,22 +1,33 @@
 <template>
   <div class="more">
-    <span class="more-text" :style="{ color: textcolor }">{{ text }}</span>
+    <span class="more-text" :style="{ color: textcolor }">{{
+      displayText
+    }}</span>
     <img class="more-icon" :src="MoreIcon" />
   </div>
 </template>
 
 <script setup>
 import MoreIcon from "@/assets/more.svg";
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+
+const { t } = useI18n();
 
 const props = defineProps({
   text: {
     type: String,
-    default: "查看更多",
+    default: "",
   },
   textcolor: {
     type: String,
     default: "#041c2f",
   },
+});
+
+// 使用计算属性来处理默认文本
+const displayText = computed(() => {
+  return props.text || t("more");
 });
 </script>
 

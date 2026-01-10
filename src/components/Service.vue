@@ -2,24 +2,30 @@
   <div class="service">
     <div class="service-bg"></div>
     <div class="layout_container">
-      <div class="home_service">
+      <div class="home_service" v-if="type === 'home'">
         <Title
           title="我们提供优质的服务"
           desc="我们专注于提供全方位，一站式的国际物流解决方案。"
         />
         <div class="btn">了解更多</div>
       </div>
+      <div class="work_process_service" v-if="type === 'workprocess'">
+        <Title
+          title="产品服务"
+          desc="为客户提供多方位的优质服务，是我们的宗旨"
+        />
+      </div>
 
       <div class="service-content">
         <div class="service-content-item" v-for="i in 6" :key="i">
           <div class="servive_box">
             <div class="service_box_icon">
-              <img class="icon" :src="Service1" />
+              <img class="icon" :src="ServiceImg[i]" />
             </div>
-            <span class="title">国际海运</span>
-            <span class="desc"
-              >全球网络，专业服务，提供高效、可靠的国际海运解决方案。</span
-            >
+            <span class="title">
+              {{ t(`work_${i}`) }}
+            </span>
+            <span class="desc">{{ t(`work_${i}_desc`) }}</span>
             <More />
           </div>
         </div>
@@ -30,9 +36,34 @@
 
 <script setup>
 import Logo from "@/assets/logo.svg";
-import Service1 from "@/assets/service/1.svg";
+import Service1 from "@/assets/service/1.png";
+import Service2 from "@/assets/service/2.png";
+import Service3 from "@/assets/service/3.png";
+import Service4 from "@/assets/service/4.png";
+import Service5 from "@/assets/service/5.png";
+import Service6 from "@/assets/service/6.png";
 import More from "@/components/More.vue";
 import Title from "@/components/Title.vue";
+
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: "home",
+  },
+});
+
+const ServiceImg = [
+  "",
+  Service1,
+  Service2,
+  Service3,
+  Service4,
+  Service5,
+  Service6,
+];
 </script>
 
 <style lang="less" scoped>
@@ -55,6 +86,12 @@ import Title from "@/components/Title.vue";
   .home_service {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+  .work_process_service {
+    display: flex;
+    justify-content: center;
     align-items: center;
     padding-bottom: 50px;
   }
@@ -104,7 +141,7 @@ import Title from "@/components/Title.vue";
       line-height: 24px;
       color: #041c2f;
       margin-bottom: 35px;
-      min-height: 48px;
+      height: 72px;
     }
   }
 
