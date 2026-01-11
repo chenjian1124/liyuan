@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Workprocess from '../views/Workprocess.vue'
 import Solution from '../views/Solution.vue'
+import Contact from '../views/Contact.vue'
 
 const router = createRouter({
   history: createWebHistory('/liyuan/'),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/solution',
       name: 'solution',
       component: Solution,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
   ],
 })
