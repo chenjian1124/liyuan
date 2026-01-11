@@ -25,14 +25,12 @@
                 <a
                   href="/"
                   class="children-item"
-                  v-for="item in 10"
-                  :key="item"
+                  v-for="item in productList"
+                  :key="item.name"
                 >
-                  <span class="children-item-title">{{
-                    t("header.submenu.internationalShipping")
-                  }}</span>
+                  <span class="children-item-title">{{ t(item.name) }}</span>
                   <img
-                    :src="Image11"
+                    :src="item.img"
                     alt="arrow-right"
                     class="children-item-image"
                   />
@@ -43,7 +41,16 @@
               <a href="/" class="has-children">{{
                 t("header.nav.solutions")
               }}</a>
-              <div class="children-list"></div>
+              <div class="children-list">
+                <a
+                  href="/"
+                  class="children-item"
+                  v-for="item in solutionList"
+                  :key="item.name"
+                >
+                  <span class="children-item-title">{{ t(item.name) }}</span>
+                </a>
+              </div>
             </li>
             <li class="relative">
               <a href="/" class="has-children">{{ t("header.nav.about") }}</a>
@@ -51,9 +58,9 @@
                 <a
                   href="/"
                   class="children-item"
-                  v-for="item in 5"
-                  :key="item"
-                  >{{ item }}</a
+                  v-for="item in aboutList"
+                  :key="item.name"
+                  >{{ t(item.name) }}</a
                 >
               </div>
             </li>
@@ -93,12 +100,102 @@
 <script setup>
 import Logo from "@/assets/logo-w-new.svg";
 import Language from "@/assets/language.svg";
-import Image11 from "@/assets/img11.png";
+import Image1 from "@/assets/menu/1.png";
+import Image2 from "@/assets/menu/2.png";
+import Image3 from "@/assets/menu/3.png";
+import Image4 from "@/assets/menu/4.png";
+import Image5 from "@/assets/menu/5.png";
+import Image6 from "@/assets/menu/6.png";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { LOCALE_STORAGE_KEY } from "@/i18n";
 
 const { t, locale: i18nLocale } = useI18n();
+
+const productList = [
+  {
+    name: "header.submenu.internationalShipping",
+    img: Image1,
+    href: "/",
+  },
+  {
+    name: "header.submenu.projectLogistics",
+    img: Image2,
+    href: "/",
+  },
+  {
+    name: "header.submenu.landTransportationServices",
+    img: Image3,
+    href: "/",
+  },
+  {
+    name: "header.submenu.customsClearanceServices",
+    img: Image4,
+    href: "/",
+  },
+  {
+    name: "header.submenu.warehousingServices",
+    img: Image5,
+    href: "/",
+  },
+  {
+    name: "header.submenu.internationalAirFreight",
+    img: Image6,
+    href: "/",
+  },
+];
+const solutionList = [
+  {
+    name: "header.submenu.solutions_1",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_2",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_3",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_4",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_5",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_6",
+    href: "/",
+  },
+  {
+    name: "header.submenu.solutions_7",
+    href: "/",
+  },
+];
+const aboutList = [
+  {
+    name: "header.submenu.about_1",
+    href: "/",
+  },
+  {
+    name: "header.submenu.about_2",
+    href: "/",
+  },
+  {
+    name: "header.submenu.about_3",
+    href: "/",
+  },
+  {
+    name: "header.submenu.about_4",
+    href: "/",
+  },
+  {
+    name: "header.submenu.about_5",
+    href: "/",
+  },
+];
 
 // 仅用于模板里直接判断 active
 const locale = i18nLocale;
@@ -199,6 +296,7 @@ onBeforeUnmount(() => {
     .nav-list {
       display: flex;
       li {
+        height: 90px;
         list-style: none;
         position: static !important;
         &:hover {
@@ -267,7 +365,7 @@ onBeforeUnmount(() => {
             flex-direction: row;
           }
           .children-item {
-            width: 240px;
+            min-width: 240px;
             display: flex;
             flex-direction: column;
             padding: 0;
