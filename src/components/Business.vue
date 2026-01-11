@@ -2,34 +2,33 @@
   <div class="business">
     <div class="layout_container bg_word">
       <div class="business_content">
-        <Title title="业务覆盖范围" desc="业务覆盖全球，服务全面" />
+        <Title :title="t('business_title')" :desc="t('business_desc')" />
         <div class="business_content_flex">
           <div class="business_content_left">
             <img :src="Bs" alt="bs" class="business_content_left_img" />
             <div class="business_content_left_text">
-              <span class="title">立远恒通集团资质</span>
-              <span class="desc">中国外经贸委批准的一级货运代理</span>
-              <span class="desc"
-                >中国交通部注册的无船承运人(NVOCC-NV00824)</span
-              >
-              <span class="desc">美国联邦海事委员会(FMC)注册企业</span>
-              <span class="desc"
-                >WCA Inter Global&WCA Projects会员(#70521)</span
-              >
-              <span class="desc"
-                >已通过ISO9001质量管理体系、ISO14001环境管理体系</span
-              >
-              <span class="desc">ISO45001职业健康安全管理体系认证</span>
+              <span class="title">{{ t("business_title") }}</span>
+              <span class="desc">{{ t("business_desc_1") }}</span>
+              <span class="desc">{{ t("business_desc_2") }}</span>
+              <span class="desc">{{ t("business_desc_3") }}</span>
+              <span class="desc">{{ t("business_desc_4") }}</span>
+              <span class="desc">{{ t("business_desc_5") }}</span>
             </div>
           </div>
           <div class="business_content_right">
-            <div class="business_content_right_item" v-for="i in 5" :key="i">
+            <div
+              class="business_content_right_item"
+              v-for="item in businessList"
+              :key="item.title"
+            >
               <img
-                :src="Svg1"
-                alt="Svg1"
+                :src="item.img"
+                alt="item.title"
                 class="business_content_right_item_img"
               />
-              <span class="business_content_right_item_text">OOG项目物流</span>
+              <span class="business_content_right_item_text">{{
+                t(item.title)
+              }}</span>
             </div>
           </div>
         </div>
@@ -41,7 +40,36 @@
 <script setup>
 import Title from "@/components/Title.vue";
 import Bs from "@/assets/bs.png";
-import Svg1 from "@/assets/business/1.svg";
+import Image1 from "@/assets/business/1.png";
+import Image2 from "@/assets/business/2.png";
+import Image3 from "@/assets/business/3.png";
+import Image4 from "@/assets/business/4.png";
+import Image5 from "@/assets/business/5.png";
+
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+const businessList = [
+  {
+    img: Image1,
+    title: "business_1",
+  },
+  {
+    img: Image2,
+    title: "business_2",
+  },
+  {
+    img: Image3,
+    title: "business_3",
+  },
+  {
+    img: Image4,
+    title: "business_4",
+  },
+  {
+    img: Image5,
+    title: "business_5",
+  },
+];
 </script>
 
 <style lang="less" scoped>

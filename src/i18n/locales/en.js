@@ -51,7 +51,14 @@ export default {
       ide: "Vue Docs: Tooling & IDE support",
     },
   },
+  // customer
+  customer_title1: "Trusted by Those",
+  customer_title2: "Matter",
   more: 'View Details',
+  // service
+  service_title: "We Provide Quality Services",
+  service_desc: "We focus on providing comprehensive, one-stop international logistics solutions.",
+  service_more: "Learn More",
   // workprocess
   work_1: 'International Sea Freight',
   work_1_desc :'Global network, professional service, providing efficient and reliable international sea freight solutions.',
@@ -65,6 +72,40 @@ export default {
   work_5_desc:'Safe and reliable, efficient management, providing professional warehousing and inventory solutions.',
   work_6:'International Air Freight',
   work_6_desc:'Global network, professional service, providing efficient and reliable international air freight solutions.',
+
+   // business
+   business_title: "Liyuanhengtong Group Qualifications",
+   business_desc: "Business coverage worldwide, comprehensive service",
+   business_desc_1: "China Foreign Economic and Trade Commission approved first-class freight forwarder",
+   business_desc_2: "China Ministry of Transport registered non-vessel operating common carrier (NVOCC-NV00824)",
+   business_desc_3: "US Federal Maritime Commission registered enterprise",
+   business_desc_4: "ISO45001 Occupational Health and Safety Management System Certification",
+   business_desc_5: "ISO9001 Quality Management System, ISO14001 Environmental Management System",
+   business_1: "OOG Project Logistics",
+   business_2: "General Cargo Roll-on Roll-off Services",
+   business_3: "Chemical Logistics",
+   business_4: "Automotive Logistics",
+   business_5: "Logistics Wisdom Road",
+   business_6: "Professional Consulting",
+
+   // BI看板
+   bi_title: "BI Dashboard",
+   bi_desc: "Data Driving Dashboard",
+
+   // 一带一路
+   one_belt_one_road_title: "One Belt One Road Service Provider",
+   one_belt_one_road_desc: "We help the development of One Belt One Road regions.",
+   one_belt_one_road_text: "One Belt One Road",
+   one_belt_one_road_text_desc: "The Belt and Road Initiative was proposed by China in 2013 as an international cooperation initiative, aiming to build an open, inclusive and win-win framework for global development by enhancing policy coordination, infrastructure connectivity, unimpeded trade, financial integration and people-to-people bonds. In recent years, China and Latin American countries have carried out multiple cooperation projects under the framework of the Belt and Road Initiative and achieved remarkable results. The company actively participates in the bidding of Belt and Road projects and provides end-to-end logistics services through its complete service network to ensure the smooth progress of Belt and Road projects.",
+
+   // 全球网络
+  global_network_title1:'Global',
+  global_network_title2:'network',
+  global_network_title3:'top',
+  global_network_title4:'cooperation',
+  global_network_title5:'customer',
+  global_network_title6:'recognition',
+  global_network_desc: 'Multiple awards for industry recognition, establish a global service network, cooperate with top shipping companies, provide efficient and reliable logistics solutions, and win widespread customer recognition.',
 };
 
 

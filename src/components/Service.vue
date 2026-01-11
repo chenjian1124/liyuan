@@ -3,11 +3,8 @@
     <div class="service-bg"></div>
     <div class="layout_container">
       <div class="home_service" v-if="type === 'home'">
-        <Title
-          title="我们提供优质的服务"
-          desc="我们专注于提供全方位，一站式的国际物流解决方案。"
-        />
-        <div class="btn">了解更多</div>
+        <Title :title="t('service_title')" :desc="t('service_desc')" />
+        <div class="btn">{{ t("service_more") }}</div>
       </div>
       <div class="work_process_service" v-if="type === 'workprocess'">
         <Title

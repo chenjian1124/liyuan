@@ -12,7 +12,7 @@
     <div class="bi">
       <div class="layout_container">
         <div class="bi_title">
-          <Title title="BI看板" desc="数据驾驶仓" />
+          <Title :title="t('bi_title')" :desc="t('bi_desc')" />
         </div>
         <div class="bi_list">
           <div class="bi_list_item" v-for="item in biList" :key="item">
@@ -28,17 +28,19 @@
       <div class="one_road-position">
         <div class="one_belt_one_road_title">
           <Title
-            title="一带一路服务商"
-            desc="我们助力一带一路的地区发展。"
+            :title="t('one_belt_one_road_title')"
+            :desc="t('one_belt_one_road_desc')"
             titlecolor="#fff"
             desccolor="#fff"
           />
         </div>
         <div class="one_belt_one_road_text">
-          <span class="one_belt_one_road_text_text">一带一路</span>
-          <span class="one_belt_one_road_text_desc"
-            >“一带一路”是中国于2013年提出的国际合作倡议，旨在通过加强政策沟通、设施联通、贸易畅通、资金融通和民心相通，构建一个开放、包容、合作共赢的全球化发展框架。近年来，中国与拉丁美洲国家在“一带一路”倡议框架下开展了多项合作，取得了显著成果。公司积极参与“一带一路”的项目招标，通过公司完善的服务网络提供端到端的物流服务为“一带一路”项目保驾护航。</span
-          >
+          <span class="one_belt_one_road_text_text">{{
+            t("one_belt_one_road_text")
+          }}</span>
+          <span class="one_belt_one_road_text_desc">{{
+            t("one_belt_one_road_text_desc")
+          }}</span>
         </div>
       </div>
     </div>
@@ -47,22 +49,30 @@
       <div class="layout_container global_bg">
         <div class="global_network_content">
           <div class="global_network_title">
-            全球<span class="text-orange">网络</span>，<span class="text-orange"
-              >顶级</span
-            >合作，客户<span class="text-orange">认可</span>
+            {{ t("global_network_title1")
+            }}<span class="text-orange">{{ t("global_network_title2") }}</span
+            >，<span class="text-orange">{{ t("global_network_title3") }}</span
+            >{{ t("global_network_title4") }}，{{ t("global_network_title5")
+            }}<span class="text-orange">{{ t("global_network_title6") }}</span>
           </div>
           <div class="global_network_desc">
-            多次荣获行业大奖，建立全球服务网络，与多家顶级船公司战略合作，提供高效、可靠的物流解决方案，赢得客户广泛认可。
+            {{ t("global_network_desc") }}
           </div>
           <div class="global_network_list">
-            <div class="global_network_list_item" v-for="item in 4" :key="item">
+            <div
+              class="global_network_list_item"
+              v-for="item in globalNetworkList"
+              :key="item.text"
+            >
               <img
-                :src="Global1"
+                :src="item.img"
                 alt="Global1"
                 class="global_network_list_item_img"
               />
-              <span class="global_network_list_item_text">180+</span>
-              <span class="global_network_list_item_desc">全球网络</span>
+              <span class="global_network_list_item_text">{{ item.text }}</span>
+              <span class="global_network_list_item_desc">{{
+                t(item.desc)
+              }}</span>
             </div>
           </div>
         </div>
@@ -120,6 +130,11 @@ import Global1 from "@/assets/global/1.svg";
 import News1 from "@/assets/news/1.png";
 import More from "@/components/More.vue";
 
+import GlobalNetwork1 from "@/assets/network/1.png";
+import GlobalNetwork2 from "@/assets/network/2.png";
+import GlobalNetwork3 from "@/assets/network/3.png";
+import GlobalNetwork4 from "@/assets/network/4.png";
+
 const { t } = useI18n();
 const biList = [2022, 2023, 2024, 2025];
 
@@ -140,6 +155,29 @@ const biImgMap = Object.fromEntries(
 const getBiImg = (item) => {
   return biImgMap[String(item)] || "";
 };
+
+const globalNetworkList = [
+  {
+    img: GlobalNetwork1,
+    text: "100+",
+    desc: "global_network_desc_1",
+  },
+  {
+    img: GlobalNetwork2,
+    text: "80+",
+    desc: "global_network_desc_2",
+  },
+  {
+    img: GlobalNetwork3,
+    text: "8+",
+    desc: "global_network_desc_3",
+  },
+  {
+    img: GlobalNetwork4,
+    text: "500+",
+    desc: "global_network_desc_4",
+  },
+];
 </script>
 
 <style lang="less" scoped>
@@ -201,7 +239,8 @@ const getBiImg = (item) => {
     }
     .one_belt_one_road_text {
       margin-top: 300px;
-      width: 500px;
+      min-width: 500px;
+      max-width: 800px;
       display: flex;
       flex-direction: column;
       justify-content: left;

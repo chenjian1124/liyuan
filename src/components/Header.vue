@@ -9,21 +9,24 @@
     </div>
     <div class="container">
       <div class="main-header">
-        <a href="/">
+        <a @click.prevent="handleAnchorClick('/')">
           <img :src="Logo" alt="logo" class="logo" />
         </a>
         <div class="nav">
           <ul class="nav-list">
             <li>
-              <a href="/">{{ t("header.nav.home") }}</a>
+              <a href="/" @click.prevent="handleAnchorClick('/')">{{
+                t("header.nav.home")
+              }}</a>
             </li>
             <li>
-              <a href="/" class="has-children">{{
+              <a href="javascript:void(0)" class="has-children">{{
                 t("header.nav.products")
               }}</a>
               <div class="children-list flex-row">
                 <a
-                  href="/"
+                  href="javascript:void(0)"
+                  @click.prevent="handleAnchorClick(item.href)"
                   class="children-item"
                   v-for="item in productList"
                   :key="item.name"
@@ -38,12 +41,13 @@
               </div>
             </li>
             <li class="relative">
-              <a href="/" class="has-children">{{
+              <a href="javascript:void(0)" class="has-children">{{
                 t("header.nav.solutions")
               }}</a>
               <div class="children-list">
                 <a
-                  href="/"
+                  href="javascript:void(0)"
+                  @click.prevent="handleAnchorClick(item.href)"
                   class="children-item"
                   v-for="item in solutionList"
                   :key="item.name"
@@ -53,10 +57,13 @@
               </div>
             </li>
             <li class="relative">
-              <a href="/" class="has-children">{{ t("header.nav.about") }}</a>
+              <a href="javascript:void(0)" class="has-children">{{
+                t("header.nav.about")
+              }}</a>
               <div class="children-list">
                 <a
-                  href="/"
+                  href="javascript:void(0)"
+                  @click.prevent="handleAnchorClick(item.href)"
                   class="children-item"
                   v-for="item in aboutList"
                   :key="item.name"
@@ -65,7 +72,11 @@
               </div>
             </li>
             <li>
-              <a href="/">{{ t("header.nav.contact") }}</a>
+              <a
+                href="javascript:void(0)"
+                @click.prevent="handleAnchorClick('/contact')"
+                >{{ t("header.nav.contact") }}</a
+              >
             </li>
           </ul>
         </div>
@@ -108,92 +119,111 @@ import Image5 from "@/assets/menu/5.png";
 import Image6 from "@/assets/menu/6.png";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 import { LOCALE_STORAGE_KEY } from "@/i18n";
 
 const { t, locale: i18nLocale } = useI18n();
+const router = useRouter();
+
+// 处理带锚点的路由跳转
+const handleAnchorClick = async (href) => {
+  if (href.includes("#")) {
+    const [path, hash] = href.split("#");
+    await router.push({ path: path || "/", hash: `#${hash}` });
+    // 等待路由跳转完成后，滚动到锚点位置
+    setTimeout(() => {
+      const element = document.querySelector(hash ? `#${hash}` : null);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  } else {
+    router.push(href);
+  }
+};
 
 const productList = [
   {
     name: "header.submenu.internationalShipping",
     img: Image1,
-    href: "/",
+    href: "/workprocess#internationalShipping",
   },
   {
     name: "header.submenu.projectLogistics",
     img: Image2,
-    href: "/",
+    href: "/workprocess#projectLogistics",
   },
   {
     name: "header.submenu.landTransportationServices",
     img: Image3,
-    href: "/",
+    href: "/workprocess#landTransportationServices",
   },
   {
     name: "header.submenu.customsClearanceServices",
     img: Image4,
-    href: "/",
+    href: "/workprocess#customsClearanceServices",
   },
   {
     name: "header.submenu.warehousingServices",
     img: Image5,
-    href: "/",
+    href: "/workprocess#warehousingServices",
   },
   {
     name: "header.submenu.internationalAirFreight",
     img: Image6,
-    href: "/",
+    href: "/workprocess#internationalAirFreight",
   },
 ];
 const solutionList = [
   {
     name: "header.submenu.solutions_1",
-    href: "/",
+    href: "/solution#solutions_1",
   },
   {
     name: "header.submenu.solutions_2",
-    href: "/",
+    href: "/solution#solutions_2",
   },
   {
     name: "header.submenu.solutions_3",
-    href: "/",
+    href: "/solution#solutions_3",
   },
   {
     name: "header.submenu.solutions_4",
-    href: "/",
+    href: "/solution#solutions_4",
   },
   {
     name: "header.submenu.solutions_5",
-    href: "/",
+    href: "/solution#solutions_5",
   },
   {
     name: "header.submenu.solutions_6",
-    href: "/",
+    href: "/solution#solutions_6",
   },
   {
     name: "header.submenu.solutions_7",
-    href: "/",
+    href: "/solution#solutions_7",
   },
 ];
 const aboutList = [
   {
     name: "header.submenu.about_1",
-    href: "/",
+    href: "/about#about_1",
   },
   {
     name: "header.submenu.about_2",
-    href: "/",
+    href: "/about#about_2",
   },
   {
     name: "header.submenu.about_3",
-    href: "/",
+    href: "/about#about_3",
   },
   {
     name: "header.submenu.about_4",
-    href: "/",
+    href: "/about#about_4",
   },
   {
     name: "header.submenu.about_5",
-    href: "/",
+    href: "/about#about_5",
   },
 ];
 
