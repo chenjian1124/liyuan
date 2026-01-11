@@ -106,7 +106,30 @@ export default {
   global_network_title5:'customer',
   global_network_title6:'recognition',
   global_network_desc: 'Multiple awards for industry recognition, establish a global service network, cooperate with top shipping companies, provide efficient and reliable logistics solutions, and win widespread customer recognition.',
+
+  // 资讯
+  news_title: 'Latest News',
+  news_title_1: 'Liyuan Hengtong successfully launched the oversized transportation project from Shanghai to Belarus.',
+  news_title_2: 'Liyuan Hengtong BBK transport logistics solution.',
+  news_title_3: 'Successfully launched the oversized road transport project from Xuzhou via Kazakhstan to Samarkand.',
+
+  // 网络
+  network_title1: 'Network ',
+  network_title2: 'Nationwide',
+  network_title3: ', Global Optimized ',
+  network_title4: 'Resource Allocation',
+  network_desc1:'with over 100 stable cooperative agents,',
+  network_desc2:'covering more than 120 key global ports. Liyuan Group connects the world, gathering globally!',
+
+  // 底部
+  footer_company: 'Shanghai Liyuan Hengtong Logistics Development Co., Ltd.',
+  footer_address: '1102-1107, Shangbin Life Plaza, 887 Zhoujiazu Road, Hongkou District, Shanghai, China',
+  footer_phone: 'Phone: 021-60252388',
+  footer_remark: 'We offer you a one-stop solution. More information awaits your discovery!',
+  footer_email: 'Please enter your email',
+  footer_btn: 'Subscribe',
 };
+
 
 
 

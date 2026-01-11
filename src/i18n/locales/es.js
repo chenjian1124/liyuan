@@ -97,6 +97,37 @@ export default {
   one_belt_one_road_desc: "Ayudamos al desarrollo de las regiones de la Ruta de los Tesoros.",
   one_belt_one_road_text: "Ruta de los Tesoros",
   one_belt_one_road_text_desc: "La Ruta de los Tesoros es una iniciativa de cooperación internacional propuesta por China en 2013, con el objetivo de construir un marco de desarrollo global abierto, inclusivo y ganador-ganador a través de la comunicación política, la conectividad de infraestructuras, la facilidad comercial, la integración financiera y la intercambio de corazón a corazón. En los últimos años, China ha llevado a cabo numerosos proyectos cooperativos con países de América Latina en el marco de la iniciativa de la Ruta de los Tesoros, logrando resultados significativos. La empresa participa activamente en la licitación de proyectos de la Ruta de los Tesoros, proporcionando servicios de logística de extremo a extremo a través de su red de servicios para proteger los proyectos de la Ruta de los Tesoros.",
+
+  // 全球网络
+  global_network_title1:'Red',
+  global_network_title2:'global',
+  global_network_title3:'cooperación ',
+  global_network_title4:'de primer nivel',
+  global_network_title5:'reconocimiento ',
+  global_network_title6:'del cliente',
+  global_network_desc: 'Premiado en varias ocasiones en la industria, estableciendo una red de servicios global y asociándose estratégicamente con varias de las principales compañías navieras para proporcionar soluciones logísticas eficientes y confiables, ganando un amplio reconocimiento de los clientes.',
+
+
+  news_title: 'Últimas noticias',
+  news_title_1: 'Liyuan Hengtong lanzó con éxito el proyecto de transporte sobredimensionado de Shanghái a Bielorrusia.',
+  news_title_2: 'Solución logística de transporte BBK de Liyuan Hengtong.',
+  news_title_3: 'Se lanzó con éxito el proyecto de transporte por carretera sobredimensionado desde Xuzhou a Samarcanda a través de Kazajistán.',
+
+  // 网络
+  network_title1: 'Red ',
+  network_title2: 'nacional ',
+  network_title3: ', optimización global ',
+  network_title4: 'de la asignación de recursos',
+  network_desc1:'Cubriendo decenas de países en todo el mundo, ',
+  network_desc2:'abarcando más de 120 puertos clave a nivel mundial. ¡El Grupo Liyuan conecta el mundo, reuniendo a nivel global!',
+
+  // 底部
+  footer_company: 'Shanghai Liyuan Hengtong Logistics Development Co., Ltd.',
+  footer_address: '1102-1107, Shangbin Life Plaza, 887 Zhoujiazu Road, Hongkou District, Shanghai, China',
+  footer_phone: 'Phone: 021-60252388',
+  footer_remark: 'Ofrecemos una solución de una sola parada. ¡Más información espera tu descubrimiento!',
+  footer_email: 'Por favor, ingrese su correo electrónico',
+  footer_btn: 'Suscribirse',
 };
 
 

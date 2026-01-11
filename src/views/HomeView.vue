@@ -82,14 +82,14 @@
     <div class="news">
       <div class="layout_container news_bg">
         <div class="news_title">
-          <Title title="最新资讯" />
+          <Title :title="t('news_title')" />
         </div>
         <div class="news_list">
-          <div class="news_list_item" v-for="item in 3" :key="item">
-            <img :src="News1" alt="News1" class="news_list_item_img" />
+          <div class="news_list_item" v-for="item in newsList" :key="item">
+            <img :src="item.img" alt="News1" class="news_list_item_img" />
             <div class="news_list_item_content">
-              <span class="news_list_item_text">新闻标题</span>
-              <More text="查看细节" textcolor="#fff" />
+              <span class="news_list_item_text">{{ t(item.text) }}</span>
+              <More :text="t('more')" textcolor="#fff" />
             </div>
           </div>
         </div>
@@ -100,14 +100,15 @@
       <div class="layout_container">
         <div class="network_content">
           <div class="network_title">
-            网络<span class="text-orange">全国</span>，全球优化<span
-              class="text-orange"
-              >资源配置</span
-            >
+            {{ t("network_title1")
+            }}<span class="text-orange">{{ t("network_title2") }}</span
+            >{{ t("network_title3")
+            }}<span class="text-orange">{{ t("network_title4") }}</span>
           </div>
           <div class="network_desc">
-            遍及全球几十个国家，超过100家稳固合作代理，<br />
-            覆盖120多个全球重点港口。立远集团物通世界，荟萃全球！
+            {{ t("network_desc1") }}
+            <br />
+            {{ t("network_desc2") }}
           </div>
           <div class="network_video">
             <video src="@/assets/video/footer.mov" autoplay muted loop></video>
@@ -128,6 +129,8 @@ import Business from "@/components/Business.vue";
 import Title from "@/components/Title.vue";
 import Global1 from "@/assets/global/1.svg";
 import News1 from "@/assets/news/1.png";
+import News2 from "@/assets/news/2.png";
+import News3 from "@/assets/news/3.png";
 import More from "@/components/More.vue";
 
 import GlobalNetwork1 from "@/assets/network/1.png";
@@ -176,6 +179,21 @@ const globalNetworkList = [
     img: GlobalNetwork4,
     text: "500+",
     desc: "global_network_desc_4",
+  },
+];
+
+const newsList = [
+  {
+    img: News1,
+    text: "news_title_1",
+  },
+  {
+    img: News2,
+    text: "news_title_2",
+  },
+  {
+    img: News3,
+    text: "news_title_3",
   },
 ];
 </script>
@@ -362,7 +380,9 @@ const globalNetworkList = [
     justify-content: space-between;
     align-items: center;
     padding: 80px 0;
+    gap: 40px;
     .news_list_item {
+      flex: 1;
       margin-bottom: 30px;
       cursor: pointer;
       display: flex;
@@ -370,14 +390,14 @@ const globalNetworkList = [
       justify-content: center;
       background-color: #424f65;
       .news_list_item_img {
-        height: 400px;
+        width: 100%;
         object-fit: cover;
       }
       .news_list_item_content {
         padding: 20px;
         display: flex;
         flex-direction: column;
-        height: 100px;
+        min-height: 100px;
         gap: 10px;
       }
       .news_list_item_text {
@@ -385,6 +405,7 @@ const globalNetworkList = [
         line-height: 24px;
         font-weight: 700;
         color: #fff;
+        min-height: 48px;
         &:hover {
           color: @orange;
         }

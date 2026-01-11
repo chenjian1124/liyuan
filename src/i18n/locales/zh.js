@@ -115,6 +115,29 @@ export default {
   global_network_desc_2: '拉丁美洲代理网络',
   global_network_desc_3: '家全资子公司',
   global_network_desc_4: '全球员工人数',
+
+  // 资讯
+  news_title: '最新资讯',
+  news_desc: '我们提供最新的资讯和新闻。',
+  news_title_1: '立远恒通承运上海至白俄罗斯超限运输项目顺利启运。',
+  news_title_2: '立远恒通BBK运输物流解决方案。',
+  news_title_3: '承运徐州经哈萨克斯坦至撒马尔罕超大件公路运输项目顺利启运。',
+
+  // 网络
+  network_title1: '网络',
+  network_title2: '全国',
+  network_title3: '，全球优化',
+  network_title4: '资源配置',
+  network_desc1:'遍及全球几十个国家，超过100家稳固合作代理，',
+  network_desc2:'覆盖120多个全球重点港口。立远集团物通世界，荟萃全球！',
+
+  // 底部
+  footer_company: '上海立远恒通物流发展有限公司',
+  footer_address: '上海市虹口区周家嘴路887号上滨生活广场1102-1107室',
+  footer_phone: '总机: 021-60252388',
+  footer_remark: '为您提供一站式解决方案，更多信息等您来取！',
+  footer_email: '请输入您的邮箱',
+  footer_btn: '订阅',
 };
 
 
