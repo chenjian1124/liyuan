@@ -148,7 +148,71 @@ export default {
   about_us_size: 'Tamaño',
   about_us_message: 'Mensaje',
   about_us_btn: 'Enviar',
+
+  // Solution 
+  solution_title: 'Logística de Proyectos OOG',
+  solution_desc: 'Profesional y eficiente, asegurando la llegada sin problemas de las mercancías a tiempo.',
+  solution_bg_title: 'Los contenedores OOG, gracias a su rendimiento excepcional y calidad confiable, se han convertido en un apoyo clave para el transporte logístico global. Ya sea en puertos concurridos o en rutas remotas, los contenedores OOG siempre ofrecen un servicio eficiente y seguro, inyectando nueva energía al comercio global y al crecimiento económico.',
+  solution_bg_desc: 'Liyuan Hengtong, apoyándose en equipos avanzados, técnicas de carga y refuerzo precisas, así como en años de experiencia en la industria, garantiza la ejecución eficiente y la seguridad del transporte de proyectos OOG.',
+  solution_bg_title_1: 'Experiencia de Transporte',
+  solution_bg_desc_1: 'Años de experiencia en transporte de mercancías sobredimensionadas, profundamente entendiendo los desafíos y complejidades de diversos proyectos OOG.',
+  solution_bg_title_2: 'Red Global Completa',
+  solution_bg_desc_2: 'Red de agentes de transporte global, gestionando fácilmente permisos de transporte y procedimientos de despacho aduanero en cualquier región.',    
+  solution_bg_title_3: 'Empaquetado y Fijación Profesional',
+  solution_bg_desc_3: 'Equipado con equipos de transporte y equipos de carga/descarga avanzados, procesando eficientemente diversas mercancías sobredimensionadas y mercancías pesadas individuales.',
+  solution_bg_title_4: 'Capacidad de Gestión de Proyectos',
+  solution_bg_desc_4: 'Un equipo de gestión de proyectos fuerte asegura una conexión sin costuras en cada etapa desde la planificación de transporte hasta la entrega final.',
+
+
+  solution_business_title: 'Servicio de carga general',
+  solution_business_desc: 'Proporcionar soluciones de transporte eficientes y convenientes',
+  solution_business_title1: 'Servicio de carga general',
+  solution_business_desc_1: 'Liyuan Hengtong, a través de barcos de carga especializada, permite que vehículos y equipos grandes sean cargados y descargados rápidamente sin necesidad de desmontarlos, ofreciendo soluciones de transporte eficientes y convenientes, asegurando que las mercancías lleguen de forma segura y reduciendo el tiempo de espera.',
+  solution_business_1: 'Carga y descarga eficientes',
+  solution_business_2: 'Garantía de seguridad en todo el proceso',
+  solution_business_3: 'Gestión de proyectos profesional',
+  solution_business_4: 'Red de servicios global',
+
+  solution_chemical_title: 'Logística de productos químicos',
+  solution_chemical_desc: 'Protegiendo profesionalmente cada envío, transportando cada gota de productos químicos de manera segura.',
+  solution_chemical_title1: 'Soluciones de transporte profesionales, seguras y con cobertura global',
+  solution_chemical_title2: '',
+  solution_chemical_desc1: 'Liyuan Hengtong posee una profunda experiencia en logística y operaciones de almacenamiento de productos químicos y peligrosos, destacándose especialmente en soluciones de refuerzo para el transporte de baterías de litio y en el manejo de productos químicos farmacéuticos. A través de tecnologías maduras y estrictos procesos operativos, ofrecemos soluciones logísticas y de almacenamiento seguras y confiables, asegurando que las mercancías se mantengan seguras y sin daños durante el transporte y almacenamiento.',
+
+  solution_car_title: 'La logística del automóvil',
+  solution_car_desc: 'Ofrece soluciones integrales de extremo a extremo, incluyendo el envasado en el puerto de origen, el transporte marítimo internacional y el desempaque en el puerto de destino.',
+  solution_car_title1: 'Eficiente y profesional en cada etapa, asegurando conexiones sin problemas en todo el proceso de transporte.',
+  solution_car_desc1: 'Liyuan Hengtong se enfoca en servicios de transporte automotriz, utilizando métodos principales de carga/descarga (RO-RO) y modos de transporte de estructura, proporcionando soluciones flexibles y eficientes.',
+  solution_car_title2: 'En el campo de transporte automotriz, nuestra empresa cuenta con un equipo de transporte profesional y técnicamente experto, asegurando que cada tarea de transporte se complete de forma segura, confiable y eficiente.',
+  solution_car_title3: 'Liyuan Hengtong es un producto patentado de COSCO, utilizando el transporte de estructura automotriz.',
+  solution_car_title4: 'Liyuan Hengtong transportó vehículos eléctricos para fabricantes de automóviles a Chile.',
+
+  solution_logistics_title: 'Inteligencia logística',
+  solution_logistics_desc: 'Funciones avanzadas y flexibles, completas.',
+  solution_logistics_title1: 'Integración conectada · innovación tecnológica',
+  solution_logistics_desc1: 'Interconexión y fusión · innovación tecnológica en la industria de precipitación décadas de experiencia, tecnología inteligente en servicios de logística internacional para liderar el cambio del servicio.',
+  solution_logistics_title2: 'La visualización de los datos',
+  solution_logistics_desc2: 'Muestra la hora, lugar, tipo de carga, lado del transporte y otra latitud para ayudar al usuario a realizar un análisis integral. Los usuarios pueden seleccionar diferentes dimensiones de datos para combinar y comparar según sus necesidades, lo que permite que el sistema se adapte a las necesidades de diferentes usuarios y diferentes escenarios de negocio.',
+  solution_logistics_title3: 'Seguimiento logístico en tiempo real',
+  solution_logistics_desc3: 'Confiando en la herramienta digital, la consulta en tiempo real de los datos de la caja de carga, datos de la fecha del barco, datos de la zona portuaria, seguimiento en tiempo real de la ubicación y el estado de las mercancías, actualizar la información al sistema al instante.',
+  solution_logistics_title4: 'Rendimiento online',
+  solution_logistics_desc4: 'En la nueva plataforma digital, se puede realizar la comprobación de precios en línea, el pedido en línea y el rendimiento en línea. El flujo de tareas impulsa el rendimiento del pedido, simplifica el complejo proceso de comercio de la logística internacional tradicional, realiza la integración eficiente de recursos de todo el enlace para satisfacer las diversas necesidades de los clientes y forma una solución logística internacional integral.',
+  solution_logistics_title5: 'Flexible y escalable',
+  solution_logistics_desc5: 'Capaz de ajustar y expandir rápidamente de acuerdo con las necesidades del negocio, para crear una gama completa de productos de forwarder para diferentes necesidades, para proporcionar servicios eficientes y de alta calidad.',
+
+
+  solution_advisor_title: 'Asesores profesionales',
+  solution_advisor_desc: 'Nuestro equipo profesional, le ofrece el mejor servicio.',
+  solution_advisor_name1: 'Jason Li',
+  solution_advisor_site1: 'Liyuan Hengtong Ningbo',
+  solution_advisor_name2: 'Gavin Pan',
+  solution_advisor_site2: 'Liyuan Hengtong Qingdao',
+  solution_advisor_name3: 'Allen Wang',
+  solution_advisor_site3: 'Liyuan Hengtong Tianjin',
+  solution_advisor_name4: 'Fabio He',
+  solution_advisor_site4: 'Liyuan Hengtong Guangzhou',
 };
+
 
 
 

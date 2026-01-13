@@ -1,45 +1,78 @@
 <template>
   <section class="page">
     <div class="solution_bg">
-      <div class="layout_container solution_content">
-        <Title
-          title="OOG项目物流"
-          desc="专业高效，确保超限货物安全、及时地到达目的地。"
-        />
+      <div class="layout_container solution_content" id="solution_1">
+        <Title :title="t('solution_title')" :desc="t('solution_desc')" />
         <div class="content">
           <div class="content_left">
             <div class="content_left_title">
-              OOG特种箱凭借卓越性能和可靠品质，成为全球物流运输的关键助力。无论是在繁忙的港口，还是偏远的航线，OOG特种箱始终以高效、安全的服务，为全球贸易与经济增长注入新动力。
+              {{ t("solution_bg_title") }}
             </div>
             <div class="content_left_title">
-              立远恒通依托先进设备、精准装载与加固技术，以及多年的行业深耕经验，全面保障OOG项目物流的高效执行与运输安全。
+              {{ t("solution_bg_desc") }}
             </div>
           </div>
           <div class="content_right">
-            <div class="content_right_list" v-for="i in 2" :key="i">
+            <div class="content_right_list">
               <div class="content_right_list_item">
                 <img
-                  src="@/assets/solution/1.png"
+                  src="@/assets/solution/solution_bg1.png"
                   alt="solution1"
                   class="content_right_list_item_img"
                 />
                 <div class="content_right_list_item_content">
-                  <div class="content_right_list_item_title">丰富运输经验</div>
+                  <div class="content_right_list_item_title">
+                    {{ t("solution_bg_title_1") }}
+                  </div>
                   <div class="content_right_list_item_desc">
-                    拥有多年超限货物运输经验，深度理解各类OOG项目的复杂需求，助您轻松应对运输难题。
+                    {{ t("solution_bg_desc_1") }}
                   </div>
                 </div>
               </div>
               <div class="content_right_list_item">
                 <img
-                  src="@/assets/solution/1.png"
+                  src="@/assets/solution/solution_bg2.png"
                   alt="solution1"
                   class="content_right_list_item_img"
                 />
                 <div class="content_right_list_item_content">
-                  <div class="content_right_list_item_title">丰富运输经验</div>
+                  <div class="content_right_list_item_title">
+                    {{ t("solution_bg_title_2") }}
+                  </div>
                   <div class="content_right_list_item_desc">
-                    拥有多年超限货物运输经验，深度理解各类OOG项目的复杂需求，助您轻松应对运输难题。
+                    {{ t("solution_bg_desc_2") }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content_right_list">
+              <div class="content_right_list_item">
+                <img
+                  src="@/assets/solution/solution_bg3.png"
+                  alt="solution1"
+                  class="content_right_list_item_img"
+                />
+                <div class="content_right_list_item_content">
+                  <div class="content_right_list_item_title">
+                    {{ t("solution_bg_title_3") }}
+                  </div>
+                  <div class="content_right_list_item_desc">
+                    {{ t("solution_bg_desc_3") }}
+                  </div>
+                </div>
+              </div>
+              <div class="content_right_list_item">
+                <img
+                  src="@/assets/solution/solution_bg4.png"
+                  alt="solution1"
+                  class="content_right_list_item_img"
+                />
+                <div class="content_right_list_item_content">
+                  <div class="content_right_list_item_title">
+                    {{ t("solution_bg_title_4") }}
+                  </div>
+                  <div class="content_right_list_item_desc">
+                    {{ t("solution_bg_desc_4") }}
                   </div>
                 </div>
               </div>
@@ -49,19 +82,20 @@
       </div>
     </div>
     <!-- 业务 -->
-    <Business style="padding-top: 100px" />
+    <Business style="padding-top: 100px" id="solution_2" />
     <!--化工品 -->
-    <div class="solution_chemical">
+    <div class="solution_chemical" id="solution_3">
       <div class="layout_container solution_chemical_content">
         <Title
-          title="化工品物流"
-          desc="专业守护每一程，安全运送每一滴化工品。"
+          :title="t('solution_chemical_title')"
+          :desc="t('solution_chemical_desc')"
         />
         <div class="solution_chemical_title">
-          <span class="text-orange">专业、安全、全球覆盖</span>的运输解决方案
+          <span class="text-orange">{{ t("solution_chemical_title1") }}</span
+          >{{ t("solution_chemical_title2") }}
         </div>
         <div class="solution_chemical_desc">
-          立远恒通在化工品与危险品物流及仓储操作方面拥有深厚经验，尤其在锂电池运输的加固方案及医药化工品处理领域表现出专业优势。通过成熟的技术和严格的操作流程，我们为客户提供安全可靠的物流及仓储解决方案，确保货物在运输和存储过程中的安全无损。
+          {{ t("solution_chemical_desc1") }}
         </div>
         <img
           src="@/assets/solution/chemica.png"
@@ -71,21 +105,19 @@
       </div>
     </div>
     <!-- 汽车 -->
-    <div class="solution_car">
+    <div class="solution_car" id="solution_4">
       <div class="layout_container solution_car_content">
         <Title
-          title="汽车物流"
-          desc="提供端到端的一站式解决方案，包括起运港装箱、国际海运以及目的港拆箱。"
+          :title="t('solution_car_title')"
+          :desc="t('solution_car_desc')"
         />
         <div class="solution_car_title">
-          <span class="text-orange"
-            >全程高效、专业，确保运输每个环节的顺畅衔接。</span
-          >
+          <span class="text-orange">{{ t("solution_car_title1") }}</span>
         </div>
         <div class="solution_car_desc">
-          立远恒通专注于汽车运输服务，采用主流的滚装（RO-RO）方式以及框架运输模式，提供灵活高效的解决方案。
-          图中展示的是中远海特的专利产品。<br />
-          在汽车运输领域，我司拥有一支经验丰富、技术过硬的专业运输团队，确保每次运输任务安全可靠、高效完成。
+          {{ t("solution_car_desc1") }}
+          <br />
+          {{ t("solution_car_title2") }}
         </div>
         <div class="solution_car_list">
           <div class="solution_car_list_item">
@@ -95,7 +127,7 @@
               class="solution_car_list_item_img"
             />
             <div class="solution_car_list_item_title">
-              立远恒通为中远海特的专利产品，使用汽车运输框架进行运输
+              {{ t("solution_car_title3") }}
             </div>
           </div>
           <div class="solution_car_list_item">
@@ -105,16 +137,19 @@
               class="solution_car_list_item_img"
             />
             <div class="solution_car_list_item_title">
-              立远恒通为车企运输电车到智利
+              {{ t("solution_car_title4") }}
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- 物流 -->
-    <div class="solution_logistics">
+    <div class="solution_logistics" id="solution_5">
       <div class="layout_container solution_logistics_content">
-        <Title title="物流智道" desc="先进灵活，功能全面。" />
+        <Title
+          :title="t('solution_logistics_title')"
+          :desc="t('solution_logistics_desc')"
+        />
         <div class="solution_logistics_info">
           <div class="solution_logistics_info_left">
             <img
@@ -124,10 +159,10 @@
             />
             <div class="solution_logistics_info_left_text">
               <div class="solution_logistics_info_left_text_title">
-                互联融合·科技创新
+                {{ t("solution_logistics_title1") }}
               </div>
               <div class="solution_logistics_info_left_text_desc">
-                沉淀行业数十年经验,将智能技术融入国际物流服务引领服务变革。
+                {{ t("solution_logistics_desc1") }}
               </div>
             </div>
           </div>
@@ -139,17 +174,17 @@
             >
               <div class="solution_logistics_info_right_item_icon">
                 <img
-                  src="@/assets/solution/logistics_icon1.png"
+                  :src="logisticsList[i - 1]"
                   alt="logistics"
                   class="solution_logistics_info_right_item_img"
                 />
               </div>
               <div class="solution_logistics_info_right_item_text">
                 <div class="solution_logistics_info_right_item_text_title">
-                  数据可视化
+                  {{ t(`solution_logistics_title${i}`) }}
                 </div>
                 <div class="solution_logistics_info_right_item_text_desc">
-                  展示时间、地点、货物类型、运输方等纬度帮助用户进行综合分析。用户可以根据需要选择不同的数据维度进行组合和比较，使系统能够适应不同用户和不同业务场景的需求。
+                  {{ t(`solution_logistics_desc${i + 1}`) }}
                 </div>
               </div>
             </div>
@@ -158,20 +193,28 @@
       </div>
     </div>
     <!-- 顾问 -->
-    <div class="solution_advisor">
+    <div class="solution_advisor" id="solution_6">
       <div class="layout_container solution_advisor_content">
-        <Title title="专业顾问" desc="我们专业的团队，为您提供最优质的服务" />
+        <Title
+          :title="t('solution_advisor_title')"
+          :desc="t('solution_advisor_desc')"
+        />
         <div class="solution_advisor_list">
           <div class="solution_advisor_list_item" v-for="i in 4" :key="i">
             <img
-              src="@/assets/solution/advisor1.png"
+              :src="advisorList[i - 1]"
               alt="advisor"
               class="solution_advisor_list_item_img"
             />
-            <div class="solution_advisor_list_item_text">
-              <div class="solution_advisor_list_item_text_name">Jason李杰</div>
+            <div
+              class="solution_advisor_list_item_text"
+              :style="{ backgroundColor: colorList[i - 1] }"
+            >
+              <div class="solution_advisor_list_item_text_name">
+                {{ t(`solution_advisor_name${i}`) }}
+              </div>
               <div class="solution_advisor_list_item_text_site">
-                立远恒通 宁波
+                {{ t(`solution_advisor_site${i}`) }}
               </div>
             </div>
           </div>
@@ -185,8 +228,26 @@
 
 <script setup>
 import Title from "@/components/Title.vue";
-import Business from "@/components/Business.vue";
+import Business from "@/components/BusinessSolution.vue";
 import AboutUs from "@/components/AboutUs.vue";
+import { useI18n } from "vue-i18n";
+
+import Image1 from "@/assets/solution/solution_logistics1.png";
+import Image2 from "@/assets/solution/solution_logistics2.png";
+import Image3 from "@/assets/solution/solution_logistics3.png";
+import Image4 from "@/assets/solution/solution_logistics4.png";
+
+import Advisor1 from "@/assets/solution/advisor1.jpg";
+import Advisor2 from "@/assets/solution/advisor2.jpg";
+import Advisor3 from "@/assets/solution/advisor3.jpg";
+import Advisor4 from "@/assets/solution/advisor4.jpg";
+
+const { t } = useI18n();
+
+const logisticsList = [Image1, Image2, Image3, Image4];
+const advisorList = [Advisor1, Advisor2, Advisor3, Advisor4];
+
+const colorList = ["#2e9adb", "#ff9124", "#41d62b", "#2e9adb"];
 </script>
 
 <style lang="less" scoped>
@@ -233,7 +294,7 @@ import AboutUs from "@/components/AboutUs.vue";
       .content_right_list_item_content {
         background-color: #424f65;
         color: #fff;
-        height: 170px;
+        min-height: 170px;
         padding: 20px;
         .content_right_list_item_title {
           font-size: 24px;
