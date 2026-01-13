@@ -7,42 +7,123 @@
       <div class="product_list">
         <div class="product_list_item" id="internationalShipping">
           <div class="product_list_item_left">
-            <div class="product_list_item_title">国际海运</div>
+            <div class="product_list_item_title">{{ t("work_1") }}</div>
             <div class="product_list_item_desc">
-              立远恒通长期与CMA、MSK、MSC、HPL、COSCO、PIL、ONE、EMC等知名集装箱班轮公司合作，提供覆盖全球的多式联运服务，包括门到门的全流程解决方案。
+              {{ t("workprocess_content_1_title") }}
             </div>
             <div class="product_list_item_desc">
-              公司拥有无船承运资质，可签发提单或多式联运提单，客户仅需一次委托，货物即可全程一票直达。
+              {{ t("workprocess_content_1_desc") }}
             </div>
             <img
-              src="@/assets/product/icon1.png"
+              src="@/assets/service/1.png"
               alt="product1"
               class="product_list_item_icon"
             />
           </div>
           <div class="product_list_item_right">
             <img
-              src="@/assets/product/1.png"
+              src="@/assets/workprocess/1.png"
               alt="product1"
               class="product_list_item_img"
             />
           </div>
         </div>
-        <div class="product_list_item">
+        <div class="product_list_item" id="projectLogistics">
           <div class="product_list_item_right">
             <img
-              src="@/assets/product/1.png"
+              src="@/assets/workprocess/2.png"
               alt="product1"
               class="product_list_item_img"
             />
           </div>
           <div class="product_list_item_left">
-            <div class="product_list_item_title">国际海运</div>
+            <div class="product_list_item_title">{{ t("work_2") }}</div>
             <div class="product_list_item_desc">
-              立远恒通长期与CMA、MSK、MSC、HPL、COSCO、PIL、ONE、EMC等知名集装箱班轮公司合作，提供覆盖全球的多式联运服务，包括门到门的全流程解决方案。
+              {{ t("workprocess_content_2_title") }}
             </div>
             <img
-              src="@/assets/product/icon1.png"
+              src="@/assets/service/2.png"
+              alt="product1"
+              class="product_list_item_icon"
+            />
+          </div>
+        </div>
+        <div class="product_list_item" id="landTransportationServices">
+          <div class="product_list_item_left">
+            <div class="product_list_item_title">{{ t("work_3") }}</div>
+            <div class="product_list_item_desc">
+              {{ t("workprocess_content_3_title") }}
+            </div>
+
+            <img
+              src="@/assets/service/3.png"
+              alt="product1"
+              class="product_list_item_icon"
+            />
+          </div>
+          <div class="product_list_item_right">
+            <img
+              src="@/assets/workprocess/3.png"
+              alt="product1"
+              class="product_list_item_img"
+            />
+          </div>
+        </div>
+        <div class="product_list_item" id="customsClearanceServices">
+          <div class="product_list_item_right">
+            <img
+              src="@/assets/workprocess/4.png"
+              alt="product1"
+              class="product_list_item_img"
+            />
+          </div>
+          <div class="product_list_item_left">
+            <div class="product_list_item_title">{{ t("work_4") }}</div>
+            <div class="product_list_item_desc">
+              {{ t("workprocess_content_4_title") }}
+            </div>
+            <img
+              src="@/assets/service/4.png"
+              alt="product1"
+              class="product_list_item_icon"
+            />
+          </div>
+        </div>
+        <div class="product_list_item" id="warehousingServices">
+          <div class="product_list_item_left">
+            <div class="product_list_item_title">{{ t("work_5") }}</div>
+            <div class="product_list_item_desc">
+              {{ t("workprocess_content_5_title") }}
+            </div>
+            <img
+              src="@/assets/service/5.png"
+              alt="product1"
+              class="product_list_item_icon"
+            />
+          </div>
+          <div class="product_list_item_right">
+            <img
+              src="@/assets/workprocess/5.png"
+              alt="product1"
+              class="product_list_item_img"
+            />
+          </div>
+        </div>
+        <div class="product_list_item" id="internationalAirFreight">
+          <div class="product_list_item_right">
+            <img
+              src="@/assets/workprocess/6.png"
+              alt="product1"
+              class="product_list_item_img"
+            />
+          </div>
+          <div class="product_list_item_left">
+            <div class="product_list_item_title">{{ t("work_6") }}</div>
+            <div class="product_list_item_desc">
+              {{ t("workprocess_content_6_title") }}
+            </div>
+            <img
+              src="@/assets/service/6.png"
               alt="product1"
               class="product_list_item_icon"
             />
@@ -77,7 +158,7 @@ const { t } = useI18n();
     gap: 20px;
     .product_list_item_title {
       font-size: 40px;
-      line-height: 32px;
+      line-height: 50px;
       font-weight: 700;
       color: #034460;
     }

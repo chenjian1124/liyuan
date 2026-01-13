@@ -59,6 +59,8 @@ export default {
   service_title: "Ofrecemos servicios de calidad",
   service_desc: "Nos enfocamos en proporcionar soluciones logísticas internacionales integrales y de una sola parada.",
   service_more: "Aprender más",
+  workprocess_title: "Servicios de Productos",
+  workprocess_desc: "Proporcionar servicios de calidad a nuestros clientes es nuestra misión.",
   // workprocess
   work_1: 'Transporte marítimo internacional',
   work_1_desc :'Red global, servicios profesionales, proporcionando soluciones de transporte marítimo internacional eficientes y confiables.',
@@ -72,6 +74,14 @@ export default {
   work_5_desc:'Seguro y confiable, gestión eficiente, proporcionando soluciones profesionales de almacenamiento e inventario.',
   work_6:'Transporte aéreo internacional',
   work_6_desc:'Red global, servicios profesionales, proporcionando soluciones de transporte aéreo internacional eficientes y confiables.',
+
+  workprocess_content_1_title:"Liyuan Hengtong ha establecido asociaciones a largo plazo con compañías navieras de contenedores reconocidas como CMA, MSK, MSC, HPL, COSCO, PIL, ONE y EMC, ofreciendo servicios de transporte multimodal a nivel mundial, incluyendo soluciones de puerta a puerta.",
+  workprocess_content_1_desc:"La empresa posee calificaciones de NVOCC y puede emitir conocimientos de embarque o conocimientos de embarque multimodal. Los clientes solo necesitan hacer una cita para que la carga se entregue directamente durante todo el proceso.",
+  workprocess_content_2_title:"Como proveedor profesional de logística de ingeniería internacional, la empresa personaliza soluciones integrales de logística de ingeniería para los clientes, asumiendo la contratación general y subcontratación de logística para proyectos de ingeniería EPC, y proporcionando servicios de reubicación en el extranjero. Nuestro negocio se centra principalmente en el sector de energía eléctrica y construcción de infraestructura, con proyectos típicos que incluyen proyectos de transporte de inversores de precisión BBK, proyectos de maquinaria de SANY y proyectos de plataformas de operación de Zoomlion.",
+  workprocess_content_3_title:"Como transportista de tareas de transporte sobredimensionado, Liyuan Hengtong completó con éxito el transporte de un sistema de prueba de ciudad automotriz grande desde Shanghái a Bielorrusia. En respuesta a los requisitos especiales de carga sobredimensionada y los desafíos complejos del transporte internacional, la empresa se basa en una rica experiencia y tecnología profesional, desde la medición precisa hasta la planificación detallada de cada enlace de transporte, asignación de vehículos, despacho aduanero transfronterizo y diseño de rutas personalizadas, asegurando la llegada sin problemas de las mercancías al sitio del proyecto en Bielorrusia, demostrando plenamente las capacidades excepcionales de la empresa en tareas logísticas complejas.",
+  workprocess_content_4_title:"Los servicios de despacho aduanero de Liyuan Hengtong se basan en un equipo de declaración aduanera profesional y una rica experiencia en la industria para garantizar que las mercancías de los clientes completen de manera fluida y eficiente varios procesos de despacho aduanero durante la importación y exportación. Ya sea enfrentando requisitos de importación complejos o procedimientos de exportación especiales, podemos proporcionar soluciones de despacho aduanero precisas y rápidas, ayudando a los clientes a ahorrar tiempo y costos, asegurando una conexión sin costuras y un funcionamiento eficiente de la logística.",
+  workprocess_content_5_title:"Los servicios de almacenamiento de Liyuan Hengtong se basan en sistemas avanzados de gestión de almacenes y estrictas medidas de seguridad, proporcionando gestión profesional de almacenamiento e inventario. La empresa colabora con varios almacenes maduros especializados en materiales peligrosos y productos químicos, no solo satisfaciendo diversas necesidades de almacenamiento, sino también proporcionando servicios de valor agregado flexibles como clasificación de mercancías, embalaje y monitoreo de inventario según las necesidades del cliente. Aseguramos que las mercancías se almacenen adecuadamente en un entorno seguro y limpio, logrando una gestión eficiente de la cadena de suministro y ayudando a los clientes a optimizar sus procesos operativos.",
+  workprocess_content_6_title:"Los servicios de transporte aéreo internacional de Liyuan Hengtong se basan en una red de rutas global para proporcionar a los clientes soluciones de transporte aéreo rápidas, eficientes y seguras. Ya sea para entregas rápidas de pequeñas cantidades o para el transporte de grandes volúmenes de mercancías, podemos responder de manera flexible y satisfacer con precisión las necesidades de los clientes, asegurando la entrega puntual de las mercancías a destinos en todo el mundo.",
 
   // business
   business_title: "Calificaciones del Grupo Liyuanhengtong",
@@ -128,6 +138,16 @@ export default {
   footer_remark: 'Ofrecemos una solución de una sola parada. ¡Más información espera tu descubrimiento!',
   footer_email: 'Por favor, ingrese su correo electrónico',
   footer_btn: 'Suscribirse',
+
+  // 关于我们
+  about_us_title: 'Sobre nosotros',
+  about_us_desc: 'Nos comprometemos a proporcionar servicios de alta calidad a nuestros clientes.',
+  about_us_name: 'Name',
+  about_us_email: 'Email',
+  about_us_weight: 'Peso',
+  about_us_size: 'Tamaño',
+  about_us_message: 'Mensaje',
+  about_us_btn: 'Enviar',
 };
 
 

@@ -3,17 +3,17 @@
     <div class="layout_container">
       <div class="about-us-content">
         <div class="about-us-content-left">
-          <Title title="关于我们" desc="我们致力于为客户提供优质的服务" />
+          <Title :title="t('about_us_title')" :desc="t('about_us_desc')" />
           <div class="input_item">
             <input
               type="text"
-              placeholder="姓名"
+              :placeholder="t('about_us_name')"
               class="input"
               v-model="formData.name"
             />
             <input
               type="text"
-              placeholder="邮箱"
+              :placeholder="t('about_us_email')"
               class="input"
               v-model="formData.email"
             />
@@ -21,25 +21,25 @@
           <div class="input_item">
             <input
               type="text"
-              placeholder="货物重量"
+              :placeholder="t('about_us_weight')"
               class="input"
               v-model="formData.weight"
             />
             <input
               type="text"
-              placeholder="货物尺寸"
+              :placeholder="t('about_us_size')"
               class="input"
               v-model="formData.size"
             />
           </div>
           <div class="input_item">
             <textarea
-              placeholder="留言"
+              :placeholder="t('about_us_message')"
               class="textarea"
               v-model="formData.message"
             ></textarea>
           </div>
-          <a class="btn" @click="sendEmail">提交</a>
+          <a class="btn" @click="sendEmail">{{ t("about_us_btn") }}</a>
         </div>
         <div class="about-us-content-right">
           <img
@@ -57,7 +57,8 @@
 import Title from "@/components/Title.vue";
 import AboutUsImg from "@/assets/map.png";
 import { ref } from "vue";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const formData = ref({
   name: "",
   email: "",

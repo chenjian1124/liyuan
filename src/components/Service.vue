@@ -7,10 +7,7 @@
         <div class="btn">{{ t("service_more") }}</div>
       </div>
       <div class="work_process_service" v-if="type === 'workprocess'">
-        <Title
-          title="产品服务"
-          desc="为客户提供多方位的优质服务，是我们的宗旨"
-        />
+        <Title :title="t('workprocess_title')" :desc="t('workprocess_desc')" />
       </div>
 
       <div class="service-content">

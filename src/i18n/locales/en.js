@@ -59,6 +59,8 @@ export default {
   service_title: "We Provide Quality Services",
   service_desc: "We focus on providing comprehensive, one-stop international logistics solutions.",
   service_more: "Learn More",
+  workprocess_title: "Product Services",
+  workprocess_desc: "Providing comprehensive quality services to our customers is our mission.",
   // workprocess
   work_1: 'International Sea Freight',
   work_1_desc :'Global network, professional service, providing efficient and reliable international sea freight solutions.',
@@ -72,6 +74,14 @@ export default {
   work_5_desc:'Safe and reliable, efficient management, providing professional warehousing and inventory solutions.',
   work_6:'International Air Freight',
   work_6_desc:'Global network, professional service, providing efficient and reliable international air freight solutions.',
+
+  workprocess_content_1_title: 'Liyuan Hengtong has long-term cooperation with renowned container shipping companies such as CMA, MSK, MSC, HPL, COSCO, PIL, ONE, and EMC, providing global multimodal transport services, including door-to-door full-process solutions.',
+  workprocess_content_1_desc: 'The company holds a non-vessel operating common carrier qualification and can issue bills of lading or multimodal transport bills. Clients only need to make one appointment for their goods to reach their destination in one go.',
+  workprocess_content_2_title: 'As a professional international engineering logistics provider, the company customizes comprehensive engineering logistics solutions for clients, undertaking logistics general contracting and subcontracting for EPC international engineering projects, and providing overseas transfer services. Our business areas and clients are mainly concentrated in the power energy and infrastructure construction sectors, with typical projects including precision inverter BBK transportation, SANY Heavy Industry machinery projects, and Zoomlion working platform projects.',
+  workprocess_content_3_title: "As a carrier for oversized transportation tasks, Liyuan Hengtong successfully completed the transportation of a large automotive city test system from Shanghai to Belarus. Addressing the special requirements of oversized goods and the complex challenges of cross-border transportation, the company relies on rich experience and professional technology, from precise measurement to detailed planning of each transportation link, vehicle allocation, cross-border customs clearance, and customized route design, ensuring that goods arrive smoothly at the project site in Belarus, fully demonstrating the company's outstanding capabilities in complex logistics tasks.",
+  workprocess_content_4_title: "Liyuan Hengtong's customs clearance services rely on a professional customs declaration team and rich industry experience to ensure that clients' goods smoothly and efficiently complete various customs clearance processes during import and export. Whether facing complex import requirements or special export procedures, we can provide precise and fast customs clearance solutions, helping clients save time and costs, ensuring seamless connection and efficient operation of logistics links.",
+  workprocess_content_5_title: "Liyuan Hengtong's warehousing services rely on advanced warehouse management systems and strict security measures to provide professional warehousing and inventory management. The company collaborates with several mature warehouses specializing in hazardous materials and chemicals, meeting various storage needs and providing flexible value-added services such as sorting, packaging, and inventory monitoring according to client needs. We ensure that goods are properly stored in a safe and tidy environment, achieving efficient supply chain management and helping clients optimize their operational processes.",
+  workprocess_content_6_title: "Liyuan Hengtong's international air freight services rely on a global route network to provide clients with fast, efficient, and safe air freight solutions. Whether for small batch quick deliveries or large-scale cargo transportation, we can flexibly respond and accurately meet client needs, ensuring timely delivery of goods to global destinations.",
 
    // business
    business_title: "Liyuanhengtong Group Qualifications",
@@ -128,6 +138,16 @@ export default {
   footer_remark: 'We offer you a one-stop solution. More information awaits your discovery!',
   footer_email: 'Please enter your email',
   footer_btn: 'Subscribe',
+
+  // 关于我们
+  about_us_title: 'About Us',
+  about_us_desc: 'We are committed to providing high-quality services to our customers.',
+  about_us_name: 'Name',
+  about_us_email: 'Email',
+  about_us_weight: 'Weight',
+  about_us_size: 'Size',
+  about_us_message: 'Message',
+  about_us_btn: 'Submit',
 };
 
 
