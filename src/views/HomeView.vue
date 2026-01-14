@@ -454,4 +454,115 @@ const newsList = [
     }
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .bi {
+    padding-bottom: 56px;
+    .bi_title {
+      padding: 56px 0 24px;
+    }
+    .bi_list {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 16px;
+      .bi_list_item_img {
+        width: 120px;
+        height: 120px;
+      }
+      .bi_list_item_text {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .one_belt_one_road {
+    height: auto;
+    min-height: 520px;
+    .one_road-position {
+      padding: 72px 16px 40px;
+      .one_belt_one_road_text {
+        margin-top: 120px;
+        min-width: 0;
+        max-width: 100%;
+        .one_belt_one_road_text_text {
+          font-size: 24px;
+          line-height: 32px;
+        }
+        .one_belt_one_road_text_desc {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  .global_network {
+    padding-top: 24px;
+    .global_bg {
+      padding-top: 72px;
+      padding-bottom: 72px;
+      .global_network_content {
+        gap: 28px;
+      }
+      .global_network_title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      .global_network_desc {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .global_network_list {
+        flex-wrap: wrap;
+        gap: 14px;
+        .global_network_list_item {
+          width: 100%;
+          min-height: 0;
+          padding: 18px;
+        }
+        .global_network_list_item_img {
+          width: 56px;
+          height: 56px;
+        }
+        .global_network_list_item_text {
+          font-size: 28px;
+          line-height: 34px;
+        }
+        .global_network_list_item_desc {
+          font-size: 14px;
+          line-height: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .news {
+    padding-top: 24px;
+    .news_list {
+      flex-direction: column;
+      padding: 24px 0 40px;
+      gap: 16px;
+    }
+  }
+
+  .network {
+    padding-top: 56px;
+    background: linear-gradient(to bottom, #f5f5f5 88%, #424f65 12%);
+    .network_content {
+      padding: 0;
+      gap: 18px;
+    }
+    .network_title {
+      font-size: 32px;
+    }
+    .network_desc {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0 8px;
+    }
+  }
+}
 </style>

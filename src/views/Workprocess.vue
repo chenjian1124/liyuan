@@ -182,4 +182,38 @@ const { t } = useI18n();
     }
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .product_list_item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 28px;
+
+    /* 统一都用“图在上，文在下”，避免左右穿插在手机端阅读困难 */
+    .product_list_item_right {
+      width: 100%;
+      order: 1;
+    }
+    .product_list_item_left {
+      width: 100%;
+      order: 2;
+      padding: 0;
+      gap: 12px;
+
+      .product_list_item_title {
+        font-size: 22px;
+        line-height: 30px;
+      }
+      .product_list_item_desc {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .product_list_item_icon {
+        width: 96px;
+      }
+    }
+  }
+}
 </style>

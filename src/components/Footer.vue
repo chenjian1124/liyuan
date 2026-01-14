@@ -165,6 +165,7 @@ const handleAnchorClick = async (href) => {
     padding-top: 90px;
     padding-bottom: 20px;
     display: flex;
+    gap: 20px;
     .footer_item {
       width: 16.666%;
       display: flex;
@@ -249,6 +250,50 @@ const handleAnchorClick = async (href) => {
     background: #034460;
     color: #fff;
     transform: translateY(-1px);
+  }
+}
+
+/* 手机端：底部内容换行堆叠 */
+@media (max-width: 768px) {
+  .footer {
+    padding: 0 16px;
+
+    .footer_content {
+      padding-top: 48px;
+      flex-wrap: wrap;
+      gap: 24px 16px;
+    }
+
+    .footer_item {
+      width: calc(50% - 8px);
+    }
+
+    /* 订阅区在手机端独占一行 */
+    .footer_item:last-child {
+      width: 100%;
+    }
+
+    .footer_item .title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .footer_item .link {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+    .footer_item .remark,
+    .footer_item .input {
+      width: 100%;
+    }
+  }
+
+  .footer_bottom {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 16px 0 20px;
   }
 }
 </style>

@@ -254,4 +254,68 @@ const { t } = useI18n();
     width: 100%;
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .page {
+    .banner {
+      height: 260px;
+      .banner_content {
+        width: 100%;
+        padding: 0 16px;
+      }
+      .banner_content_title {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 10px;
+      }
+      .banner_content_desc {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .about_intro {
+    padding: 56px 0;
+    background: linear-gradient(to bottom, #f5f5f5 88%, #424f65 12%);
+    .about_intro_content—_top {
+      flex-direction: column;
+      gap: 20px;
+      .about_intro_content—_top_left {
+        width: 100%;
+        .about_intro_content—_top_left_title {
+          margin: 18px 0 10px;
+          font-size: 22px;
+          line-height: 30px;
+        }
+        .about_intro_content—_top_left_desc {
+          font-size: 14px;
+          line-height: 22px;
+          word-break: break-word;
+        }
+      }
+    }
+
+    .about_intro_content—_bottom {
+      margin-top: 40px;
+      flex-wrap: wrap;
+      gap: 12px;
+      .about_intro_content—_bottom_item {
+        flex: none;
+        width: 100%;
+        padding: 18px;
+        .about_intro_content—_bottom_item_title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .about_development .title_content,
+  .about_agent_map .title_content {
+    padding: 56px 0 24px;
+  }
+}
 </style>

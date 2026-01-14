@@ -142,4 +142,51 @@ const businessList = [
     }
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .business {
+    .bg_word {
+      padding-bottom: 56px;
+    }
+    .business_content {
+      padding-top: 56px;
+    }
+    .business_content_flex {
+      flex-direction: column;
+      padding: 0;
+      gap: 16px;
+      .business_content_left {
+        width: 100%;
+        .business_content_left_text {
+          padding: 18px;
+          .title {
+            font-size: 18px;
+            line-height: 26px;
+          }
+          .desc {
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  .business_content_right {
+    padding: 0;
+    gap: 14px;
+    .business_content_right_item {
+      gap: 12px;
+      .business_content_right_item_img {
+        width: 52px;
+        height: 52px;
+      }
+      .business_content_right_item_text {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+}
 </style>

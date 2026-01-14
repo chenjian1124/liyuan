@@ -31,6 +31,7 @@
             :key="item.name"
             @mouseenter="showOffice(item.type)"
             @mouseleave="hideOffice(item.type)"
+            @click="showOffice(item.type)"
           >
             <div class="office_address_list_item_content">
               <img
@@ -73,6 +74,7 @@
               class="office_map_text tjOffice"
               @mouseenter="showOffice('tjOffice')"
               @mouseleave="hideOffice('tjOffice')"
+              @click="showOffice('tjOffice')"
             >
               {{ t("offic_site4") }}</span
             >
@@ -80,6 +82,7 @@
               class="office_map_text qdOffice"
               @mouseenter="showOffice('qdOffice')"
               @mouseleave="hideOffice('qdOffice')"
+              @click="showOffice('qdOffice')"
             >
               {{ t("offic_site2") }}</span
             >
@@ -87,6 +90,7 @@
               class="office_map_text shOffice"
               @mouseenter="showOffice('shOffice')"
               @mouseleave="hideOffice('shOffice')"
+              @click="showOffice('shOffice')"
             >
               {{ t("offic_site1") }}</span
             >
@@ -94,6 +98,7 @@
               class="office_map_text nbOffice"
               @mouseenter="showOffice('nbOffice')"
               @mouseleave="hideOffice('nbOffice')"
+              @click="showOffice('nbOffice')"
             >
               {{ t("offic_site3") }}</span
             >
@@ -101,6 +106,7 @@
               class="office_map_text gzOffice"
               @mouseenter="showOffice('gzOffice')"
               @mouseleave="hideOffice('gzOffice')"
+              @click="showOffice('gzOffice')"
             >
               {{ t("offic_site5") }}</span
             >
@@ -108,6 +114,7 @@
               class="office_map_text mxgOffice"
               @mouseenter="showOffice('mxgOffice')"
               @mouseleave="hideOffice('mxgOffice')"
+              @click="showOffice('mxgOffice')"
             >
               {{ t("offic_site6") }}</span
             >
@@ -201,17 +208,20 @@ const officeInfo = {
 };
 
 const showOffice = (office) => {
-  document.querySelector(`.${office}`).style.color = "#ff9124";
-  document.querySelector(`.office_address_list_item_${office}`).style.color =
-    "#ff9124";
+  // 兼容移动端：某些元素可能被响应式样式隐藏，这里做空值保护
+  const mapEl = document.querySelector(`.${office}`);
+  const listEl = document.querySelector(`.office_address_list_item_${office}`);
+  if (mapEl) mapEl.style.color = "#ff9124";
+  if (listEl) listEl.style.color = "#ff9124";
   imageSrc.value = image[office];
   officeInfoText.value = officeInfo[office];
 };
 
 const hideOffice = (office) => {
-  document.querySelector(`.${office}`).style.color = "#aeaeaf";
-  document.querySelector(`.office_address_list_item_${office}`).style.color =
-    "#000";
+  const mapEl = document.querySelector(`.${office}`);
+  const listEl = document.querySelector(`.office_address_list_item_${office}`);
+  if (mapEl) mapEl.style.color = "#aeaeaf";
+  if (listEl) listEl.style.color = "#000";
   imageSrc.value = "";
   officeInfoText.value = "";
 };
@@ -363,6 +373,54 @@ const hideOffice = (office) => {
         font-weight: 700;
         text-align: center;
       }
+    }
+  }
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .page {
+    .banner {
+      height: 260px;
+      .banner_content {
+        width: 100%;
+        padding: 0 16px;
+      }
+      .banner_content_title {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 10px;
+      }
+      .banner_content_desc {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .office_address {
+    padding-bottom: 56px;
+    .title_content {
+      padding: 56px 0 24px;
+    }
+    .office_address_list {
+      position: static;
+      gap: 18px;
+    }
+    .office_map {
+      width: 100%;
+      position: static;
+      margin-top: 12px;
+    }
+    /* 手机端地图上的悬浮文字定位是基于桌面像素，容易错位，这里隐藏，改用列表点击查看 */
+    .office_map_text {
+      display: none;
+    }
+    .office_map_info {
+      width: 100%;
+      position: static;
+      padding: 10px;
+      margin-top: 12px;
     }
   }
 }

@@ -176,4 +176,47 @@ const ServiceImg = [
     transform: translateY(-1px);
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .service {
+    margin-top: 56px;
+    .home_service {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .service-content {
+    .service-content-item {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 16px;
+    }
+    .servive_box {
+      padding: 18px;
+      .service_box_icon {
+        height: 72px;
+      }
+      .icon {
+        width: 72px;
+        height: 72px;
+      }
+      .title {
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .desc {
+        margin-bottom: 18px;
+        height: auto;
+      }
+    }
+  }
+
+  .btn {
+    margin-left: 0;
+  }
+}
 </style>

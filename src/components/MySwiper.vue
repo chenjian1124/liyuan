@@ -153,4 +153,16 @@ const { t } = useI18n();
   height: 900px;
   object-fit: cover;
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .swiper-video {
+    height: 420px;
+  }
+  .swiper-logo {
+    width: 240px;
+    left: 16px;
+    bottom: 16px;
+  }
+}
 </style>

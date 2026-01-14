@@ -523,4 +523,152 @@ const colorList = ["#2e9adb", "#ff9124", "#41d62b", "#2e9adb"];
     }
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .solution_content {
+    padding-top: 56px;
+  }
+
+  .content {
+    flex-direction: column;
+    padding-top: 32px;
+    gap: 20px;
+
+    .content_left,
+    .content_right {
+      width: 100%;
+    }
+
+    .content_left {
+      padding-right: 0;
+      .content_left_title {
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 14px;
+      }
+    }
+
+    .content_right {
+      .content_right_list {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .content_right_list_item_content {
+        min-height: 0;
+      }
+    }
+  }
+
+  .solution_chemical {
+    padding-top: 56px;
+    background: linear-gradient(to bottom, #f5f5f5 88%, #424f65 12%);
+    .solution_chemical_content {
+      gap: 20px;
+    }
+    .solution_chemical_title {
+      font-size: 20px;
+      line-height: 28px;
+      text-align: center;
+    }
+    .solution_chemical_desc {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0 8px;
+    }
+  }
+
+  .solution_car {
+    padding-top: 56px;
+    padding-bottom: 56px;
+    .solution_car_content {
+      gap: 20px;
+    }
+    .solution_car_title {
+      font-size: 20px;
+      line-height: 28px;
+      text-align: center;
+    }
+    .solution_car_desc {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0 8px;
+    }
+    .solution_car_list {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      .solution_car_list_item_title {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .solution_logistics {
+    padding: 56px 0;
+    .solution_logistics_content {
+      gap: 20px;
+    }
+    .solution_logistics_info {
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    .solution_logistics_info_left_text {
+      padding: 18px 10px;
+    }
+    .solution_logistics_info_left_text_title {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .solution_logistics_info_left_text_desc {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .solution_logistics_info_right {
+      gap: 16px;
+      .solution_logistics_info_right_item {
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .solution_logistics_info_right_item_icon {
+        width: 64px;
+        height: 64px;
+      }
+      .solution_logistics_info_right_item_text_title {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .solution_logistics_info_right_item_text_desc {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .solution_advisor {
+    padding: 56px 0;
+    .solution_advisor_content {
+      gap: 24px;
+    }
+    .solution_advisor_list {
+      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
+      .solution_advisor_list_item {
+        flex: none;
+        width: calc(50% - 6px);
+      }
+      .solution_advisor_list_item_text_name {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .solution_advisor_list_item_text_site {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}
 </style>

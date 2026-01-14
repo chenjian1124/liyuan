@@ -12,7 +12,17 @@
         <a @click.prevent="handleAnchorClick('/')">
           <img :src="Logo" alt="logo" class="logo" />
         </a>
-        <div class="nav">
+        <!-- 手机端：汉堡菜单按钮 -->
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          :aria-expanded="isMobileMenuOpen ? 'true' : 'false'"
+          aria-label="打开/关闭菜单"
+          @click="toggleMobileMenu"
+        >
+          <span class="mobile-menu-icon" :class="{ open: isMobileMenuOpen }" />
+        </button>
+        <div class="nav" :class="{ 'is-open': isMobileMenuOpen }">
           <ul class="nav-list">
             <li>
               <a href="/" @click.prevent="handleAnchorClick('/')">{{
@@ -20,10 +30,17 @@
               }}</a>
             </li>
             <li>
-              <a href="javascript:void(0)" class="has-children">{{
+              <a
+                href="javascript:void(0)"
+                class="has-children"
+                @click.prevent="toggleSubmenu('products')"
+              >{{
                 t("header.nav.products")
               }}</a>
-              <div class="children-list flex-row">
+              <div
+                class="children-list flex-row"
+                :class="{ open: openSubmenu === 'products' }"
+              >
                 <a
                   href="javascript:void(0)"
                   @click.prevent="handleAnchorClick(item.href)"
@@ -41,10 +58,14 @@
               </div>
             </li>
             <li class="relative">
-              <a href="javascript:void(0)" class="has-children">{{
+              <a
+                href="javascript:void(0)"
+                class="has-children"
+                @click.prevent="toggleSubmenu('solutions')"
+              >{{
                 t("header.nav.solutions")
               }}</a>
-              <div class="children-list">
+              <div class="children-list" :class="{ open: openSubmenu === 'solutions' }">
                 <a
                   href="javascript:void(0)"
                   @click.prevent="handleAnchorClick(item.href)"
@@ -57,10 +78,14 @@
               </div>
             </li>
             <li class="relative">
-              <a href="javascript:void(0)" class="has-children">{{
+              <a
+                href="javascript:void(0)"
+                class="has-children"
+                @click.prevent="toggleSubmenu('about')"
+              >{{
                 t("header.nav.about")
               }}</a>
-              <div class="children-list">
+              <div class="children-list" :class="{ open: openSubmenu === 'about' }">
                 <a
                   href="javascript:void(0)"
                   @click.prevent="handleAnchorClick(item.href)"
@@ -77,6 +102,12 @@
                 @click.prevent="handleAnchorClick('/contact')"
                 >{{ t("header.nav.contact") }}</a
               >
+            </li>
+            <!-- 手机端：CTA 放到菜单里，避免右侧区域挤压 -->
+            <li class="mobile-only">
+              <div class="mobile-cta" @click="handleAnchorClick('/contact')">
+                {{ t("header.btn.schedule") }}
+              </div>
             </li>
           </ul>
         </div>
@@ -117,7 +148,7 @@ import Image3 from "@/assets/menu/3.png";
 import Image4 from "@/assets/menu/4.png";
 import Image5 from "@/assets/menu/5.png";
 import Image6 from "@/assets/menu/6.png";
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { LOCALE_STORAGE_KEY } from "@/i18n";
@@ -125,8 +156,28 @@ import { LOCALE_STORAGE_KEY } from "@/i18n";
 const { t, locale: i18nLocale } = useI18n();
 const router = useRouter();
 
+// 手机端菜单开关
+const isMobileMenuOpen = ref(false);
+// 手机端子菜单展开项：products / solutions / about
+const openSubmenu = ref("");
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  // 关闭菜单时，顺手收起子菜单
+  if (!isMobileMenuOpen.value) openSubmenu.value = "";
+};
+
+const toggleSubmenu = (key) => {
+  // 桌面端仍保留 hover；这里主要给移动端点击展开用
+  if (!isMobileMenuOpen.value) return;
+  openSubmenu.value = openSubmenu.value === key ? "" : key;
+};
+
 // 处理带锚点的路由跳转
 const handleAnchorClick = async (href) => {
+  // 手机端：点击跳转后关闭菜单
+  isMobileMenuOpen.value = false;
+  openSubmenu.value = "";
   if (href.includes("#")) {
     const [path, hash] = href.split("#");
     await router.push({ path: path || "/", hash: `#${hash}` });
@@ -278,6 +329,11 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", updateSticky);
   window.removeEventListener("resize", updateThreshold);
 });
+
+// 手机端菜单打开时锁定页面滚动，避免背景跟着滚
+watch(isMobileMenuOpen, (open) => {
+  document.body.style.overflow = open ? "hidden" : "";
+});
 </script>
 
 <style lang="less" scoped>
@@ -320,6 +376,9 @@ onBeforeUnmount(() => {
   }
   .logo {
     min-height: 37px;
+  }
+  .mobile-menu-btn {
+    display: none;
   }
   .nav {
     padding-left: 50px;
@@ -393,6 +452,14 @@ onBeforeUnmount(() => {
             left: 0;
             right: 0;
             flex-direction: row;
+          }
+          /* 手机端：点击展开时使用 */
+          &.open {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+            transition-delay: 0s;
           }
           .children-item {
             min-width: 240px;
@@ -470,6 +537,169 @@ onBeforeUnmount(() => {
     color: #fff;
     transform: translateY(-1px);
   }
+}
+
+/* 手机端：折叠菜单 */
+@media (max-width: 1024px) {
+  .bar {
+    padding: 10px 12px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .container {
+    padding: 0 16px;
+
+    .main-header {
+      height: 64px;
+    }
+
+    .logo {
+      min-height: 28px;
+      height: 28px;
+    }
+
+    .mobile-menu-btn {
+      display: inline-flex;
+      margin-left: auto;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      background: transparent;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mobile-menu-icon {
+      position: relative;
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #041c2f;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .mobile-menu-icon::before,
+    .mobile-menu-icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 2px;
+      background: #041c2f;
+      transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+    }
+    .mobile-menu-icon::before {
+      top: -7px;
+    }
+    .mobile-menu-icon::after {
+      top: 7px;
+    }
+    .mobile-menu-icon.open {
+      background: transparent;
+    }
+    .mobile-menu-icon.open::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    .mobile-menu-icon.open::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* 右侧语言/按钮在手机端隐藏，放到菜单里 */
+    .language {
+      display: none;
+    }
+
+    .nav {
+      padding-left: 0;
+      display: none;
+    }
+
+    .nav.is-open {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 64px;
+      bottom: 0;
+      background: #fff;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 12px 16px 24px;
+      box-shadow: 0 10px 30px rgba(4, 28, 47, 0.14);
+    }
+
+    .nav.is-open .nav-list {
+      flex-direction: column;
+    }
+
+    .nav.is-open .nav-list li {
+      height: auto;
+    }
+
+    .nav.is-open .nav-list li > a {
+      padding: 14px 0;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    /* 子菜单在手机端变为“静态区域” */
+    .nav.is-open .nav-list li .children-list {
+      position: static;
+      width: 100%;
+      padding: 10px 0 12px;
+      border-top: 0;
+      box-shadow: none;
+      opacity: 0;
+      transform: none;
+      visibility: hidden;
+      pointer-events: none;
+      gap: 10px;
+    }
+
+    .nav.is-open .nav-list li .children-list.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .nav.is-open .nav-list li .children-item {
+      min-width: 0;
+    }
+
+    .nav.is-open .nav-list li .children-item .children-item-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .nav.is-open .nav-list li .children-item .children-item-image {
+      width: 100%;
+      height: auto;
+      max-height: 180px;
+    }
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .mobile-cta {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: #ff9124;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+/* 默认隐藏“仅手机端”元素（桌面端不显示） */
+.mobile-only {
+  display: none;
 }
 
 /* 减少动态偏好：尊重系统设置 */

@@ -144,4 +144,28 @@ const sendEmail = () => {
     }
   }
 }
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .about-us {
+    padding-top: 56px;
+    background: linear-gradient(to bottom, #f5f5f5 70%, #424f65 30%);
+  }
+  .about-us-content {
+    padding: 18px;
+    flex-direction: column;
+    gap: 18px;
+    .about-us-content-left,
+    .about-us-content-right {
+      width: 100%;
+    }
+    .about-us-content-left {
+      gap: 18px;
+      .input_item {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
 </style>

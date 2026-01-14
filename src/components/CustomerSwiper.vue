@@ -196,6 +196,34 @@ onBeforeUnmount(() => {
   }
 }
 
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .customer {
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    .customer-title {
+      width: auto;
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .customer-list {
+      width: 100%;
+      padding: 10px 0 18px;
+    }
+  }
+
+  .customer-swiper :deep(.swiper-slide) {
+    height: 48px;
+    padding-right: 18px;
+  }
+
+  .customer-logo {
+    height: 32px;
+  }
+}
+
 /* 预留：如果你想上下淡出遮罩，可打开下面两行
   &::before, &::after { ... }
 */
