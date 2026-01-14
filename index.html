@@ -5,8 +5,83 @@
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>liyuan</title>
+    <style>
+      /* 首次进入：在 Vue 启动前展示的加载动画（与 logo 关联） */
+      .app-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 360ms ease, visibility 360ms ease;
+      }
+
+      .app-preloader--hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .app-preloader__content {
+        position: relative;
+        width: 104px;
+        height: 104px;
+      }
+
+      .app-preloader__ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid rgba(0, 0, 0, 0.08);
+        border-top-color: rgba(0, 0, 0, 0.45);
+        animation: app-preloader-rotate 1s linear infinite;
+      }
+
+      .app-preloader__logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 46px;
+        height: 46px;
+        transform: translate(-50%, -50%);
+        animation: app-preloader-pulse 1.2s ease-in-out infinite;
+      }
+
+      @keyframes app-preloader-rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes app-preloader-pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.9;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.08);
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .app-preloader__ring,
+        .app-preloader__logo {
+          animation: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="app-preloader" class="app-preloader" role="status" aria-label="页面加载中">
+      <div class="app-preloader__content">
+        <div class="app-preloader__ring"></div>
+        <img class="app-preloader__logo" src="/logo.svg" alt="Logo" />
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
