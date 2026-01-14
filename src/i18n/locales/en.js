@@ -210,6 +210,65 @@ export default {
   solution_advisor_site3: 'Liyuan Hengtong Tianjin',
   solution_advisor_name4: 'Fabio He',
   solution_advisor_site4: 'Liyuan Hengtong Guangzhou',
+
+  // AboutView
+  about_view_title: 'About Us',
+  about_view_desc: 'Liyuan Hengtong strives to become a leading global integrated logistics solution provider,',
+  about_view_desc1: 'offering seamless, efficient, and reliable logistics services to customers through our expertise and comprehensive service network.',
+  about_intro_title: 'Introduction to Liyuan Hengtong',
+  about_intro_desc1: 'Liyuan Hengtong Group is a first-class international freight forwarding company approved by the Ministry of Commerce and is also a registered NVOCC with qualifications for non-vessel operating common carrier operations approved by the Ministry of Transport.',
+  about_intro_desc2: 'The company has established wholly-owned branches in Qingdao, Ningbo, Tianjin, Nanjing, and other regions, and currently employs over 360 people to provide professional logistics services to domestic and foreign customers.',
+  about_intro_desc3: "After years of development, relying on WCA's comprehensive service network, our services cover Latin America, North America, Asia, Europe, and Africa markets, especially accumulating rich experience on Latin American routes and establishing a strong overseas agent service network. The company is currently a strategic partner of several shipping companies, including CMA, MAERSK, COSCO, MSC, ONE, OOCL, and WANHA, providing customers with stable, efficient, reliable, and low-carbon logistics solutions.",  
+
+  about_intro_content_title1: 'Company Vision',
+  about_intro_content_desc1: 'We strive to become a leading global integrated logistics solution provider, offering seamless, efficient, and reliable logistics services to customers through our expertise and comprehensive service network.',
+  about_intro_content_title2: 'Corporate Spirit',
+  about_intro_content_desc2: "Our corporate spirit is 'Logistics Wisdom Road.' We hold firm beliefs and take action, no matter how great the challenges or how distant the goals, we will persevere and fulfill our commitments.",
+  about_intro_content_title3: 'Core Values',
+  about_intro_content_desc3: 'We adhere to integrity in business, pursue service excellence, encourage innovative thinking, and take on social responsibility.',
+  about_intro_content_title4: 'Business Philosophy',
+  about_intro_content_desc4: "Customer-centered, service-oriented, helping customers achieve value and the company's development by providing high-quality logistics solutions.",
+  about_intro_content_title5: 'Management Philosophy',
+  about_intro_content_desc5: 'People-oriented, we value talent and respect every employee, stimulating their potential by providing a good working environment and development opportunities, achieving mutual development for the company and its employees.',
+
+  about_development_title: 'Company Development History',
+  about_agent_map_title: 'Liyuan Hengtong Agency Network',
+
+  about_customer_title1: 'We have',
+  about_customer_title2: 'strong ',
+  about_customer_title3: 'strategic partners',
+
+  // Contact
+  contact_title: 'Contact Us',
+  contact_desc: "For more information about Liyuan Hengtong's cross-border logistics, chemical transportation, OOG project logistics, and other services, or to customize your exclusive logistics solution, please feel free to contact us. Our professional team will provide you with efficient and reliable logistics support, ensuring your goods arrive safely and on time. You can reach us by phone, email, or by visiting our website. We look forward to cooperating with you!",
+  office_address_title: 'Liyuan Hengtong Office Address',
+
+  
+  offic_site1: 'Shanghai',
+  offic_name1: 'Shanghai Liyuan Hengtong Logistics Development Co., Ltd.',
+  offic_address1:'Room 1102-1107, Shangbin Life Plaza, No. 887, Zhoujiazui Road, Hongkou District, Shanghai',
+  offic_tel1: '021-60252388',
+  offic_site2: 'Qingdao',
+  offic_name2: 'Qingdao Liyuan Hengtong International Logistics Co., Ltd.',
+  offic_address2:'Room 4801-4806, Building A, Huaren Building, No. 6, Shandong Road, Shinan District, Qingdao City',
+  offic_tel2: '0532-85009107',
+  offic_site3: 'Ningbo',
+  offic_name3: 'Ningbo Liheng Supply Chain Management Co., Ltd.',
+  offic_address3:'Room 2604-2606, No. 48, Rainbow North Road, Yinzhou District, Ningbo City, Zhejiang Province',
+  offic_tel3: '0574-88138020',
+  offic_site4: 'Tianjin',
+  offic_name4: 'Tianjin Zeyang Supply Chain Management Co., Ltd.',
+  offic_address4:'Room I, K, L, 5th Floor, Taida Building, No. 256, Jiefang South Road, Hexi District, Tianjin City',
+  offic_tel4: '022-58353367',
+  offic_site5: 'Guangzhou',
+  offic_name5: 'Guangzhou Liyuan International Logistics Co., Ltd.',
+  offic_address5:'Room 1602B, Building D, Gaode Summer Square, No. 8, Zhujiang West Road, Tianhe District, Guangzhou City',
+  offic_tel5: '020-32058264 ',
+  offic_site6: 'Mexico',
+  offic_name6: 'EVER CHAMPION SUPPLY CHAIN MANAGEMENT S.A. DE C.V.',
+  offic_address6:'Mexico City',
+ 
+
 };
 
 

@@ -211,6 +211,64 @@ export default {
   solution_advisor_site3: 'Liyuan Hengtong Tianjin',
   solution_advisor_name4: 'Fabio He',
   solution_advisor_site4: 'Liyuan Hengtong Guangzhou',
+
+  // AboutView
+  about_view_title: 'Sobre nosotros',
+  about_view_desc: 'Liyuan Hengtong se esfuerza por convertirse en un proveedor líder de soluciones logísticas integradas a nivel mundial, ',
+  about_view_desc1: 'ofreciendo servicios logísticos sin problemas, eficientes y confiables a los clientes a través de nuestra experiencia y red de servicios integral.',
+  about_intro_title: 'Introducción a Liyuan Hengtong',
+  about_intro_desc1: 'El Grupo Liyuan Hengtong es una empresa de transporte internacional de carga de primer nivel aprobada por el Ministerio de Comercio, y también es un NVOCC registrado con calificaciones para operaciones de transportista común sin barco aprobadas por el Ministerio de Transporte.',
+  about_intro_desc2: 'La empresa ha establecido sucursales de propiedad total en Qingdao, Ningbo, Tianjin, Nanjing y otras regiones, y actualmente emplea a más de 500 personas para proporcionar servicios logísticos profesionales a clientes nacionales y extranjeros.',
+  about_intro_desc3: 'Después de años de desarrollo, aprovechando la red de servicios integral de WCA, nuestros servicios cubren América Latina, América del Norte, Asia, Europa y África, acumulando especialmente una rica experiencia en rutas de América Latina y estableciendo una sólida red de servicio de agentes en el extranjero. La empresa es actualmente socio estratégico de varias compañías navieras, incluyendo CMA, MSK, MSC, ONE, HPL, PIL, COSCO, OOCL, EMC, WHL, ZIM y HMM, proporcionando a los clientes soluciones logísticas estables, eficientes, confiables y de bajo carbono.',  
+
+  about_intro_content_title1: 'Visión de la empresa',
+  about_intro_content_desc1: 'Nos esforzamos por convertirnos en un proveedor líder de soluciones logísticas integradas a nivel mundial, ofreciendo servicios logísticos sin problemas, eficientes y confiables a los clientes a través de nuestra experiencia y red de servicios integral.',
+  about_intro_content_title2: 'Espíritu corporativo',
+  about_intro_content_desc2: "Nuestro espíritu corporativo es 'Camino de la sabiduría logística'. Mantenemos firmes nuestras creencias y tomamos acción, sin importar cuán grandes sean los desafíos o cuán lejanos sean los objetivos, perseveraremos y cumpliremos nuestras promesas.",
+  about_intro_content_title3: 'Valores fundamentales',
+  about_intro_content_desc3: "Nos adherimos a la integridad en los negocios, buscamos la excelencia en el servicio, fomentamos el pensamiento innovador y asumimos la responsabilidad social.",
+  about_intro_content_title4: 'Filosofía empresarial',
+  about_intro_content_desc4: "Centrados en el cliente, orientados al servicio, ayudando a los clientes a lograr valor y al desarrollo de la empresa a través de soluciones logísticas de alta calidad.",
+  about_intro_content_title5: 'Filosofía de gestión',
+  about_intro_content_desc5: "Enfoque en las personas, valoramos el talento, respetamos a cada empleado, y a través de la provisión de un buen entorno de trabajo y oportunidades de desarrollo, estimulamos el potencial de los empleados, logrando el desarrollo conjunto de la empresa y de los empleados.",
+
+
+  about_development_title: 'Historia de desarrollo de la empresa',
+  about_agent_map_title: 'Red de agentes de Liyuan Hengtong',
+
+  about_customer_title1: 'Tenemos',
+  about_customer_title2: 'fuerza ',
+  about_customer_title3: 'socios estratégicos',
+
+
+  contact_title: 'Contáctenos',
+  contact_desc: "Para obtener más información sobre la logística transfronteriza de Liyuan Hengtong, el transporte de productos químicos, la logística de proyectos OOG y otros servicios, o para personalizar su solución logística exclusiva, no dude en contactarnos. Nuestro equipo profesional le brindará un apoyo logístico eficiente y confiable, asegurando que sus mercancías lleguen a salvo y a tiempo. Puede comunicarse con nosotros por teléfono, correo electrónico o visitando nuestro sitio web. ¡Esperamos colaborar con usted!",
+  office_address_title: 'Liyuan hengtong oficina de venta',
+
+  
+  offic_site1: 'Shanghai',
+  offic_name1: 'Shanghai liyuan hengtong desarrollo logístico co., LTD',
+  offic_address1:'Sala 1102-1107, shanghama life plaza, no.887 zhoujiazui road, hongkou district, shanghai',
+  offic_tel1: '021-60252388',
+  offic_site2: 'Qingdao',
+  offic_name2: 'Qingdao liyuan hengtong logística internacional co., LTD',
+  offic_address2:'Sala 4801-4806, Building A, Huaren Building, No. 6, Shandong Road, Shinan District, Qingdao City',
+  offic_tel2: '0532-85009107',
+  offic_site3: 'Ningbo',
+  offic_name3: 'Ningbo liheng cadena de suministro de gestión co., LTD',
+  offic_address3:'Room 2604-2606, No. 48, Rainbow North Road, Yinzhou District, Ningbo City, Zhejiang Province',
+  offic_tel3: '0574-88138020',
+  offic_site4: 'Tianjin',
+  offic_name4: 'Tianjin zeyang cadena de suministro de gestión co., LTD',
+  offic_address4:'Room I, K, L, 5th Floor, Taida Building, No. 256, Jiefang South Road, Hexi District, Tianjin City',
+  offic_tel4: '022-58353367',
+  offic_site5: 'Guangzhou',
+  offic_name5: 'Guangzhou liyuan internacional logística co., LTD',
+  offic_address5:'Room 1602B, Building D, Gaode Summer Square, No. 8, Zhujiang West Road, Tianhe District, Guangzhou City',
+  offic_tel5: '020-32058264 ',
+  offic_site6: 'México',
+  offic_name6: 'EVER CHAMPION SUPPLY CHAIN MANAGEMENT S.A. DE C.V.',
+  offic_address6:'Ciudad de México',
 };
 
 

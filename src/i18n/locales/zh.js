@@ -220,6 +220,64 @@ export default {
   solution_advisor_site3: '立远恒通 天津',
   solution_advisor_name4: 'Fabio 何文彪',
   solution_advisor_site4: '立远恒通 广州',
+
+  // AboutView
+  about_view_title: '关于我们',
+  about_view_desc: '立远恒通力争成为全球领先的综合物流解决方案提供商,',
+  about_view_desc1: '通过我们的专业知识和完善的服务网络,为客户提供无缝的、高效的和可靠的物流服务。',
+  about_intro_title: '立远恒通简介',
+  about_intro_desc1: '立远恒通集团是国家商务部批准的一级国际货运代理公司集团,同时也是交通运输部批准的具有无船承运业务经营资格的无船承运人。',
+  about_intro_desc2: '公司先后在青岛、宁波、天津、广州等地区成立了公司独资管理的分支机构,目前公司员工达500+余人,为国内外客户提供专业的物流服务。',
+  about_intro_desc3: '经过多年的发展,依托WCA的完善的服务网络,我们的服务覆盖拉丁美洲、北美洲、亚洲、欧洲和非洲市场,尤其在拉丁美洲航线上积累了非常丰富的经验并建立了强大的海外代理服务网络,公司目前是CMA/MSK/MSC/ONE/HPL/PIL/COSCO/OOCL/EMC/WHL/ZIM/HMM等多家船公司的战略合作伙伴,为客户提供稳定、高效、可靠、低碳的物流解决方案。',  
+
+  about_intro_content_title1: '公司愿景',
+  about_intro_content_desc1: '我们力争成为全球领先的综合物流解决方案提供商,通过我们的专业知识和完善的服务网络,为客户提供无缝的、高效的和可靠的物流服务。',
+  about_intro_content_title2: '企业精神',
+  about_intro_content_desc2: '我们的企业精神是“物流智道 立行致远”。我们坚定信念，坚持行动，无论面临多大的挑战，无论目标多么遥远，都会坚持到底，实现承诺。',
+  about_intro_content_title3: '核心价值观',
+  about_intro_content_desc3: '我们坚持诚信经营，追求服务卓越，鼓励创新思维，承担社会责任。',
+  about_intro_content_title4: '经营理念',
+  about_intro_content_desc4: '帮助客户实现价值，实现公司发展，以客户为中心，以服务为核心，通过提供高质量的物流解决方案。',
+  about_intro_content_title5: '管理理念',
+  about_intro_content_desc5: '以人为本，我们重视人才，尊重每一位员工，通过提供良好的工作环境和发展机会，激发员工的潜力，实现公司和员工的共同发展。',
+
+  about_development_title: '发展历程',
+  about_agent_map_title: '全球代理地图',
+
+  about_customer_title1: '我们拥有',
+  about_customer_title2: '强大的',
+  about_customer_title3: '战略伙伴',
+
+  // Contact
+  contact_title: '上海',
+  contact_desc: '如需了解更多关于立远恒通跨境物流、化工品运输、OOG项目物流等服务的详细信息，或定制您的专属物流解决方案，请随时联系我们。我们专业的团队将为您提供高效、可靠的物流支持，确保您的货物安全、准时到达目的地。您可以通过电话、邮件或访问我们的网站与我们取得联系，期待与您的合作！',
+
+  office_address_title: '立远恒通办公网点',
+
+  offic_site1: '上海',
+  offic_name1: '上海立远恒通物流发展有限公司',
+  offic_address1:'上海市虹口区周家嘴路887号上滨生活广场1102-1107室',
+  offic_tel1: '021-60252388',
+  offic_site2: '青岛',
+  offic_name2: '青岛立远恒通国际物流有限公司',
+  offic_address2:'青岛市市南区山东路6号华润大厦A座4801-4806室',
+  offic_tel2: '0532-85009107',
+  offic_site3: '宁波',
+  offic_name3: '宁波立恒供应链管理有限公司',
+  offic_address3:'浙江省宁波市鄞州区彩虹北路48号2604-2606室',
+  offic_tel3: '0574-88138020',
+  offic_site4: '天津',
+  offic_name4: '天津泽阳供应链管理有限公司',
+  offic_address4:'天津市河西区解放南路256号泰达大厦第5层I、K、L室',
+  offic_tel4: '022-58353367',
+  offic_site5: '广州',
+  offic_name5: '广州立远国际物流有限公司',
+  offic_address5:'广东省广州市天河区珠江西路8号高德置地夏广场D座1602B',
+  offic_tel5: '020-32058264 ',
+  offic_site6: '墨西哥',
+  offic_name6: 'EVER CHAMPION SUPPLY CHAIN MANAGEMENT S.A. DE C.V.',
+  offic_address6:'墨西哥城',
+ 
 };
 
 

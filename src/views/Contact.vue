@@ -7,9 +7,9 @@
         class="banner_img"
       />
       <div class="banner_content">
-        <div class="banner_content_title">联系我们</div>
+        <div class="banner_content_title">{{ t("contact_title") }}</div>
         <div class="banner_content_desc">
-          如需了解更多关于立远恒通跨境物流、化工品运输、OOG项目物流等服务的详细信息，或定制您的专属物流解决方案，请随时联系我们。我们专业的团队将为您提供高效、可靠的物流支持，确保您的货物安全、准时到达目的地。您可以通过电话、邮件或访问我们的网站与我们取得联系，期待与您的合作！
+          {{ t("contact_desc") }}
         </div>
       </div>
     </div>
@@ -17,7 +17,9 @@
     <div class="office_address">
       <div class="layout_container">
         <div class="office_address_content">
-          <div class="title_content"><Title title="立远恒通办公网点" /></div>
+          <div class="title_content">
+            <Title :title="t('office_address_title')" />
+          </div>
         </div>
         <div class="office_address_list">
           <div
@@ -72,42 +74,42 @@
               @mouseenter="showOffice('tjOffice')"
               @mouseleave="hideOffice('tjOffice')"
             >
-              天津</span
+              {{ t("offic_site4") }}</span
             >
             <span
               class="office_map_text qdOffice"
               @mouseenter="showOffice('qdOffice')"
               @mouseleave="hideOffice('qdOffice')"
             >
-              青岛</span
+              {{ t("offic_site2") }}</span
             >
             <span
               class="office_map_text shOffice"
               @mouseenter="showOffice('shOffice')"
               @mouseleave="hideOffice('shOffice')"
             >
-              上海</span
+              {{ t("offic_site1") }}</span
             >
             <span
               class="office_map_text nbOffice"
               @mouseenter="showOffice('nbOffice')"
               @mouseleave="hideOffice('nbOffice')"
             >
-              宁波</span
+              {{ t("offic_site3") }}</span
             >
             <span
               class="office_map_text gzOffice"
               @mouseenter="showOffice('gzOffice')"
               @mouseleave="hideOffice('gzOffice')"
             >
-              广州</span
+              {{ t("offic_site5") }}</span
             >
             <span
               class="office_map_text mxgOffice"
               @mouseenter="showOffice('mxgOffice')"
               @mouseleave="hideOffice('mxgOffice')"
             >
-              墨西哥</span
+              {{ t("offic_site6") }}</span
             >
             <div class="office_map_info" v-if="imageSrc && officeInfoText">
               <img
@@ -137,41 +139,43 @@ import TjOffice from "@/assets/contact/tjOffice.png";
 import GzOffice from "@/assets/contact/gzOffice.png";
 import MxgOffice from "@/assets/contact/mxgOffice.png";
 import AboutUs from "@/components/AboutUs.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const list = [
   {
-    name: "shOffice",
-    addres: "addres",
-    tel: "tel",
+    name: t("offic_name1"),
+    addres: t("offic_address1"),
+    tel: t("offic_tel1"),
     type: "shOffice",
   },
   {
-    name: "qdOffice",
-    addres: "addres",
-    tel: "tel",
+    name: t("offic_name2"),
+    addres: t("offic_address2"),
+    tel: t("offic_tel2"),
     type: "qdOffice",
   },
   {
-    name: "nbOffice",
-    addres: "addres",
-    tel: "tel",
+    name: t("offic_name3"),
+    addres: t("offic_address3"),
+    tel: t("offic_tel3"),
     type: "nbOffice",
   },
   {
-    name: "tjOffice",
-    addres: "addres",
-    tel: "tel",
+    name: t("offic_name4"),
+    addres: t("offic_address4"),
+    tel: t("offic_tel4"),
     type: "tjOffice",
   },
   {
-    name: "gzOffice",
-    addres: "addres",
-    tel: "tel",
+    name: t("offic_name5"),
+    addres: t("offic_address5"),
+    tel: t("offic_tel5"),
     type: "gzOffice",
   },
   {
-    name: "mxgOffice",
-    addres: "addres",
+    name: t("offic_name6"),
+    addres: t("offic_address6"),
     type: "mxgOffice",
   },
 ];
@@ -188,12 +192,12 @@ const image = {
   mxgOffice: MxgOffice,
 };
 const officeInfo = {
-  shOffice: "shOfficeInfo",
-  qdOffice: "qdOfficeInfo",
-  nbOffice: "nbOfficeInfo",
-  tjOffice: "tjOfficeInfo",
-  gzOffice: "gzOfficeInfo",
-  mxgOffice: "mxgOfficeInfo",
+  shOffice: t("offic_name1"),
+  qdOffice: t("offic_name2"),
+  nbOffice: t("offic_name3"),
+  tjOffice: t("offic_name4"),
+  gzOffice: t("offic_name5"),
+  mxgOffice: t("offic_name6"),
 };
 
 const showOffice = (office) => {
@@ -305,7 +309,7 @@ const hideOffice = (office) => {
       position: absolute;
       top: 0;
       left: 0;
-      width: 38px;
+      min-width: 38px;
       height: 22px;
       color: #fff;
       font-size: 18px;
@@ -337,7 +341,7 @@ const hideOffice = (office) => {
     .mxgOffice {
       top: 389px;
       left: 698px;
-      width: 56px;
+      // width: 56px;
     }
 
     .office_map_info {

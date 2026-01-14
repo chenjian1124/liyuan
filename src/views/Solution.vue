@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <div class="solution_bg">
-      <div class="layout_container solution_content" id="solution_1">
+      <div class="layout_container solution_content" id="solutions_1">
         <Title :title="t('solution_title')" :desc="t('solution_desc')" />
         <div class="content">
           <div class="content_left">
@@ -82,9 +82,9 @@
       </div>
     </div>
     <!-- 业务 -->
-    <Business style="padding-top: 100px" id="solution_2" />
+    <Business style="padding-top: 100px" id="solutions_2" />
     <!--化工品 -->
-    <div class="solution_chemical" id="solution_3">
+    <div class="solution_chemical" id="solutions_3">
       <div class="layout_container solution_chemical_content">
         <Title
           :title="t('solution_chemical_title')"
@@ -105,7 +105,7 @@
       </div>
     </div>
     <!-- 汽车 -->
-    <div class="solution_car" id="solution_4">
+    <div class="solution_car" id="solutions_4">
       <div class="layout_container solution_car_content">
         <Title
           :title="t('solution_car_title')"
@@ -144,7 +144,7 @@
       </div>
     </div>
     <!-- 物流 -->
-    <div class="solution_logistics" id="solution_5">
+    <div class="solution_logistics" id="solutions_5">
       <div class="layout_container solution_logistics_content">
         <Title
           :title="t('solution_logistics_title')"
@@ -193,7 +193,7 @@
       </div>
     </div>
     <!-- 顾问 -->
-    <div class="solution_advisor" id="solution_6">
+    <div class="solution_advisor" id="solutions_6">
       <div class="layout_container solution_advisor_content">
         <Title
           :title="t('solution_advisor_title')"
@@ -222,7 +222,7 @@
       </div>
     </div>
     <!-- 关于我们 -->
-    <AboutUs />
+    <AboutUs id="solutions_7" />
   </section>
 </template>
 

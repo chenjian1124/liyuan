@@ -1,7 +1,8 @@
 <template>
   <div class="customer">
     <div class="customer-title">
-      我们拥有<br />强大的<span class="text-orange">战略伙伴</span>
+      {{ $t("about_customer_title1") }}<br />{{ $t("about_customer_title2")
+      }}<span class="text-orange">{{ $t("about_customer_title3") }}</span>
     </div>
     <div class="customer-list">
       <!-- swiper：滚动字幕（匀速自动滚动、无缝循环） -->
@@ -31,6 +32,8 @@ import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import Swiper from "swiper";
 import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 // Vite 无法解析运行时拼接的 `@/assets/...` 字符串路径
 // 用 import.meta.glob 让构建工具在编译期把图片资源打包，并拿到最终可访问的 URL
