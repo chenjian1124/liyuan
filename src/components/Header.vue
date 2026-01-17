@@ -33,10 +33,9 @@
               <a
                 href="javascript:void(0)"
                 class="has-children"
-                @click.prevent="toggleSubmenu('products')"
-              >{{
-                t("header.nav.products")
-              }}</a>
+                @click.prevent="handleAnchorClick('/workprocess')"
+                >{{ t("header.nav.products") }}</a
+              >
               <div
                 class="children-list flex-row"
                 :class="{ open: openSubmenu === 'products' }"
@@ -61,11 +60,13 @@
               <a
                 href="javascript:void(0)"
                 class="has-children"
-                @click.prevent="toggleSubmenu('solutions')"
-              >{{
-                t("header.nav.solutions")
-              }}</a>
-              <div class="children-list" :class="{ open: openSubmenu === 'solutions' }">
+                @click.prevent="handleAnchorClick('/solution')"
+                >{{ t("header.nav.solutions") }}</a
+              >
+              <div
+                class="children-list"
+                :class="{ open: openSubmenu === 'solutions' }"
+              >
                 <a
                   href="javascript:void(0)"
                   @click.prevent="handleAnchorClick(item.href)"
@@ -81,11 +82,13 @@
               <a
                 href="javascript:void(0)"
                 class="has-children"
-                @click.prevent="toggleSubmenu('about')"
-              >{{
-                t("header.nav.about")
-              }}</a>
-              <div class="children-list" :class="{ open: openSubmenu === 'about' }">
+                @click.prevent="handleAnchorClick('/about')"
+                >{{ t("header.nav.about") }}</a
+              >
+              <div
+                class="children-list"
+                :class="{ open: openSubmenu === 'about' }"
+              >
                 <a
                   href="javascript:void(0)"
                   @click.prevent="handleAnchorClick(item.href)"
@@ -452,6 +455,11 @@ watch(isMobileMenuOpen, (open) => {
             left: 0;
             right: 0;
             flex-direction: row;
+            .children-item {
+              flex: 1;
+              max-width: 240px;
+              min-width: auto;
+            }
           }
           /* 手机端：点击展开时使用 */
           &.open {

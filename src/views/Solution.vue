@@ -2,7 +2,12 @@
   <section class="page">
     <div class="solution_bg">
       <div class="layout_container solution_content" id="solutions_1">
-        <Title :title="t('solution_title')" :desc="t('solution_desc')" />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title :title="t('solution_title')" :desc="t('solution_desc')" />
+          </div>
+        </div>
+
         <div class="content">
           <div class="content_left">
             <div class="content_left_title">
@@ -86,10 +91,15 @@
     <!--化工品 -->
     <div class="solution_chemical" id="solutions_3">
       <div class="layout_container solution_chemical_content">
-        <Title
-          :title="t('solution_chemical_title')"
-          :desc="t('solution_chemical_desc')"
-        />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title
+              :title="t('solution_chemical_title')"
+              :desc="t('solution_chemical_desc')"
+            />
+          </div>
+        </div>
+
         <div class="solution_chemical_title">
           <span class="text-orange">{{ t("solution_chemical_title1") }}</span
           >{{ t("solution_chemical_title2") }}
@@ -107,10 +117,15 @@
     <!-- 汽车 -->
     <div class="solution_car" id="solutions_4">
       <div class="layout_container solution_car_content">
-        <Title
-          :title="t('solution_car_title')"
-          :desc="t('solution_car_desc')"
-        />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title
+              :title="t('solution_car_title')"
+              :desc="t('solution_car_desc')"
+            />
+          </div>
+        </div>
+
         <div class="solution_car_title">
           <span class="text-orange">{{ t("solution_car_title1") }}</span>
         </div>
@@ -146,10 +161,14 @@
     <!-- 物流 -->
     <div class="solution_logistics" id="solutions_5">
       <div class="layout_container solution_logistics_content">
-        <Title
-          :title="t('solution_logistics_title')"
-          :desc="t('solution_logistics_desc')"
-        />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title
+              :title="t('solution_logistics_title')"
+              :desc="t('solution_logistics_desc')"
+            />
+          </div>
+        </div>
         <div class="solution_logistics_info">
           <div class="solution_logistics_info_left">
             <img
@@ -195,10 +214,14 @@
     <!-- 顾问 -->
     <div class="solution_advisor" id="solutions_6">
       <div class="layout_container solution_advisor_content">
-        <Title
-          :title="t('solution_advisor_title')"
-          :desc="t('solution_advisor_desc')"
-        />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title
+              :title="t('solution_advisor_title')"
+              :desc="t('solution_advisor_desc')"
+            />
+          </div>
+        </div>
         <div class="solution_advisor_list">
           <div class="solution_advisor_list_item" v-for="i in 4" :key="i">
             <img
@@ -252,7 +275,7 @@ const colorList = ["#2e9adb", "#ff9124", "#41d62b", "#2e9adb"];
 
 <style lang="less" scoped>
 .solution_bg {
-  background: url("@/assets/solution/bg.png") no-repeat center center;
+  // background: url("@/assets/solution/bg.png") no-repeat center center;
   background-size: cover;
 }
 .solution_content {
@@ -296,6 +319,11 @@ const colorList = ["#2e9adb", "#ff9124", "#41d62b", "#2e9adb"];
         color: #fff;
         min-height: 170px;
         padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         .content_right_list_item_title {
           font-size: 24px;
           line-height: 32px;

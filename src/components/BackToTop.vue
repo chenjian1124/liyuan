@@ -90,13 +90,12 @@ onUnmounted(() => {
 
   // 悬停效果
   &:hover {
-    background: rgba(220, 80, 65, 0.9);
-    border-color: #dc5041;
+    background: #fff;
     transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(220, 80, 65, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 145, 36, 0.25);
 
     svg {
-      color: #fff;
+      color: #ff9124;
       transform: translateY(-2px);
     }
   }

@@ -38,7 +38,8 @@ const { t } = useI18n();
 
 // Vite 无法解析运行时拼接的 `@/assets/...` 字符串路径
 // 用 import.meta.glob 让构建工具在编译期把图片资源打包，并拿到最终可访问的 URL
-const customerSvgMap = import.meta.glob("../assets/customer/*.svg", {
+// ../assets/partner/*.png  ../assets/customer/*.svg
+const customerSvgMap = import.meta.glob("../assets/partner/*.png", {
   eager: true,
   import: "default",
 });

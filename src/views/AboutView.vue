@@ -144,9 +144,9 @@ const { t } = useI18n();
   .about_intro_content—_top {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
+    gap: 80px;
     .about_intro_content—_top_left {
-      width: 660px;
+      width: 525px;
       .about_intro_content—_top_left_title {
         margin: 40px 0;
         font-size: 40px;

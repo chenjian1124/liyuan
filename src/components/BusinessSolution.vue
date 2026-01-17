@@ -2,10 +2,14 @@
   <div class="business">
     <div class="layout_container bg_word">
       <div class="business_content">
-        <Title
-          :title="t('solution_business_title')"
-          :desc="t('solution_business_desc')"
-        />
+        <div class="common_title_comtent">
+          <div class="common_title_comtent_position">
+            <Title
+              :title="t('solution_business_title')"
+              :desc="t('solution_business_desc')"
+            />
+          </div>
+        </div>
         <div class="business_content_flex">
           <div class="business_content_left">
             <img :src="Bs" alt="bs" class="business_content_left_img" />

@@ -20,7 +20,7 @@
               {{ t(`work_${i}`) }}
             </span>
             <span class="desc">{{ t(`work_${i}_desc`) }}</span>
-            <More />
+            <More @click="handleAnchorClick(linkList[i])" />
           </div>
         </div>
       </div>
@@ -29,7 +29,6 @@
 </template>
 
 <script setup>
-import Logo from "@/assets/logo.svg";
 import Service1 from "@/assets/service/1.png";
 import Service2 from "@/assets/service/2.png";
 import Service3 from "@/assets/service/3.png";
@@ -38,10 +37,10 @@ import Service5 from "@/assets/service/5.png";
 import Service6 from "@/assets/service/6.png";
 import More from "@/components/More.vue";
 import Title from "@/components/Title.vue";
-
+import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-
+const router = useRouter();
 const props = defineProps({
   type: {
     type: String,
@@ -58,6 +57,33 @@ const ServiceImg = [
   Service5,
   Service6,
 ];
+
+const linkList = [
+  "",
+  "/workprocess#internationalShipping",
+  "/workprocess#projectLogistics",
+  "/workprocess#landTransportationServices",
+  "/workprocess#customsClearanceServices",
+  "/workprocess#warehousingServices",
+  "/workprocess#internationalAirFreight",
+];
+
+// 处理带锚点的路由跳转
+const handleAnchorClick = async (href) => {
+  if (href.includes("#")) {
+    const [path, hash] = href.split("#");
+    await router.push({ path: path || "/", hash: `#${hash}` });
+    // 等待路由跳转完成后，滚动到锚点位置
+    setTimeout(() => {
+      const element = document.querySelector(hash ? `#${hash}` : null);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  } else {
+    router.push(href);
+  }
+};
 </script>
 
 <style lang="less" scoped>

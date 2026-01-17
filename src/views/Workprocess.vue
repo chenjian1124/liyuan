@@ -169,7 +169,7 @@ const { t } = useI18n();
       color: #424f65;
     }
     .product_list_item_icon {
-      width: 160px;
+      width: 120px;
       object-fit: cover;
     }
   }
