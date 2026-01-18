@@ -275,10 +275,6 @@ const aboutList = [
     name: "header.submenu.about_4",
     href: "/about#about_4",
   },
-  {
-    name: "header.submenu.about_5",
-    href: "/about#about_5",
-  },
 ];
 
 // 仅用于模板里直接判断 active

@@ -1,6 +1,6 @@
 <template>
   <section class="page">
-    <div class="banner" id="about_1">
+    <div class="banner">
       <img src="@/assets/about/banner-bg.png" alt="banner" class="banner_img" />
       <div class="banner_content">
         <div class="banner_content_title">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <!-- 介绍 -->
-    <div class="about_intro" id="about_2">
+    <div class="about_intro" id="about_1">
       <div class="layout_container">
         <div class="about_intro_content—_top">
           <div class="about_intro_content—_top_left">
@@ -56,22 +56,23 @@
       </div>
     </div>
     <!-- 发展 -->
-    <div class="about_development" id="about_3">
+    <div class="about_development" id="about_2">
       <div class="layout_container">
         <div class="title_content">
           <Title :title="t('about_development_title')" />
         </div>
       </div>
       <div class="about_development_content">
-        <img
+        <!-- <img
           src="@/assets/about/development.png"
           alt="development"
           class="about_development_content_img"
-        />
+        /> -->
+        <Development />
       </div>
     </div>
     <!-- 代理地图 -->
-    <div class="about_agent_map" id="about_4">
+    <div class="about_agent_map" id="about_3">
       <div class="layout_container">
         <div class="title_content">
           <Title :title="t('about_agent_map_title')" />
@@ -84,8 +85,8 @@
       </div>
     </div>
     <!-- 客户 -->
-    <CustomerSwiper id="about_5" />
-    <AboutUs id="about_6" />
+    <CustomerSwiper id="about_4" />
+    <AboutUs  />
   </section>
 </template>
 
@@ -93,6 +94,7 @@
 import Title from "@/components/Title.vue";
 import AboutUs from "@/components/AboutUs.vue";
 import CustomerSwiper from "@/components/CustomerSwiperAbout.vue";
+import Development from "@/components/Development.vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 </script>

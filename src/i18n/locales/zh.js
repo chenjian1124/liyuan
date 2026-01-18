@@ -30,10 +30,9 @@ export default {
       solutions_7: "在线留言",
       about_1: "立远概况",
       about_2: "公司发展历程",
-      about_3: "我们的服务",
-      about_4: "联系方式",
-      about_5: "在线留言",
-      
+      about_3: "立远分支机构",
+      about_4: "合作伙伴"
+
     },
     btn: {
       schedule: "运价船期",
@@ -64,22 +63,22 @@ export default {
   workprocess_title: "产品服务",
   workprocess_desc: "为客户提供多方位的优质服务，是我们的宗旨",
 
-  
+
   more: '查看细节',
 
   // workprocess
   work_1: '国际海运',
-  work_1_desc:'全球网络,专业服务,提供高效,可靠的国际海运解决方案. 且拥有一手船期资源及优势价格。',
-  work_2:'项目物流',
-  work_2_desc:'EPC 国际工程项目的物流总包、分包、基建等工程领域拥有成功案例,对货物特征及运输要求经验丰富。',
-  work_3:'陆运服务',
-  work_3_desc:'覆盖广泛，安全高效，提供全面的陆运物流解决方案。',
-  work_4:'清关服务',
-  work_4_desc:'专业团队，快捷高效，确保货物顺利通关，无忧到达。',
-  work_5:'仓储服务',
-  work_5_desc:'安全可靠，高效管理，提供专业的仓储和库存解决方案。',
-  work_6:'国际空运',
-  work_6_desc:'全球网络，专业服务，提供高效、可靠的国际空运解决方案。',
+  work_1_desc: '全球网络,专业服务,提供高效,可靠的国际海运解决方案. 且拥有一手船期资源及优势价格。',
+  work_2: '项目物流',
+  work_2_desc: 'EPC 国际工程项目的物流总包、分包、基建等工程领域拥有成功案例,对货物特征及运输要求经验丰富。',
+  work_3: '陆运服务',
+  work_3_desc: '覆盖广泛，安全高效，提供全面的陆运物流解决方案。',
+  work_4: '清关服务',
+  work_4_desc: '专业团队，快捷高效，确保货物顺利通关，无忧到达。',
+  work_5: '仓储服务',
+  work_5_desc: '安全可靠，高效管理，提供专业的仓储和库存解决方案。',
+  work_6: '国际空运',
+  work_6_desc: '全球网络，专业服务，提供高效、可靠的国际空运解决方案。',
 
   workprocess_content_1_title: '立远恒通长期与CMA、MSK、MSC、HPL、COSCO、PIL、ONE、EMC等知名集装箱班轮公司合作，提供覆盖全球的多式联运服务，包括门到门的全流程解决方案。',
   workprocess_content_1_desc: '公司拥有无船承运资质，可签发提单或多式联运提单，客户仅需一次委托，货物即可全程一票直达。',
@@ -115,12 +114,12 @@ export default {
   one_belt_one_road_text_desc: "“一带一路”是中国于2013年提出的国际合作倡议，旨在通过加强政策沟通、设施联通、贸易畅通、资金融通和民心相通，构建一个开放、包容、合作共赢的全球化发展框架。近年来，中国与拉丁美洲国家在“一带一路”倡议框架下开展了多项合作，取得了显著成果。公司积极参与“一带一路”的项目招标，通过公司完善的服务网络提供端到端的物流服务为“一带一路”项目保驾护航。",
 
   // 全球网络
-  global_network_title1:'全球',
-  global_network_title2:'网络',
-  global_network_title3:'顶级',
-  global_network_title4:'合作',
-  global_network_title5:'客户',
-  global_network_title6:'认可',
+  global_network_title1: '全球',
+  global_network_title2: '网络',
+  global_network_title3: '顶级',
+  global_network_title4: '合作',
+  global_network_title5: '客户',
+  global_network_title6: '认可',
   global_network_desc: '多次荣获行业大奖，建立全球服务网络，与多家顶级船公司战略合作，提供高效、可靠的物流解决方案，赢得客户广泛认可。',
   global_network_desc_1: '海外代理机构',
   global_network_desc_2: '拉丁美洲代理网络',
@@ -139,8 +138,8 @@ export default {
   network_title2: '全国',
   network_title3: '，全球优化',
   network_title4: '资源配置',
-  network_desc1:'遍及全球几十个国家，超过100家稳固合作代理，',
-  network_desc2:'覆盖120多个全球重点港口。立远集团物通世界，荟萃全球！',
+  network_desc1: '遍及全球几十个国家，超过100家稳固合作代理，',
+  network_desc2: '覆盖120多个全球重点港口。立远集团物通世界，荟萃全球！',
 
   // 底部
   footer_company: '上海立远恒通物流发展有限公司',
@@ -228,7 +227,7 @@ export default {
   about_intro_title: '立远恒通简介',
   about_intro_desc1: '立远恒通集团是国家商务部批准的一级国际货运代理公司集团,同时也是交通运输部批准的具有无船承运业务经营资格的无船承运人。',
   about_intro_desc2: '公司先后在青岛、宁波、天津、广州、郑州和墨西哥等地区成立了公司独资管理的分支机构,目前公司员工达500+余人,为国内外客户提供专业的物流服务。',
-  about_intro_desc3: '经过多年的发展,依托WCA的完善的服务网络,我们的服务覆盖拉丁美洲、北美洲、亚洲、欧洲和非洲市场,尤其在拉丁美洲航线上积累了非常丰富的经验并建立了强大的海外代理服务网络,公司目前是CMA/MSK/MSC/ONE/HPL/PIL/COSCO/OOCL/EMC/WHL/ZIM/HMM等多家船公司的战略合作伙伴,为客户提供稳定、高效、可靠、低碳的物流解决方案。',  
+  about_intro_desc3: '经过多年的发展,依托WCA的完善的服务网络,我们的服务覆盖拉丁美洲、北美洲、亚洲、欧洲和非洲市场,尤其在拉丁美洲航线上积累了非常丰富的经验并建立了强大的海外代理服务网络,公司目前是CMA/MSK/MSC/ONE/HPL/PIL/COSCO/OOCL/EMC/WHL/ZIM/HMM等多家船公司的战略合作伙伴,为客户提供稳定、高效、可靠、低碳的物流解决方案。',
 
   about_intro_content_title1: '公司愿景',
   about_intro_content_desc1: '我们力争成为全球领先的综合物流解决方案提供商,通过我们的专业知识和完善的服务网络,为客户提供无缝的、高效的和可靠的物流服务。',
@@ -256,28 +255,28 @@ export default {
 
   offic_site1: '上海',
   offic_name1: '上海立远恒通物流发展有限公司',
-  offic_address1:'上海市虹口区周家嘴路887号上滨生活广场1102-1107室',
+  offic_address1: '上海市虹口区周家嘴路887号上滨生活广场1102-1107室',
   offic_tel1: '021-60252388',
   offic_site2: '青岛',
   offic_name2: '青岛立远恒通国际物流有限公司',
-  offic_address2:'青岛市市南区山东路6号华润大厦A座4801-4806室',
+  offic_address2: '青岛市市南区山东路6号华润大厦A座4801-4806室',
   offic_tel2: '0532-85009107',
   offic_site3: '宁波',
   offic_name3: '宁波立恒供应链管理有限公司',
-  offic_address3:'浙江省宁波市鄞州区彩虹北路48号2604-2606室',
+  offic_address3: '浙江省宁波市鄞州区彩虹北路48号2604-2606室',
   offic_tel3: '0574-88138020',
   offic_site4: '天津',
   offic_name4: '天津泽阳供应链管理有限公司',
-  offic_address4:'天津市河西区解放南路256号泰达大厦第5层I、K、L室',
+  offic_address4: '天津市河西区解放南路256号泰达大厦第5层I、K、L室',
   offic_tel4: '022-58353367',
   offic_site5: '广州',
   offic_name5: '广州立远国际物流有限公司',
-  offic_address5:'广东省广州市天河区珠江西路8号高德置地夏广场D座1602B',
+  offic_address5: '广东省广州市天河区珠江西路8号高德置地夏广场D座1602B',
   offic_tel5: '020-32058264 ',
   offic_site6: '墨西哥',
   offic_name6: 'EVER CHAMPION SUPPLY CHAIN MANAGEMENT S.A. DE C.V.',
-  offic_address6:'墨西哥城',
- 
+  offic_address6: '墨西哥城',
+
 };
 
 

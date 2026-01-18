@@ -133,10 +133,6 @@ const aboutList = [
     name: "header.submenu.about_4",
     href: "/about#about_4",
   },
-  {
-    name: "header.submenu.about_5",
-    href: "/about#about_5",
-  },
 ];
 
 // 处理带锚点的路由跳转
