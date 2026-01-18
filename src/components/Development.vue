@@ -1,5 +1,5 @@
 <template>
-  <div class="development">
+  <div ref="rootRef" class="development">
     <div class="map_bg_left"></div>
     <div class="map_bg_right"></div>
     <div class="development_content">
@@ -9,7 +9,7 @@
       <!-- ship -->
       <img src="@/assets/development/ship.png" alt="ship" class="development_content_ship" />
       <!-- 2009 -->
-      <div class="item_2009 item">
+      <div class="item_2009 item" data-scroll-animate>
         <span class="year text-right">2009</span>
         <span class="round orange"></span>
         <div class="desc">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <!-- 2010 -->
-      <div class="item_2010 item">
+      <div class="item_2010 item" data-scroll-animate>
         <div class="desc">
           <img src="@/assets/development/blue-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20">
@@ -32,7 +32,7 @@
         <span class="year">2010</span>
       </div>
       <!-- 2014 -->
-      <div class="item_2014 item">
+      <div class="item_2014 item" data-scroll-animate>
         <span class="year text-right">2014</span>
         <span class="round green"></span>
         <div class="desc">
@@ -44,7 +44,7 @@
         </div>
       </div>
        <!-- 2017 -->
-       <div class="item_2017 item">
+       <div class="item_2017 item" data-scroll-animate>
         <div class="desc">
           <img src="@/assets/development/orange-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20">
@@ -56,7 +56,7 @@
         <span class="year">2017</span>
       </div>
       <!-- 2018 -->
-      <div class="item_2018 item">
+      <div class="item_2018 item" data-scroll-animate>
         <span class="year text-right">2018</span>
         <span class="round blue"></span>
         <div class="desc">
@@ -68,7 +68,7 @@
         </div>
       </div>
       <!-- 2021 -->
-      <div class="item_2021 item">
+      <div class="item_2021 item" data-scroll-animate>
         <div class="desc">
           <img src="@/assets/development/green-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20">
@@ -82,7 +82,7 @@
         <span class="year">2021</span>
       </div>
      <!-- 2023 -->
-     <div class="item_2023 item">
+     <div class="item_2023 item" data-scroll-animate>
         <span class="year text-right">2023</span>
         <span class="round orange"></span>
         <div class="desc">
@@ -94,7 +94,7 @@
         </div>
       </div>
        <!-- 2024 -->
-       <div class="item_2024 item">
+       <div class="item_2024 item" data-scroll-animate>
         <div class="desc">
           <img src="@/assets/development/blue-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20">
@@ -107,7 +107,7 @@
         <span class="year">2024</span>
       </div>
       <!-- 2025 -->
-      <div class="item_2025 item">
+      <div class="item_2025 item" data-scroll-animate>
         <span class="year text-right">2025</span>
         <span class="round green"></span>
         <div class="desc">
@@ -122,7 +122,7 @@
         </div>
       </div>
        <!-- 2026 -->
-       <div class="item_2026 item">
+       <div class="item_2026 item" data-scroll-animate>
         <div class="desc">
           <img src="@/assets/development/orange-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20" style="font-size: 46px;">
@@ -138,8 +138,60 @@
 </template>
 
 <script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
+
+const rootRef = ref(null);
+let io = null;
+
+// 滚动到每个节点时触发动效（只触发一次）
+onMounted(async () => {
+  await nextTick();
+
+  const rootEl = rootRef.value;
+  if (!rootEl) return;
+
+  const items = Array.from(rootEl.querySelectorAll("[data-scroll-animate]"));
+  if (items.length === 0) return;
+
+  // 兼容不支持 IntersectionObserver 的环境：直接显示
+  if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") {
+    items.forEach((el) => el.classList.add("is-inview"));
+    return;
+  }
+
+  // 统一设置错峰延迟（按 DOM 顺序）
+  items.forEach((el, idx) => {
+    // 每个 item 递增 80ms，更自然
+    el.style.setProperty("--delay", `${idx * 80}ms`);
+  });
+
+  io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add("is-inview");
+        // 只执行一次：触发后取消观察，避免重复计算
+        io?.unobserve(el);
+      });
+    },
+    {
+      // 提前一点触发，让视觉更顺
+      root: null,
+      threshold: 0.18,
+      rootMargin: "0px 0px -12% 0px",
+    }
+  );
+
+  items.forEach((el) => io.observe(el));
+});
+
+onBeforeUnmount(() => {
+  io?.disconnect();
+  io = null;
+});
 </script>
 
 <style lang="less" scoped>
@@ -178,6 +230,31 @@ const { t } = useI18n();
       left: 0;
       right: 0;
       margin: auto;
+
+      // 默认：未进入视口时隐藏 + 上移 + 轻微模糊（更高级）
+      &[data-scroll-animate]{
+        opacity: 0;
+        transform: translate3d(0, 34px, 0) scale(0.985);
+        filter: blur(8px);
+        transition:
+          opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+          transform 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+          filter 900ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+        will-change: opacity, transform, filter;
+      }
+
+      // 进入视口：显示 + 回到原位
+      &.is-inview{
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0);
+      }
+
+      // 进入视口后，圆点做一个轻微弹跳，增强质感
+      &.is-inview .round{
+        animation: dev-pop 520ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+      }
+
       .year{
         font-size: 32px;
         font-weight: 700;
@@ -291,6 +368,25 @@ const { t } = useI18n();
     .item_2026{
       top: 3800px;
     }
+  }
+
+  // 尊重系统“减少动效”设置
+  @media (prefers-reduced-motion: reduce) {
+    .item[data-scroll-animate]{
+      transition: none !important;
+      transform: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+    .item.is-inview .round{
+      animation: none !important;
+    }
+  }
+
+  @keyframes dev-pop{
+    0%{ transform: scale(0.88); }
+    60%{ transform: scale(1.06); }
+    100%{ transform: scale(1); }
   }
 
 
