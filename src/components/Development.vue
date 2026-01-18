@@ -260,12 +260,21 @@ onBeforeUnmount(() => {
         font-weight: 700;
         color: #000;
         width: 280px;
+        // hover 用“弹性”缓动：看起来更有回弹感
+        transition:
+          transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1),
+          filter 220ms ease;
        
       }
       .round{
         width: 100px;
         height: 100px;
         border-radius: 50%;
+        // transform 用弹性曲线，阴影用柔和过渡
+        transition:
+          transform 440ms cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 260ms ease,
+          filter 220ms ease;
       }
       .desc{
         width: 280px;
@@ -273,10 +282,16 @@ onBeforeUnmount(() => {
        align-items: center;
        justify-content: center;
        position: relative;
+       transition:
+         transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1),
+         filter 220ms ease;
        .desc-img{
         display: block;
         width: 100%;
         object-fit: cover;
+        transition:
+          transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1),
+          filter 220ms ease;
 
        }
        .desc-content{
@@ -294,6 +309,9 @@ onBeforeUnmount(() => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        transition:
+          transform 460ms cubic-bezier(0.34, 1.56, 0.64, 1),
+          filter 220ms ease;
        }
       }
       .p-l-20{
@@ -335,6 +353,50 @@ onBeforeUnmount(() => {
       .green-left{
         background: url("@/assets/development/green-left.png") no-repeat center center;
         background-size: 100% 100%;
+      }
+    }
+
+    // hover 效果：只作用到 year/round/desc（避免移动端误触）
+    @media (hover: hover) and (pointer: fine) {
+      .item.is-inview[data-scroll-animate]{
+        cursor: pointer;
+      }
+
+      // hover 到整个 item 时，子元素联动增强
+      .item.is-inview[data-scroll-animate]:hover .year{
+        transform: translateY(-3px);
+        filter: brightness(1.02);
+      }
+
+      .item.is-inview[data-scroll-animate]:hover .round{
+        transform: scale(1.08);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+        filter: saturate(1.05);
+      }
+
+      .item.is-inview[data-scroll-animate]:hover .desc{
+        transform: translateY(-4px);
+        filter: brightness(1.02);
+      }
+
+      .item.is-inview[data-scroll-animate]:hover .desc-img{
+        transform: scale(1.02);
+        filter: saturate(1.06);
+      }
+
+      .item.is-inview[data-scroll-animate]:hover .desc-content{
+        transform: translateY(-2px);
+      }
+
+      // hover 到单个元素时（更精确的反馈）
+      .item.is-inview[data-scroll-animate] .year:hover{
+        transform: translateY(-4px);
+      }
+      .item.is-inview[data-scroll-animate] .round:hover{
+        transform: scale(1.1);
+      }
+      .item.is-inview[data-scroll-animate] .desc:hover{
+        transform: translateY(-6px);
       }
     }
 
