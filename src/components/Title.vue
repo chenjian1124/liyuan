@@ -31,11 +31,11 @@ const props = defineProps({
   },
   titlecolor: {
     type: String,
-    default: "#212529",
+    default: "#3d3a39",
   },
   desccolor: {
     type: String,
-    default: "#6b7280",
+    default: "#3d3a39",
   },
 });
 </script>

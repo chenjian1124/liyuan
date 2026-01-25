@@ -151,7 +151,7 @@ const handleAnchorClick = async (href) => {
     .title {
       font-size: 22px;
       line-height: 32px;
-      color: #034460;
+      color: @title-color;
       font-weight: 600;
       margin-bottom: 15px;
       transition: color 220ms ease;
@@ -159,7 +159,7 @@ const handleAnchorClick = async (href) => {
     .desc {
       font-size: 14px;
       line-height: 24px;
-      color: #041c2f;
+      color: @title-color;
       margin-bottom: 35px;
       height: 72px;
     }

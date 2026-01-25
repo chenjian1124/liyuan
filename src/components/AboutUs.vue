@@ -100,7 +100,7 @@ const sendEmail = () => {
         border: 0;
         outline: 0;
         box-shadow: none;
-        color: #041c2f;
+        color: @title-color;
         background-color: #f5f5f5;
         height: 30px;
         padding-left: 10px;
@@ -111,7 +111,7 @@ const sendEmail = () => {
         border: 0;
         outline: 0;
         box-shadow: none;
-        color: #041c2f;
+        color: @title-color;
         background-color: #f5f5f5;
         height: 30px;
         padding: 10px;

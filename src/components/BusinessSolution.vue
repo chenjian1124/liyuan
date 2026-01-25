@@ -141,7 +141,7 @@ const businessList = [
       font-size: 32px;
       line-height: 36px;
       font-weight: 600;
-      color: #034460;
+      color: @title-color;
       transition: color 0.2s ease;
     }
   }

@@ -160,7 +160,7 @@ const { t } = useI18n();
       font-size: 40px;
       line-height: 50px;
       font-weight: 700;
-      color: #034460;
+      color: @title-color;
     }
     .product_list_item_desc {
       font-size: 20px;

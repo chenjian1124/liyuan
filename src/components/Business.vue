@@ -13,6 +13,7 @@
               <span class="desc">{{ t("business_desc_3") }}</span>
               <span class="desc">{{ t("business_desc_4") }}</span>
               <span class="desc">{{ t("business_desc_5") }}</span>
+              <span class="desc">{{ t("business_desc_6") }}</span>
             </div>
           </div>
           <div class="business_content_right">
@@ -141,7 +142,7 @@ const businessList = [
       font-size: 32px;
       line-height: 36px;
       font-weight: 600;
-      color: #034460;
+      color: @title-color;
       transition: color 0.2s ease;
     }
   }

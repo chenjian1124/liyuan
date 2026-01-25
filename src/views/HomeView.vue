@@ -236,7 +236,7 @@ const newsList = [
       font-size: 24px;
       line-height: 32px;
       font-weight: 700;
-      color: #034460;
+      color: @title-color;
     }
   }
 }

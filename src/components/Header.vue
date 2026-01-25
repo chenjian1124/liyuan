@@ -7,7 +7,7 @@
         >{{ t("header.email") }}: innovation@htholding.cn</a
       >
     </div>
-    <div class="container">
+    <div class="container" style="background: #fff;">
       <div class="main-header">
         <a @click.prevent="handleAnchorClick('/')">
           <img :src="Logo" alt="logo" class="logo" />
@@ -402,7 +402,7 @@ watch(isMobileMenuOpen, (open) => {
           font-style: normal;
           font-weight: 500;
           font-size: 16px;
-          color: #041c2f;
+          color: @title-color;
           line-height: 28px;
           display: block;
           padding: 28px 18px 28px 15px;
@@ -480,7 +480,7 @@ watch(isMobileMenuOpen, (open) => {
             }
             .children-item-title {
               font-size: 18px;
-              color: #034460;
+              color: @title-color;
               line-height: 28px;
               margin-bottom: 15px;
               font-weight: 500;
@@ -513,7 +513,7 @@ watch(isMobileMenuOpen, (open) => {
     gap: 5px;
     span {
       font-size: 12px;
-      color: #041c2f;
+      color: @title-color;
       cursor: pointer;
       transition: color 0.18s ease;
       &:hover {

@@ -206,7 +206,7 @@ const handleAnchorClick = async (href) => {
         border: 1px solid #fff;
         border-radius: 0;
         font-size: 14px;
-        color: #041c2f;
+        color: @title-color;
         line-height: 14px;
         margin-bottom: 16px;
         // focus 样式
