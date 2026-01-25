@@ -7,7 +7,7 @@
           <div class="business_content_left">
             <img :src="Bs" alt="bs" class="business_content_left_img" />
             <div class="business_content_left_text">
-              <span class="title">{{ t("business_title") }}</span>
+              <span class="title">{{ t("business_title1") }}</span>
               <span class="desc">{{ t("business_desc_1") }}</span>
               <span class="desc">{{ t("business_desc_2") }}</span>
               <span class="desc">{{ t("business_desc_3") }}</span>
@@ -17,19 +17,11 @@
             </div>
           </div>
           <div class="business_content_right">
-            <div
-              class="business_content_right_item"
-              v-for="item in businessList"
-              :key="item.title"
-            >
-              <img
-                :src="item.img"
-                alt="item.title"
-                class="business_content_right_item_img"
-              />
+            <div class="business_content_right_item" v-for="item in businessList" :key="item.title">
+              <img :src="item.img" alt="item.title" class="business_content_right_item_img" />
               <span class="business_content_right_item_text">{{
                 t(item.title)
-              }}</span>
+                }}</span>
             </div>
           </div>
         </div>
@@ -76,12 +68,15 @@ const businessList = [
 <style lang="less" scoped>
 .business {
   background-color: #fff;
+
   .bg_word {
     background: url("@/assets/world-bg.png") no-repeat top;
   }
+
   .business_content {
     padding: 100px 0 0;
   }
+
   .business_content_flex {
     display: flex;
     justify-content: space-between;
@@ -91,22 +86,26 @@ const businessList = [
     .business_content_left {
       width: 800px;
       background-color: #424f65;
+
       .business_content_left_img {
         width: 100%;
         object-fit: cover;
       }
+
       .business_content_left_text {
         padding: 40px;
         display: flex;
         flex-direction: column;
 
         color: #fff;
+
         .title {
           font-size: 24px;
           line-height: 32px;
           font-weight: 700;
           margin-bottom: 10px;
         }
+
         .desc {
           font-family: epilogue, sans-serif;
           font-size: 14px;
@@ -124,20 +123,24 @@ const businessList = [
   flex-direction: column;
   gap: 30px;
   justify-content: center;
+
   .business_content_right_item {
     display: flex;
     align-items: center;
     gap: 30px;
+
     &:hover {
       .business_content_right_item_text {
         color: @orange;
       }
     }
+
     .business_content_right_item_img {
       width: 80px;
       height: 80px;
       object-fit: cover;
     }
+
     .business_content_right_item_text {
       font-size: 32px;
       line-height: 36px;
@@ -154,14 +157,18 @@ const businessList = [
     .business_content {
       padding-top: 56px;
     }
+
     .business_content_flex {
       flex-direction: column;
       padding: 0;
       gap: 16px;
+
       .business_content_left {
         width: 100%;
+
         .business_content_left_text {
           padding: 18px;
+
           .title {
             font-size: 18px;
             line-height: 26px;
@@ -174,12 +181,15 @@ const businessList = [
   .business_content_right {
     padding: 0;
     gap: 14px;
+
     .business_content_right_item {
       gap: 12px;
+
       .business_content_right_item_img {
         width: 52px;
         height: 52px;
       }
+
       .business_content_right_item_text {
         font-size: 18px;
         line-height: 24px;

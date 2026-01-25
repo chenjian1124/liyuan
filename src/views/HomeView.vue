@@ -19,8 +19,11 @@
             <div class="bi_list_item_bg">
               <img :src="item.img" alt="Bi1" class="bi_list_item_img" />
               <div class="bi_list_item_bg_text">
-                <span class="bi_list_item_bg_text_text">{{ biDisplayText[index] }} <span style="font-size: 18px; ">票</span></span>
-                <span class="bi_list_item_bg_text_desc">{{ t(item.desc) }}</span>
+                <span class="bi_list_item_bg_text_text">{{ biDisplayText[index] }} <span style="font-size: 18px; ">{{
+                  t("bi_unit") }}</span></span>
+                <span class="bi_list_item_bg_text_desc" :class="[`bi_list_item_bg_text_desc_${$i18n.locale}`]">{{
+                  t(item.desc)
+                }}</span>
               </div>
             </div>
             <span class="bi_list_item_text">{{ item.year }}</span>
@@ -33,18 +36,14 @@
       <!-- <img :src="OneRoad" alt="OneRoad" class="one_belt_one_road_img" /> -->
       <div class="one_road-position">
         <div class="one_belt_one_road_title">
-          <Title
-            :title="t('one_belt_one_road_title')"
-            :desc="t('one_belt_one_road_desc')"
-            titlecolor="#fff"
-            desccolor="#fff"
-          />
+          <Title :title="t('one_belt_one_road_title')" :desc="t('one_belt_one_road_desc')" titlecolor="#fff"
+            desccolor="#fff" />
         </div>
         <div class="one_belt_one_road_text">
           <span class="one_belt_one_road_text_text">{{
             t("one_belt_one_road_text")
           }}</span>
-          <span class="one_belt_one_road_text_desc">{{
+          <span class="one_belt_one_road_text_desc" :class="[`one_belt_one_road_text_desc_${$i18n.locale}`]">{{
             t("one_belt_one_road_text_desc")
           }}</span>
         </div>
@@ -56,25 +55,16 @@
         <div class="global_network_content">
           <div class="global_network_title">
             {{ t("global_network_title1")
-            }}<span class="text-orange">{{ t("global_network_title2") }}</span
-            >，<span class="text-orange">{{ t("global_network_title3") }}</span
-            >{{ t("global_network_title4") }}，{{ t("global_network_title5")
-            }}<span class="text-orange">{{ t("global_network_title6") }}</span>
+            }}<span class="text-orange">{{ t("global_network_title2") }}</span>，<span class="text-orange">{{
+              t("global_network_title3") }}</span>{{ t("global_network_title4") }}，{{ t("global_network_title5")
+              }}<span class="text-orange">{{ t("global_network_title6") }}</span>
           </div>
           <div class="global_network_desc">
             {{ t("global_network_desc") }}
           </div>
           <div ref="globalNetworkListEl" class="global_network_list">
-            <div
-              class="global_network_list_item"
-              v-for="(item, index) in globalNetworkList"
-              :key="item.text"
-            >
-              <img
-                :src="item.img"
-                alt="Global1"
-                class="global_network_list_item_img"
-              />
+            <div class="global_network_list_item" v-for="(item, index) in globalNetworkList" :key="item.text">
+              <img :src="item.img" alt="Global1" class="global_network_list_item_img" />
               <span class="global_network_list_item_text">{{
                 globalNetworkDisplayText[index]
               }}</span>
@@ -109,8 +99,7 @@
         <div class="network_content">
           <div class="network_title">
             {{ t("network_title1")
-            }}<span class="text-orange">{{ t("network_title2") }}</span
-            >{{ t("network_title3")
+            }}<span class="text-orange">{{ t("network_title2") }}</span>{{ t("network_title3")
             }}<span class="text-orange">{{ t("network_title4") }}</span>
           </div>
           <div class="network_desc">
@@ -383,16 +372,19 @@ const newsList = [
 .bi {
   background-color: #fff;
   padding-bottom: 100px;
+
   .bi_title {
     padding: 100px 0;
     display: flex;
     justify-content: left;
   }
+
   .bi_list {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
+
     .bi_list_item {
       display: flex;
       flex-direction: column;
@@ -400,10 +392,12 @@ const newsList = [
       justify-content: center;
       gap: 20px;
       cursor: pointer;
+
       .bi_list_item_bg {
         width: 256px;
         height: 256px;
         position: relative;
+
         .bi_list_item_bg_text {
           position: absolute;
           top: 50%;
@@ -418,34 +412,45 @@ const newsList = [
           justify-content: center;
           align-items: center;
           gap: 10px;
+
           .bi_list_item_bg_text_text {
             font-size: 24px;
             line-height: 32px;
             font-weight: 700;
             color: #fff;
           }
+
           .bi_list_item_bg_text_desc {
             font-size: 16px;
             line-height: 22px;
             font-weight: 400;
             color: #fff;
           }
+
+          .bi_list_item_bg_text_desc_es {
+            font-size: 10px;
+            text-align: center;
+          }
         }
       }
+
       &:hover {
         .bi_list_item_text {
           color: @orange;
         }
+
         .bi_list_item_bg {
           transform: scale(1.05);
         }
       }
     }
+
     .bi_list_item_img {
       width: 256px;
       height: 256px;
       object-fit: cover;
     }
+
     .bi_list_item_text {
       font-size: 24px;
       line-height: 32px;
@@ -460,15 +465,18 @@ const newsList = [
   background: url("@/assets/home/one-road.png") no-repeat center center;
   background-size: cover;
   border-bottom: 8px solid @orange;
+
   .one_road-position {
     height: 100%;
     padding: 130px 40px 0;
     display: flex;
     flex-direction: column;
+
     .one_belt_one_road_title {
       display: flex;
       justify-content: left;
     }
+
     .one_belt_one_road_text {
       margin-top: 300px;
       min-width: 500px;
@@ -476,6 +484,7 @@ const newsList = [
       display: flex;
       flex-direction: column;
       justify-content: left;
+
       .one_belt_one_road_text_text {
         font-size: 40px;
         line-height: 48px;
@@ -483,6 +492,7 @@ const newsList = [
         color: #fff;
         margin-bottom: 20px;
       }
+
       .one_belt_one_road_text_desc {
         font-size: 20px;
         line-height: 30px;
@@ -492,20 +502,24 @@ const newsList = [
     }
   }
 }
+
 .global_network {
   padding-top: 50px;
   background-color: #fff;
+
   .global_bg {
     background: url("@/assets/home/global-bg.png") no-repeat top center;
     background-size: cover;
     padding-top: 160px;
     padding-bottom: 160px;
+
     .global_network_content {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 80px;
     }
+
     .global_network_title {
       font-size: 40px;
       line-height: 48px;
@@ -513,6 +527,7 @@ const newsList = [
       color: rgba(33, 37, 41, 1);
       text-align: center;
     }
+
     .global_network_desc {
       max-width: 800px;
       font-size: 24px;
@@ -521,11 +536,13 @@ const newsList = [
       color: rgba(33, 37, 41, 1);
       text-align: center;
     }
+
     .global_network_list {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
+
       .global_network_list_item {
         width: 23%;
         min-height: 256px;
@@ -540,6 +557,7 @@ const newsList = [
         justify-content: center;
         align-items: center;
         gap: 20px;
+
         &::before {
           content: "";
           position: absolute;
@@ -549,6 +567,7 @@ const newsList = [
           left: 0;
           width: 50%;
         }
+
         &::after {
           content: "";
           position: absolute;
@@ -561,22 +580,26 @@ const newsList = [
           transform: skew(20deg);
         }
       }
+
       .global_network_list_item_img {
         width: 80px;
         height: 80px;
         object-fit: cover;
       }
+
       .global_network_list_item_text {
         font-size: 40px;
         line-height: 48px;
         font-weight: 700;
         color: @orange;
       }
+
       .global_network_list_item_desc {
         font-size: 20px;
         line-height: 24px;
         font-weight: 400;
         color: rgba(33, 37, 41, 1);
+        text-align: center;
       }
     }
   }
@@ -585,16 +608,19 @@ const newsList = [
 .news {
   background-color: #fff;
   padding-top: 50px;
+
   .news_title {
     display: flex;
     justify-content: left;
   }
+
   .news_list {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 80px 0;
     gap: 40px;
+
     .news_list_item {
       flex: 1;
       margin-bottom: 30px;
@@ -603,10 +629,12 @@ const newsList = [
       flex-direction: column;
       justify-content: center;
       background-color: #424f65;
+
       .news_list_item_img {
         width: 100%;
         object-fit: cover;
       }
+
       .news_list_item_content {
         padding: 20px;
         display: flex;
@@ -614,12 +642,14 @@ const newsList = [
         min-height: 100px;
         gap: 10px;
       }
+
       .news_list_item_text {
         font-size: 16px;
         line-height: 24px;
         font-weight: 700;
         color: #fff;
         min-height: 48px;
+
         &:hover {
           color: @orange;
         }
@@ -641,6 +671,7 @@ const newsList = [
     gap: 40px;
     padding: 0 144px;
   }
+
   .network_title {
     font-size: 86px;
     line-height: 100%;
@@ -648,6 +679,7 @@ const newsList = [
     text-align: center;
     color: #000;
   }
+
   .network_desc {
     font-size: 24px;
     line-height: 30px;
@@ -661,6 +693,7 @@ const newsList = [
     aspect-ratio: 16/9;
     border-radius: 8px;
     overflow: hidden;
+
     video {
       width: 100%;
       height: 100%;
@@ -673,17 +706,21 @@ const newsList = [
 @media (max-width: 768px) {
   .bi {
     padding-bottom: 56px;
+
     .bi_title {
       padding: 56px 0 24px;
     }
+
     .bi_list {
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 16px;
+
       .bi_list_item_img {
         width: 120px;
         height: 120px;
       }
+
       .bi_list_item_text {
         font-size: 16px;
         line-height: 22px;
@@ -694,16 +731,20 @@ const newsList = [
   .one_belt_one_road {
     height: auto;
     min-height: 520px;
+
     .one_road-position {
       padding: 72px 16px 40px;
+
       .one_belt_one_road_text {
         margin-top: 120px;
         min-width: 0;
         max-width: 100%;
+
         .one_belt_one_road_text_text {
           font-size: 24px;
           line-height: 32px;
         }
+
         .one_belt_one_road_text_desc {
           font-size: 14px;
           line-height: 22px;
@@ -714,36 +755,45 @@ const newsList = [
 
   .global_network {
     padding-top: 24px;
+
     .global_bg {
       padding-top: 72px;
       padding-bottom: 72px;
+
       .global_network_content {
         gap: 28px;
       }
+
       .global_network_title {
         font-size: 24px;
         line-height: 32px;
       }
+
       .global_network_desc {
         font-size: 14px;
         line-height: 22px;
       }
+
       .global_network_list {
         flex-wrap: wrap;
         gap: 14px;
+
         .global_network_list_item {
           width: 100%;
           min-height: 0;
           padding: 18px;
         }
+
         .global_network_list_item_img {
           width: 56px;
           height: 56px;
         }
+
         .global_network_list_item_text {
           font-size: 28px;
           line-height: 34px;
         }
+
         .global_network_list_item_desc {
           font-size: 14px;
           line-height: 20px;
@@ -755,6 +805,7 @@ const newsList = [
 
   .news {
     padding-top: 24px;
+
     .news_list {
       flex-direction: column;
       padding: 24px 0 40px;
@@ -765,13 +816,16 @@ const newsList = [
   .network {
     padding-top: 56px;
     background: linear-gradient(to bottom, #f5f5f5 88%, #424f65 12%);
+
     .network_content {
       padding: 0;
       gap: 18px;
     }
+
     .network_title {
       font-size: 32px;
     }
+
     .network_desc {
       font-size: 14px;
       line-height: 22px;

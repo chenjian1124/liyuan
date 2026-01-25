@@ -91,6 +91,7 @@ export default {
   // business
   business_title: "立远恒通集团资质",
   business_desc: "业务覆盖全球，服务全面",
+  business_title1: "立远恒通集团资质",
   business_desc_1: "中国外经贸委批准的一级货运代理",
   business_desc_2: "中国交通部注册的无船承运人(NVOCC-NV00824)",
   business_desc_3: "美国联邦海事委员会(FMC)注册企业",
@@ -107,6 +108,7 @@ export default {
   // BI看板
   bi_title: "BI看板",
   bi_desc: "数据驾驶仓",
+  bi_unit: "票",
   bi_desc_1: "操作票数排行榜-环比",
   bi_desc_2: "操作票数排行榜-环比",
   bi_desc_3: "操作票数排行榜-环比",
