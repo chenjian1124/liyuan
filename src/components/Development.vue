@@ -464,7 +464,7 @@ onBeforeUnmount(() => {
 .map_bg_right{
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom:-146px;
   width: 1400px;
   height: 700px;
   background: url("@/assets/development/map.png") no-repeat bottom center;

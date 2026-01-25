@@ -25,12 +25,12 @@
         <div class="nav" :class="{ 'is-open': isMobileMenuOpen }">
           <ul class="nav-list">
             <li>
-              <a href="/" @click.prevent="handleAnchorClick('/')">{{
+              <a :class="{ active: $route.path === '/' }" href="/" @click.prevent="handleAnchorClick('/')">{{
                 t("header.nav.home")
               }}</a>
             </li>
             <li>
-              <a
+              <a :class="{ active: $route.path === '/workprocess' }"  
                 href="javascript:void(0)"
                 class="has-children"
                 @click.prevent="handleAnchorClick('/workprocess')"
@@ -60,6 +60,7 @@
               <a
                 href="javascript:void(0)"
                 class="has-children"
+                :class="{ active: $route.path === '/solution' }"
                 @click.prevent="handleAnchorClick('/solution')"
                 >{{ t("header.nav.solutions") }}</a
               >
@@ -82,6 +83,7 @@
               <a
                 href="javascript:void(0)"
                 class="has-children"
+                :class="{ active: $route.path === '/about' }"
                 @click.prevent="handleAnchorClick('/about')"
                 >{{ t("header.nav.about") }}</a
               >
@@ -102,6 +104,7 @@
             <li>
               <a
                 href="javascript:void(0)"
+                :class="{ active: $route.path === '/contact' }"
                 @click.prevent="handleAnchorClick('/contact')"
                 >{{ t("header.nav.contact") }}</a
               >
@@ -413,7 +416,7 @@ watch(isMobileMenuOpen, (open) => {
           &:hover {
             color: #ff9124;
           }
-          .active {
+          &.active {
             color: #ff9124;
           }
         }
