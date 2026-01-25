@@ -93,7 +93,7 @@
 <script setup>
 import Title from "@/components/Title.vue";
 import AboutUs from "@/components/AboutUs.vue";
-import CustomerSwiper from "@/components/CustomerSwiperAbout.vue";
+import CustomerSwiper from "@/components/CustomerAbout.vue";
 import Development from "@/components/Development.vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();

@@ -131,7 +131,7 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import MySwiper from "@/components/MySwiper.vue";
-import CustomerSwiper from "@/components/CustomerSwiper.vue";
+import CustomerSwiper from "@/components/Customer.vue";
 import Service from "@/components/Service.vue";
 import Business from "@/components/Business.vue";
 import Title from "@/components/Title.vue";
