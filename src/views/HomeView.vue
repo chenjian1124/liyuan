@@ -14,10 +14,16 @@
         <div class="bi_title">
           <Title :title="t('bi_title')" :desc="t('bi_desc')" />
         </div>
-        <div class="bi_list">
-          <div class="bi_list_item" v-for="item in biList" :key="item">
-            <img :src="getBiImg(item)" alt="Bi1" class="bi_list_item_img" />
-            <span class="bi_list_item_text">{{ item }}</span>
+        <div ref="biListEl" class="bi_list">
+          <div class="bi_list_item" v-for="(item, index) in biList" :key="item.year">
+            <div class="bi_list_item_bg">
+              <img :src="item.img" alt="Bi1" class="bi_list_item_img" />
+              <div class="bi_list_item_bg_text">
+                <span class="bi_list_item_bg_text_text">{{ biDisplayText[index] }} <span style="font-size: 18px; ">票</span></span>
+                <span class="bi_list_item_bg_text_desc">{{ t(item.desc) }}</span>
+              </div>
+            </div>
+            <span class="bi_list_item_text">{{ item.year }}</span>
           </div>
         </div>
       </div>
@@ -58,10 +64,10 @@
           <div class="global_network_desc">
             {{ t("global_network_desc") }}
           </div>
-          <div class="global_network_list">
+          <div ref="globalNetworkListEl" class="global_network_list">
             <div
               class="global_network_list_item"
-              v-for="item in globalNetworkList"
+              v-for="(item, index) in globalNetworkList"
               :key="item.text"
             >
               <img
@@ -69,7 +75,9 @@
                 alt="Global1"
                 class="global_network_list_item_img"
               />
-              <span class="global_network_list_item_text">{{ item.text }}</span>
+              <span class="global_network_list_item_text">{{
+                globalNetworkDisplayText[index]
+              }}</span>
               <span class="global_network_list_item_desc">{{
                 t(item.desc)
               }}</span>
@@ -138,26 +146,86 @@ import GlobalNetwork2 from "@/assets/network/2.png";
 import GlobalNetwork3 from "@/assets/network/3.png";
 import GlobalNetwork4 from "@/assets/network/4.png";
 
+import Bi2022 from "@/assets/bi/2022.png";
+import Bi2023 from "@/assets/bi/2023.png";
+import Bi2024 from "@/assets/bi/2024.png";
+import Bi2025 from "@/assets/bi/2025.png";
+
+
 const { t } = useI18n();
-const biList = [2022, 2023, 2024, 2025];
+const biList = [{
+  year: 2022,
+  img: Bi2022,
+  text: "36,985",
+  desc: "bi_desc_1",
+}, {
+  year: 2023,
+  img: Bi2023,
+  text: "57,303",
+  desc: "bi_desc_2",
+}, {
+  year: 2024,
+  img: Bi2024,
+  text: "85,955",
+  desc: "bi_desc_3",
+}, {
+  year: 2025,
+  img: Bi2025,
+  text: "95,888",
+  desc: "bi_desc_4",
+}];
 
-// Vite 的 import.meta.glob 返回的 key 是“实际文件路径”，不要用 ../assets 这种相对路径去拼
-// 这里用 /src 绝对路径 glob，并把文件名（例如 2025）映射到图片 url，避免 key 不匹配导致加载不出来
-const biImgModules = import.meta.glob("/src/assets/bi/*.svg", {
-  eager: true,
-  import: "default",
-});
-
-const biImgMap = Object.fromEntries(
-  Object.entries(biImgModules).map(([path, url]) => {
-    const fileName = path.split("/").pop() || "";
-    const key = fileName.replace(".svg", ""); // 2022/2023/2024/2025
-    return [key, url];
-  })
+// BI看板数字跳动效果（进入可视区触发一次）
+const biListEl = ref(null);
+const biDisplayText = ref(
+  biList.map(() => "0")
 );
-const getBiImg = (item) => {
-  return biImgMap[String(item)] || "";
+
+const hasStartedBiCountUp = ref(false);
+const biRafIds = [];
+let biObserver = null;
+
+const parseNumberWithComma = (text) => {
+  const raw = String(text ?? "");
+  // 兼容 "36,985" / "36985" 等格式
+  const onlyNum = raw.replace(/,/g, "");
+  const num = Number.parseInt(onlyNum, 10);
+  return Number.isFinite(num) ? num : 0;
 };
+
+const formatIntegerWithComma = (num) => {
+  const safe = Number.isFinite(num) ? Math.max(0, Math.floor(num)) : 0;
+  // 使用 toLocaleString 生成千分位分隔
+  return safe.toLocaleString();
+};
+
+const startBiCountUp = () => {
+  if (hasStartedBiCountUp.value) return;
+  hasStartedBiCountUp.value = true;
+
+  biList.forEach((item, index) => {
+    const targetNum = parseNumberWithComma(item.text);
+    const from = 0;
+    const duration = 1200 + index * 150;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      // easeOutCubic：前快后慢，更自然
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = Math.floor(from + (targetNum - from) * eased);
+      biDisplayText.value[index] = formatIntegerWithComma(current);
+
+      if (t < 1) {
+        biRafIds[index] = requestAnimationFrame(tick);
+      }
+    };
+
+    biRafIds[index] = requestAnimationFrame(tick);
+  });
+};
+
+
 
 const globalNetworkList = [
   {
@@ -181,6 +249,119 @@ const globalNetworkList = [
     desc: "global_network_desc_4",
   },
 ];
+
+// 全球网络数字增长效果（进入可视区触发一次）
+const globalNetworkListEl = ref(null);
+const globalNetworkDisplayText = ref(
+  globalNetworkList.map((item) => {
+    const match = String(item.text).match(/^(\d+)(.*)$/);
+    const suffix = match?.[2] ?? "";
+    return `0${suffix}`;
+  })
+);
+
+const hasStartedGlobalNetworkCountUp = ref(false);
+const globalNetworkRafIds = [];
+let globalNetworkObserver = null;
+
+const parseNumberText = (text) => {
+  const match = String(text).match(/^(\d+)(.*)$/);
+  return {
+    num: match ? Number(match[1]) : 0,
+    suffix: match?.[2] ?? "",
+  };
+};
+
+const startGlobalNetworkCountUp = () => {
+  if (hasStartedGlobalNetworkCountUp.value) return;
+  hasStartedGlobalNetworkCountUp.value = true;
+
+  globalNetworkList.forEach((item, index) => {
+    const { num: targetNum, suffix } = parseNumberText(item.text);
+    const from = 0;
+    const duration = 1200 + index * 150;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      // easeOutCubic：前快后慢，更自然
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = Math.floor(from + (targetNum - from) * eased);
+      globalNetworkDisplayText.value[index] = `${current}${suffix}`;
+
+      if (t < 1) {
+        globalNetworkRafIds[index] = requestAnimationFrame(tick);
+      }
+    };
+
+    globalNetworkRafIds[index] = requestAnimationFrame(tick);
+  });
+};
+
+onMounted(() => {
+  // 不支持 IntersectionObserver 的环境就直接执行
+  if (typeof IntersectionObserver === "undefined") {
+    startBiCountUp();
+  } else {
+    biObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          startBiCountUp();
+          biObserver?.disconnect();
+          biObserver = null;
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (biListEl.value) {
+      biObserver.observe(biListEl.value);
+    } else {
+      // 兜底：ref 没拿到时直接执行
+      startBiCountUp();
+    }
+  }
+
+  // 不支持 IntersectionObserver 的环境就直接执行
+  if (typeof IntersectionObserver === "undefined") {
+    startGlobalNetworkCountUp();
+    return;
+  }
+
+  globalNetworkObserver = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        startGlobalNetworkCountUp();
+        globalNetworkObserver?.disconnect();
+        globalNetworkObserver = null;
+      }
+    },
+    { threshold: 0.25 }
+  );
+
+  if (globalNetworkListEl.value) {
+    globalNetworkObserver.observe(globalNetworkListEl.value);
+  } else {
+    // 兜底：ref 没拿到时直接执行
+    startGlobalNetworkCountUp();
+  }
+});
+
+onBeforeUnmount(() => {
+  biObserver?.disconnect();
+  biObserver = null;
+  biRafIds.forEach((id) => {
+    if (id) cancelAnimationFrame(id);
+  });
+
+  globalNetworkObserver?.disconnect();
+  globalNetworkObserver = null;
+  globalNetworkRafIds.forEach((id) => {
+    if (id) cancelAnimationFrame(id);
+  });
+});
 
 const newsList = [
   {
@@ -218,11 +399,44 @@ const newsList = [
       align-items: center;
       justify-content: center;
       gap: 20px;
+      cursor: pointer;
+      .bi_list_item_bg {
+        width: 256px;
+        height: 256px;
+        position: relative;
+        .bi_list_item_bg_text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 70%;
+          height: 70%;
+          background-color: #424f65;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          .bi_list_item_bg_text_text {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: #fff;
+          }
+          .bi_list_item_bg_text_desc {
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 400;
+            color: #fff;
+          }
+        }
+      }
       &:hover {
         .bi_list_item_text {
           color: @orange;
         }
-        .bi_list_item_img {
+        .bi_list_item_bg {
           transform: scale(1.05);
         }
       }

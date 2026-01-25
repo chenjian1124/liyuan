@@ -107,6 +107,10 @@ export default {
   // BI看板
   bi_title: "BI看板",
   bi_desc: "数据驾驶仓",
+  bi_desc_1: "操作票数排行榜-环比",
+  bi_desc_2: "操作票数排行榜-环比",
+  bi_desc_3: "操作票数排行榜-环比",
+  bi_desc_4: "操作票数排行榜-环比",
 
   // 一带一路
   one_belt_one_road_title: "一带一路服务商",
