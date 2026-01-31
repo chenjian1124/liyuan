@@ -99,12 +99,13 @@ const { t } = useI18n();
 .product_list_item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* 桌面端：左右两列等高（以更高的一列为准） */
+  align-items: stretch;
 
   .product_list_item_left {
     width: 50%;
     display: flex;
-    padding: 0 40px;
+    padding: 40px;
     flex-direction: column;
     justify-content: center;
     // align-items: center;
@@ -133,10 +134,13 @@ const { t } = useI18n();
 
   .product_list_item_right {
     width: 50%;
+    /* 让右侧容器跟随父级拉伸高度，图片才能 100% 撑满 */
+    display: flex;
 
     .product_list_item_img {
       display: block;
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
