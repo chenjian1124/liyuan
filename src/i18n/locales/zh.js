@@ -255,8 +255,9 @@ export default {
   about_customer_title3: '战略伙伴',
 
   // Contact
-  contact_title: '上海',
+  contact_title: '联系我们',
   contact_desc: '如需了解更多关于立远恒通跨境物流、化工品运输、OOG项目物流等服务的详细信息，或定制您的专属物流解决方案，请随时联系我们。我们专业的团队将为您提供高效、可靠的物流支持，确保您的货物安全、准时到达目的地。您可以通过电话、邮件或访问我们的网站与我们取得联系，期待与您的合作！',
+
 
   office_address_title: '立远恒通办公网点',
 
@@ -283,6 +284,19 @@ export default {
   offic_site6: '墨西哥',
   offic_name6: 'EVER CHAMPION SUPPLY CHAIN MANAGEMENT S.A. DE C.V.',
   offic_address6: '墨西哥城',
+
+
+  // InnoPlatform
+  inno_platform_title: 'INNO平台',
+  inno_platform_desc: '为您的货物提供全流程、贴心的智能数字化服务。',
+  inno_1: '服务标准化，专业始终如一',
+  inno_2: '自助更便捷，服务全天在线',
+  inno_3: '反馈更及时，进度全程可控',
+  inno_4: '无缝全衔接，客服在线协同',
+
+  // TEU
+  teu_title: 'TEU数据',
+  teu_desc: '每年逐步增长',
 
 };
 

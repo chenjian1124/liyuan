@@ -4,13 +4,7 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="item in 5" :key="item">
         <img :src="SwiperTitle" alt="img1" class="swiper-logo" />
-        <video
-          class="swiper-video"
-          :src="getVideoSrc(item)"
-          autoplay
-          muted
-          loop
-        ></video>
+        <video class="swiper-video" :src="getVideoSrc(item)" autoplay muted loop></video>
       </div>
     </div>
   </div>
@@ -19,7 +13,7 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import SwiperTitle from "@/assets/home/swiper-title.svg";
+import SwiperTitle from "@/assets/home/swiper-title.png";
 import Swiper from "swiper";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -65,7 +59,7 @@ const resetAndPlayActiveSlideVideo = () => {
     try {
       videoEl.currentTime = 0;
       const p = videoEl.play();
-      if (p?.catch) p.catch(() => {});
+      if (p?.catch) p.catch(() => { });
     } catch (_) {
       // 自动播放受限时（非静音等），这里可能抛错；页面上仍可手动播放
     }
@@ -126,6 +120,7 @@ const { t } = useI18n();
   opacity: 0;
   transform: translateY(24px);
 }
+
 .swiper-slide-active .swiper-logo {
   animation: swiperLogoFadeUp 1.2s ease both;
 }
@@ -135,6 +130,7 @@ const { t } = useI18n();
     opacity: 0;
     transform: translateY(80px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -148,6 +144,7 @@ const { t } = useI18n();
     transform: none;
   }
 }
+
 .swiper-video {
   width: 100%;
   height: 900px;
@@ -159,6 +156,7 @@ const { t } = useI18n();
   .swiper-video {
     height: 420px;
   }
+
   .swiper-logo {
     width: 240px;
     left: 16px;

@@ -4,6 +4,8 @@
     <MySwiper />
     <!-- 客户 -->
     <CustomerSwiper />
+    <!-- INNO平台 -->
+    <InnoPlatform />
     <!-- 服务 -->
     <Service />
     <!-- 业务 -->
@@ -23,7 +25,26 @@
                   t("bi_unit") }}</span></span>
                 <span class="bi_list_item_bg_text_desc" :class="[`bi_list_item_bg_text_desc_${$i18n.locale}`]">{{
                   t(item.desc)
-                }}</span>
+                  }}</span>
+              </div>
+            </div>
+            <span class="bi_list_item_text">{{ item.year }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TEU -->
+    <div class="bi">
+      <div class="layout_container">
+        <div class="bi_title">
+          <Title :title="t('teu_title')" :desc="t('teu_desc')" />
+        </div>
+        <div ref="teuListEl" class="bi_list">
+          <div class="bi_list_item" v-for="(item, index) in teuList" :key="item.year">
+            <div class="bi_list_item_bg">
+              <img :src="item.img" alt="Bi1" class="bi_list_item_img" />
+              <div class="bi_list_item_bg_text">
+                <span class="bi_list_item_bg_text_text">{{ teuDisplayText[index] }} </span>
               </div>
             </div>
             <span class="bi_list_item_text">{{ item.year }}</span>
@@ -42,10 +63,10 @@
         <div class="one_belt_one_road_text">
           <span class="one_belt_one_road_text_text">{{
             t("one_belt_one_road_text")
-          }}</span>
+            }}</span>
           <span class="one_belt_one_road_text_desc" :class="[`one_belt_one_road_text_desc_${$i18n.locale}`]">{{
             t("one_belt_one_road_text_desc")
-          }}</span>
+            }}</span>
         </div>
       </div>
     </div>
@@ -67,10 +88,10 @@
               <img :src="item.img" alt="Global1" class="global_network_list_item_img" />
               <span class="global_network_list_item_text">{{
                 globalNetworkDisplayText[index]
-              }}</span>
+                }}</span>
               <span class="global_network_list_item_desc">{{
                 t(item.desc)
-              }}</span>
+                }}</span>
             </div>
           </div>
         </div>
@@ -124,6 +145,7 @@ import CustomerSwiper from "@/components/Customer.vue";
 import Service from "@/components/Service.vue";
 import Business from "@/components/Business.vue";
 import Title from "@/components/Title.vue";
+import InnoPlatform from "@/components/InnoPlatform.vue";
 import Global1 from "@/assets/global/1.svg";
 import News1 from "@/assets/news/1.png";
 import News2 from "@/assets/news/2.png";
@@ -163,6 +185,26 @@ const biList = [{
   text: "95,888",
   desc: "bi_desc_4",
 }];
+
+const teuList = [
+  {
+    year: 2022,
+    img: Bi2022,
+    text: "86,029",
+  }, {
+    year: 2023,
+    img: Bi2023,
+    text: "147,739",
+  }, {
+    year: 2024,
+    img: Bi2024,
+    text: "220,000",
+  }, {
+    year: 2025,
+    img: Bi2025,
+    text: "250,000",
+  }
+]
 
 // BI看板数字跳动效果（进入可视区触发一次）
 const biListEl = ref(null);
@@ -211,6 +253,42 @@ const startBiCountUp = () => {
     };
 
     biRafIds[index] = requestAnimationFrame(tick);
+  });
+};
+
+// TEU数字跳动效果（进入可视区触发一次）
+const teuListEl = ref(null);
+const teuDisplayText = ref(
+  teuList.map(() => "0")
+);
+
+const hasStartedTeuCountUp = ref(false);
+const teuRafIds = [];
+let teuObserver = null;
+
+const startTeuCountUp = () => {
+  if (hasStartedTeuCountUp.value) return;
+  hasStartedTeuCountUp.value = true;
+
+  teuList.forEach((item, index) => {
+    const targetNum = parseNumberWithComma(item.text);
+    const from = 0;
+    const duration = 1200 + index * 150;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      // easeOutCubic：前快后慢，更自然
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = Math.floor(from + (targetNum - from) * eased);
+      teuDisplayText.value[index] = formatIntegerWithComma(current);
+
+      if (t < 1) {
+        teuRafIds[index] = requestAnimationFrame(tick);
+      }
+    };
+
+    teuRafIds[index] = requestAnimationFrame(tick);
   });
 };
 
@@ -312,29 +390,52 @@ onMounted(() => {
     }
   }
 
+  // TEU：不支持 IntersectionObserver 的环境就直接执行
+  if (typeof IntersectionObserver === "undefined") {
+    startTeuCountUp();
+  } else {
+    teuObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          startTeuCountUp();
+          teuObserver?.disconnect();
+          teuObserver = null;
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (teuListEl.value) {
+      teuObserver.observe(teuListEl.value);
+    } else {
+      // 兜底：ref 没拿到时直接执行
+      startTeuCountUp();
+    }
+  }
+
   // 不支持 IntersectionObserver 的环境就直接执行
   if (typeof IntersectionObserver === "undefined") {
     startGlobalNetworkCountUp();
-    return;
-  }
-
-  globalNetworkObserver = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      if (entry?.isIntersecting) {
-        startGlobalNetworkCountUp();
-        globalNetworkObserver?.disconnect();
-        globalNetworkObserver = null;
-      }
-    },
-    { threshold: 0.25 }
-  );
-
-  if (globalNetworkListEl.value) {
-    globalNetworkObserver.observe(globalNetworkListEl.value);
   } else {
-    // 兜底：ref 没拿到时直接执行
-    startGlobalNetworkCountUp();
+    globalNetworkObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          startGlobalNetworkCountUp();
+          globalNetworkObserver?.disconnect();
+          globalNetworkObserver = null;
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (globalNetworkListEl.value) {
+      globalNetworkObserver.observe(globalNetworkListEl.value);
+    } else {
+      // 兜底：ref 没拿到时直接执行
+      startGlobalNetworkCountUp();
+    }
   }
 });
 
@@ -342,6 +443,12 @@ onBeforeUnmount(() => {
   biObserver?.disconnect();
   biObserver = null;
   biRafIds.forEach((id) => {
+    if (id) cancelAnimationFrame(id);
+  });
+
+  teuObserver?.disconnect();
+  teuObserver = null;
+  teuRafIds.forEach((id) => {
     if (id) cancelAnimationFrame(id);
   });
 

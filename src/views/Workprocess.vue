@@ -14,38 +14,22 @@
             <div class="product_list_item_desc">
               {{ t("workprocess_content_1_desc") }}
             </div>
-            <img
-              src="@/assets/service/1.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/1.png" alt="product1" class="product_list_item_icon" />
           </div>
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/1.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/1.png" alt="product1" class="product_list_item_img" />
           </div>
         </div>
         <div class="product_list_item" id="projectLogistics">
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/2.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/2.png" alt="product1" class="product_list_item_img" />
           </div>
           <div class="product_list_item_left">
             <div class="product_list_item_title">{{ t("work_2") }}</div>
             <div class="product_list_item_desc">
               {{ t("workprocess_content_2_title") }}
             </div>
-            <img
-              src="@/assets/service/2.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/2.png" alt="product1" class="product_list_item_icon" />
           </div>
         </div>
         <div class="product_list_item" id="landTransportationServices">
@@ -55,38 +39,22 @@
               {{ t("workprocess_content_3_title") }}
             </div>
 
-            <img
-              src="@/assets/service/3.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/3.png" alt="product1" class="product_list_item_icon" />
           </div>
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/3.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/3.png" alt="product1" class="product_list_item_img" />
           </div>
         </div>
         <div class="product_list_item" id="customsClearanceServices">
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/4.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/4.png" alt="product1" class="product_list_item_img" />
           </div>
           <div class="product_list_item_left">
             <div class="product_list_item_title">{{ t("work_4") }}</div>
             <div class="product_list_item_desc">
               {{ t("workprocess_content_4_title") }}
             </div>
-            <img
-              src="@/assets/service/4.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/4.png" alt="product1" class="product_list_item_icon" />
           </div>
         </div>
         <div class="product_list_item" id="warehousingServices">
@@ -95,38 +63,22 @@
             <div class="product_list_item_desc">
               {{ t("workprocess_content_5_title") }}
             </div>
-            <img
-              src="@/assets/service/5.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/5.png" alt="product1" class="product_list_item_icon" />
           </div>
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/5.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/5.png" alt="product1" class="product_list_item_img" />
           </div>
         </div>
         <div class="product_list_item" id="internationalAirFreight">
           <div class="product_list_item_right">
-            <img
-              src="@/assets/workprocess/6.png"
-              alt="product1"
-              class="product_list_item_img"
-            />
+            <img src="@/assets/workprocess/6.png" alt="product1" class="product_list_item_img" />
           </div>
           <div class="product_list_item_left">
             <div class="product_list_item_title">{{ t("work_6") }}</div>
             <div class="product_list_item_desc">
               {{ t("workprocess_content_6_title") }}
             </div>
-            <img
-              src="@/assets/service/6.png"
-              alt="product1"
-              class="product_list_item_icon"
-            />
+            <img src="@/assets/service/6.png" alt="product1" class="product_list_item_icon" />
           </div>
         </div>
       </div>
@@ -148,6 +100,7 @@ const { t } = useI18n();
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   .product_list_item_left {
     width: 50%;
     display: flex;
@@ -156,25 +109,31 @@ const { t } = useI18n();
     justify-content: center;
     // align-items: center;
     gap: 20px;
+
     .product_list_item_title {
       font-size: 40px;
       line-height: 50px;
       font-weight: 700;
       color: @title-color;
     }
+
     .product_list_item_desc {
-      font-size: 20px;
+      font-size: 24px;
       line-height: 24px;
       font-weight: 400;
-      color: #424f65;
+      color: #3D3A39;
+      font-family: "Source Han Sans CN";
     }
+
     .product_list_item_icon {
       width: 120px;
       object-fit: cover;
     }
   }
+
   .product_list_item_right {
     width: 50%;
+
     .product_list_item_img {
       display: block;
       width: 100%;
@@ -196,6 +155,7 @@ const { t } = useI18n();
       width: 100%;
       order: 1;
     }
+
     .product_list_item_left {
       width: 100%;
       order: 2;
@@ -206,10 +166,12 @@ const { t } = useI18n();
         font-size: 22px;
         line-height: 30px;
       }
+
       .product_list_item_desc {
         font-size: 14px;
         line-height: 22px;
       }
+
       .product_list_item_icon {
         width: 96px;
       }
