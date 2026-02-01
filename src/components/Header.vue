@@ -3,9 +3,7 @@
     <!-- 顶部信息条：仅在未吸顶（未滚动）时展示 -->
     <div class="bar" ref="barRef" v-show="!isSticky">
       <a href="tel:+021-60252388">{{ t("header.phone") }}: 021-60252388</a>
-      <a href="mailto:innovation@htholding.cn"
-        >{{ t("header.email") }}: innovation@htholding.cn</a
-      >
+      <a href="mailto:innovation@htholding.cn">{{ t("header.email") }}: innovation@htholding.cn</a>
     </div>
     <div class="container" style="background: #fff;">
       <div class="main-header">
@@ -13,13 +11,8 @@
           <img :src="Logo" alt="logo" class="logo" />
         </a>
         <!-- 手机端：汉堡菜单按钮 -->
-        <button
-          class="mobile-menu-btn"
-          type="button"
-          :aria-expanded="isMobileMenuOpen ? 'true' : 'false'"
-          aria-label="打开/关闭菜单"
-          @click="toggleMobileMenu"
-        >
+        <button class="mobile-menu-btn" type="button" :aria-expanded="isMobileMenuOpen ? 'true' : 'false'"
+          aria-label="打开/关闭菜单" @click="toggleMobileMenu">
           <span class="mobile-menu-icon" :class="{ open: isMobileMenuOpen }" />
         </button>
         <div class="nav" :class="{ 'is-open': isMobileMenuOpen }">
@@ -27,87 +20,40 @@
             <li>
               <a :class="{ active: $route.path === '/' }" href="/" @click.prevent="handleAnchorClick('/')">{{
                 t("header.nav.home")
-              }}</a>
+                }}</a>
             </li>
             <li>
-              <a :class="{ active: $route.path === '/workprocess' }"  
-                href="javascript:void(0)"
-                class="has-children"
-                @click.prevent="handleAnchorClick('/workprocess')"
-                >{{ t("header.nav.products") }}</a
-              >
-              <div
-                class="children-list flex-row"
-                :class="{ open: openSubmenu === 'products' }"
-              >
-                <a
-                  href="javascript:void(0)"
-                  @click.prevent="handleAnchorClick(item.href)"
-                  class="children-item"
-                  v-for="item in productList"
-                  :key="item.name"
-                >
+              <a :class="{ active: $route.path === '/workprocess' }" href="javascript:void(0)" class="has-children"
+                @click.prevent="handleAnchorClick('/workprocess')">{{ t("header.nav.products") }}</a>
+              <div class="children-list flex-row" :class="{ open: openSubmenu === 'products' }">
+                <a href="javascript:void(0)" @click.prevent="handleAnchorClick(item.href)" class="children-item"
+                  v-for="item in productList" :key="item.name">
                   <span class="children-item-title">{{ t(item.name) }}</span>
-                  <img
-                    :src="item.img"
-                    alt="arrow-right"
-                    class="children-item-image"
-                  />
+                  <img :src="item.img" alt="arrow-right" class="children-item-image" />
                 </a>
               </div>
             </li>
             <li class="relative">
-              <a
-                href="javascript:void(0)"
-                class="has-children"
-                :class="{ active: $route.path === '/solution' }"
-                @click.prevent="handleAnchorClick('/solution')"
-                >{{ t("header.nav.solutions") }}</a
-              >
-              <div
-                class="children-list"
-                :class="{ open: openSubmenu === 'solutions' }"
-              >
-                <a
-                  href="javascript:void(0)"
-                  @click.prevent="handleAnchorClick(item.href)"
-                  class="children-item"
-                  v-for="item in solutionList"
-                  :key="item.name"
-                >
+              <a href="javascript:void(0)" class="has-children" :class="{ active: $route.path === '/solution' }"
+                @click.prevent="handleAnchorClick('/solution')">{{ t("header.nav.solutions") }}</a>
+              <div class="children-list" :class="{ open: openSubmenu === 'solutions' }">
+                <a href="javascript:void(0)" @click.prevent="handleAnchorClick(item.href)" class="children-item"
+                  v-for="item in solutionList" :key="item.name">
                   <span class="children-item-title">{{ t(item.name) }}</span>
                 </a>
               </div>
             </li>
             <li class="relative">
-              <a
-                href="javascript:void(0)"
-                class="has-children"
-                :class="{ active: $route.path === '/about' }"
-                @click.prevent="handleAnchorClick('/about')"
-                >{{ t("header.nav.about") }}</a
-              >
-              <div
-                class="children-list"
-                :class="{ open: openSubmenu === 'about' }"
-              >
-                <a
-                  href="javascript:void(0)"
-                  @click.prevent="handleAnchorClick(item.href)"
-                  class="children-item"
-                  v-for="item in aboutList"
-                  :key="item.name"
-                  >{{ t(item.name) }}</a
-                >
+              <a href="javascript:void(0)" class="has-children" :class="{ active: $route.path === '/about' }"
+                @click.prevent="handleAnchorClick('/about')">{{ t("header.nav.about") }}</a>
+              <div class="children-list" :class="{ open: openSubmenu === 'about' }">
+                <a href="javascript:void(0)" @click.prevent="handleAnchorClick(item.href)" class="children-item"
+                  v-for="item in aboutList" :key="item.name">{{ t(item.name) }}</a>
               </div>
             </li>
             <li>
-              <a
-                href="javascript:void(0)"
-                :class="{ active: $route.path === '/contact' }"
-                @click.prevent="handleAnchorClick('/contact')"
-                >{{ t("header.nav.contact") }}</a
-              >
+              <a href="javascript:void(0)" :class="{ active: $route.path === '/contact' }"
+                @click.prevent="handleAnchorClick('/contact')">{{ t("header.nav.contact") }}</a>
             </li>
             <!-- 手机端：CTA 放到菜单里，避免右侧区域挤压 -->
             <li class="mobile-only">
@@ -120,25 +66,13 @@
         <div class="language">
           <img :src="Language" alt="language" />
           <div class="language-list">
-            <span
-              :class="{ active: locale === 'zh' }"
-              @click="setLocale('zh')"
-              >{{ t("common.zh") }}</span
-            >
+            <span :class="{ active: locale === 'zh' }" @click="setLocale('zh')">{{ t("common.zh") }}</span>
             <span>/</span>
-            <span
-              :class="{ active: locale === 'en' }"
-              @click="setLocale('en')"
-              >{{ t("common.en") }}</span
-            >
+            <span :class="{ active: locale === 'en' }" @click="setLocale('en')">{{ t("common.en") }}</span>
             <span>/</span>
-            <span
-              :class="{ active: locale === 'es' }"
-              @click="setLocale('es')"
-              >{{ t("common.es") }}</span
-            >
+            <span :class="{ active: locale === 'es' }" @click="setLocale('es')">{{ t("common.es") }}</span>
           </div>
-          <div class="btn">{{ t("header.btn.schedule") }}</div>
+          <!-- <div class="btn">{{ t("header.btn.schedule") }}</div> -->
         </div>
       </div>
     </div>
@@ -357,39 +291,49 @@ watch(isMobileMenuOpen, (open) => {
   color: #fff;
   display: flex;
   gap: 20px;
+
   a {
     color: #fff;
     text-decoration: none;
     font-size: 12px;
     transition: color 0.18s ease;
+
     &:hover {
       color: #16ba8f;
     }
   }
 }
+
 .container {
   padding: 0 40px;
   background-color: #f5f5f5;
+
   .main-header {
     display: flex;
     align-items: center;
     height: 90px;
     position: relative;
   }
+
   .logo {
     min-height: 37px;
   }
+
   .mobile-menu-btn {
     display: none;
   }
+
   .nav {
     padding-left: 50px;
+
     .nav-list {
       display: flex;
+
       li {
         height: 90px;
         list-style: none;
         position: static !important;
+
         &:hover {
           .children-list {
             /* 下拉菜单：淡入 + 下滑 */
@@ -400,6 +344,7 @@ watch(isMobileMenuOpen, (open) => {
             transition-delay: 0s;
           }
         }
+
         a {
           font-family: epilogue, sans-serif;
           font-style: normal;
@@ -416,11 +361,14 @@ watch(isMobileMenuOpen, (open) => {
           &:hover {
             color: #ff9124;
           }
+
           &.active {
             color: #ff9124;
           }
         }
+
         .has-children {
+
           // 下拉箭头
           &::after {
             content: "";
@@ -432,6 +380,7 @@ watch(isMobileMenuOpen, (open) => {
             height: 10px;
           }
         }
+
         .children-list {
           /* 下拉菜单初始隐藏：不占 hover 区域、不抢点击 */
           display: flex;
@@ -450,16 +399,19 @@ watch(isMobileMenuOpen, (open) => {
           padding: 20px;
           border-top: 8px solid #ff9124;
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
           &.flex-row {
             left: 0;
             right: 0;
             flex-direction: row;
+
             .children-item {
               flex: 1;
               max-width: 240px;
               min-width: auto;
             }
           }
+
           /* 手机端：点击展开时使用 */
           &.open {
             opacity: 1;
@@ -468,19 +420,23 @@ watch(isMobileMenuOpen, (open) => {
             pointer-events: auto;
             transition-delay: 0s;
           }
+
           .children-item {
             min-width: 240px;
             display: flex;
             flex-direction: column;
             padding: 0;
+
             &:hover {
               .children-item-title {
                 color: #ff9124;
               }
+
               .children-item-image {
                 transform: scale(1.03);
               }
             }
+
             .children-item-title {
               font-size: 18px;
               color: @title-color;
@@ -489,6 +445,7 @@ watch(isMobileMenuOpen, (open) => {
               font-weight: 500;
               transition: color 0.18s ease;
             }
+
             .children-item-image {
               width: 240px;
               height: 160px;
@@ -501,33 +458,40 @@ watch(isMobileMenuOpen, (open) => {
     }
   }
 }
+
 .language {
   display: flex;
   align-items: center;
   margin-left: auto;
+
   img {
     width: 14px;
     margin-right: 5px;
   }
+
   .language-list {
     line-height: 14px;
     display: flex;
     align-items: center;
     gap: 5px;
+
     span {
       font-size: 12px;
       color: @title-color;
       cursor: pointer;
       transition: color 0.18s ease;
+
       &:hover {
         color: #ff9124;
       }
+
       &.active {
         color: #ff9124;
       }
     }
   }
 }
+
 .btn {
   padding: 9px 20px;
   color: #fff;
@@ -539,6 +503,7 @@ watch(isMobileMenuOpen, (open) => {
   cursor: pointer;
   margin-left: 40px;
   transition: background-color 0.18s ease, transform 0.18s ease;
+
   &:hover {
     background: #034460;
     color: #fff;
@@ -586,6 +551,7 @@ watch(isMobileMenuOpen, (open) => {
       background: #041c2f;
       transition: transform 0.2s ease, background 0.2s ease;
     }
+
     .mobile-menu-icon::before,
     .mobile-menu-icon::after {
       content: "";
@@ -596,19 +562,24 @@ watch(isMobileMenuOpen, (open) => {
       background: #041c2f;
       transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
     }
+
     .mobile-menu-icon::before {
       top: -7px;
     }
+
     .mobile-menu-icon::after {
       top: 7px;
     }
+
     .mobile-menu-icon.open {
       background: transparent;
     }
+
     .mobile-menu-icon.open::before {
       top: 0;
       transform: rotate(45deg);
     }
+
     .mobile-menu-icon.open::after {
       top: 0;
       transform: rotate(-45deg);
@@ -646,7 +617,7 @@ watch(isMobileMenuOpen, (open) => {
       height: auto;
     }
 
-    .nav.is-open .nav-list li > a {
+    .nav.is-open .nav-list li>a {
       padding: 14px 0;
       font-size: 16px;
       border-bottom: 1px solid rgba(15, 23, 42, 0.08);
@@ -711,6 +682,7 @@ watch(isMobileMenuOpen, (open) => {
 
 /* 减少动态偏好：尊重系统设置 */
 @media (prefers-reduced-motion: reduce) {
+
   .bar a,
   .container .nav .nav-list li a,
   .container .nav .nav-list li .children-list,

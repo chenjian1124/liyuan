@@ -586,8 +586,9 @@ const newsList = [
 
     .one_belt_one_road_text {
       margin-top: 300px;
-      min-width: 500px;
-      max-width: 800px;
+      width: 38%;
+      // min-width: 500px;
+      // max-width: 800px;
       display: flex;
       flex-direction: column;
       justify-content: left;
