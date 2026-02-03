@@ -230,7 +230,7 @@ const { t } = useI18n();
         line-height: 24px;
         font-weight: 400;
         color: #333;
-        text-align: left;
+        text-align: center;
       }
     }
   }

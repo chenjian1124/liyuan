@@ -2,7 +2,10 @@
   <div class="business">
     <div class="layout_container bg_word">
       <div class="business_content">
-        <Title :title="t('business_title')" :desc="t('business_desc')" />
+        <div style="display: flex; justify-content: left;">
+          <Title :title="t('business_title')" :desc="t('business_desc')" />
+        </div>
+
         <div class="business_content_flex">
           <div class="business_content_left">
             <img :src="Bs" alt="bs" class="business_content_left_img" />
@@ -21,7 +24,7 @@
               <img :src="item.img" alt="item.title" class="business_content_right_item_img" />
               <span class="business_content_right_item_text">{{
                 t(item.title)
-                }}</span>
+              }}</span>
             </div>
           </div>
         </div>

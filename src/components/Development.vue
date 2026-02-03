@@ -98,7 +98,7 @@
         <div class="desc">
           <img src="@/assets/development/blue-left.png" alt="orange-right" class="desc-img" />
           <div class="desc-content p-r-20">
-            <p>参加第28界</p>
+            <p>参加第28届</p>
             <p>南美洲多式</p>
             <p>联运展</p>
           </div>
