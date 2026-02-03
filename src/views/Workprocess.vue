@@ -119,8 +119,8 @@ const { t } = useI18n();
     }
 
     .product_list_item_desc {
-      font-size: 24px;
-      line-height: 24px;
+      font-size: 20px;
+      line-height: 28px;
       font-weight: 400;
       color: #3D3A39;
       font-family: "Source Han Sans CN";

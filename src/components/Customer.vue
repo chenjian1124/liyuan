@@ -2,7 +2,7 @@
   <div class="customer">
     <div class="customer-title">
       {{ t("customer_title1")
-      }}<span class="text-orange">{{ t("customer_title2") }}</span>
+      }}<br />{{ t("customer_title2") }}<span class="text-orange">{{ t("customer_title3") }}</span>
     </div>
     <div class="customer-list">
       <div class="customer-list-item" v-for="item in customerItems" :key="item.key">
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { computed,  } from "vue";
+import { computed, } from "vue";
 
 import { useI18n } from "vue-i18n";
 
@@ -65,7 +65,7 @@ const customerItems = computed(() => {
 
   .customer-title {
     flex-shrink: 0;
-    width: 96px;
+    min-width: 96px;
     font-size: 24px;
     color: #424f65;
     font-weight: 700;
@@ -80,17 +80,17 @@ const customerItems = computed(() => {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+
     .customer-list-item {
       height: 40px;
+
       img {
-       display: block;
-       width: auto;
-       height: 40px;
-       object-fit: cover;
+        display: block;
+        width: auto;
+        height: 40px;
+        object-fit: cover;
       }
     }
   }
 }
-
-
 </style>

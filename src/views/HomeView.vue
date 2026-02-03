@@ -16,6 +16,9 @@
         <div class="bi_title">
           <Title :title="t('bi_title')" :desc="t('bi_desc')" />
         </div>
+        <div class="bi_subtitle">
+          <span class="bi_subtitle_text">{{ t("bi_subtitle") }}</span>
+        </div>
         <div ref="biListEl" class="bi_list">
           <div class="bi_list_item" v-for="(item, index) in biList" :key="item.year">
             <div class="bi_list_item_bg">
@@ -25,7 +28,7 @@
                   t("bi_unit") }}</span></span>
                 <span class="bi_list_item_bg_text_desc" :class="[`bi_list_item_bg_text_desc_${$i18n.locale}`]">{{
                   t(item.desc)
-                  }}</span>
+                }}</span>
               </div>
             </div>
             <span class="bi_list_item_text">{{ item.year }}</span>
@@ -36,15 +39,22 @@
     <!-- TEU -->
     <div class="bi">
       <div class="layout_container">
-        <div class="bi_title">
+        <!-- <div class="bi_title">
           <Title :title="t('teu_title')" :desc="t('teu_desc')" />
+        </div> -->
+        <div class="bi_subtitle">
+          <span class="bi_subtitle_text">{{ t("teu_subtitle") }}</span>
         </div>
         <div ref="teuListEl" class="bi_list">
           <div class="bi_list_item" v-for="(item, index) in teuList" :key="item.year">
             <div class="bi_list_item_bg">
               <img :src="item.img" alt="Bi1" class="bi_list_item_img" />
               <div class="bi_list_item_bg_text">
-                <span class="bi_list_item_bg_text_text">{{ teuDisplayText[index] }} </span>
+                <span class="bi_list_item_bg_text_text">{{ teuDisplayText[index] }} <span style="font-size: 18px; ">{{
+                  t("teu_unit") }}</span></span>
+                <span class="bi_list_item_bg_text_desc" :class="[`bi_list_item_bg_text_desc_${$i18n.locale}`]">{{
+                  t("teu_desc")
+                }}</span>
               </div>
             </div>
             <span class="bi_list_item_text">{{ item.year }}</span>
@@ -63,10 +73,10 @@
         <div class="one_belt_one_road_text">
           <span class="one_belt_one_road_text_text">{{
             t("one_belt_one_road_text")
-            }}</span>
+          }}</span>
           <span class="one_belt_one_road_text_desc" :class="[`one_belt_one_road_text_desc_${$i18n.locale}`]">{{
             t("one_belt_one_road_text_desc")
-            }}</span>
+          }}</span>
         </div>
       </div>
     </div>
@@ -88,10 +98,10 @@
               <img :src="item.img" alt="Global1" class="global_network_list_item_img" />
               <span class="global_network_list_item_text">{{
                 globalNetworkDisplayText[index]
-                }}</span>
+              }}</span>
               <span class="global_network_list_item_desc">{{
                 t(item.desc)
-                }}</span>
+              }}</span>
             </div>
           </div>
         </div>
@@ -177,7 +187,7 @@ const biList = [{
 }, {
   year: 2024,
   img: Bi2024,
-  text: "85,955",
+  text: "85,988",
   desc: "bi_desc_3",
 }, {
   year: 2025,
@@ -194,7 +204,7 @@ const teuList = [
   }, {
     year: 2023,
     img: Bi2023,
-    text: "147,739",
+    text: "147,793",
   }, {
     year: 2024,
     img: Bi2024,
@@ -484,6 +494,19 @@ const newsList = [
     padding: 100px 0;
     display: flex;
     justify-content: left;
+  }
+
+  .bi_subtitle {
+    padding: 0 0 40px 100px;
+    display: flex;
+    justify-content: left;
+  }
+
+  .bi_subtitle_text {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #B7B7B7;
   }
 
   .bi_list {
@@ -777,7 +800,7 @@ const newsList = [
     align-items: center;
     justify-content: center;
     gap: 40px;
-    padding: 0 144px;
+    //padding: 0 144px;
   }
 
   .network_title {

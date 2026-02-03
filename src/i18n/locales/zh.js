@@ -52,8 +52,9 @@ export default {
     },
   },
   // customer
-  customer_title1: "我们备受客户",
-  customer_title2: "信任",
+  customer_title1: "我们拥有",
+  customer_title2: "强大的",
+  customer_title3: "战略伙伴",
 
   // service
   service_title: "我们提供优质的服务",
@@ -89,7 +90,7 @@ export default {
   workprocess_content_6_title: '立远恒通的国际空运服务依托覆盖全球的航线网络，为客户提供快捷、高效、安全的空运解决方案。无论是小批量的快速配送，还是大规模的货物运输，我们都能灵活应对，精准满足客户需求，确保货物准时送达全球目的地。',
 
   // business
-  business_title: "立远恒通集团资质",
+  business_title: "业务覆盖范围",
   business_desc: "业务覆盖全球，服务全面",
   business_title1: "立远恒通集团资质",
   business_desc_1: "中国外经贸委批准的一级货运代理",
@@ -108,6 +109,7 @@ export default {
   // BI看板
   bi_title: "BI看板",
   bi_desc: "数据驾驶仓",
+  bi_subtitle: "数据驾驶舱-票数",
   bi_unit: "票",
   bi_desc_1: "操作票数排行榜-环比",
   bi_desc_2: "操作票数排行榜-环比",
@@ -130,7 +132,7 @@ export default {
   global_network_desc: '多次荣获行业大奖，建立全球服务网络，与多家顶级船公司战略合作，提供高效、可靠的物流解决方案，赢得客户广泛认可。',
   global_network_desc_1: '海外代理机构',
   global_network_desc_2: '拉丁美洲代理网络',
-  global_network_desc_3: '家全资子公司',
+  global_network_desc_3: '办公室',
   global_network_desc_4: '全球员工人数',
 
   // 资讯
@@ -297,6 +299,9 @@ export default {
   // TEU
   teu_title: 'TEU数据',
   teu_desc: '每年逐步增长',
+  teu_subtitle: "数据驾驶舱-TEU数",
+  teu_unit: "TEUS",
+  teu_desc: "箱量排行榜-环比",
 
 };
 

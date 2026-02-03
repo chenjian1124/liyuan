@@ -3,7 +3,7 @@
     <div class="layout_container bg_word">
       <div class="business_content">
         <div class="home_service">
-          <Title :title="t('business_title')" :desc="t('business_desc')" />
+          <Title :title="t('inno_platform_title')" :desc="t('inno_platform_desc')" />
           <div class="btn">{{ t("service_more") }}</div>
         </div>
 

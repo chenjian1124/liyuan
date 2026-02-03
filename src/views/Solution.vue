@@ -150,7 +150,7 @@
               </div>
               <div class="solution_logistics_info_right_item_text">
                 <div class="solution_logistics_info_right_item_text_title">
-                  {{ t(`solution_logistics_title${i}`) }}
+                  {{ t(`solution_logistics_title${i + 1}`) }}
                 </div>
                 <div class="solution_logistics_info_right_item_text_desc">
                   {{ t(`solution_logistics_desc${i + 1}`) }}
