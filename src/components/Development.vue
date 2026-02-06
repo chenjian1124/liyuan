@@ -112,13 +112,13 @@
         <span class="round green"></span>
         <div class="desc">
           <img src="@/assets/development/green-right.png" alt="orange-right" class="desc-img" />
-          <div class="desc-content p-l-20" style="font-size: 20px;">
-            <p>通过ISO管理体系</p>
-            <p>认证</p>
-            <p>广州子公司成立</p>
-            <p>郑州营销中心</p>
+          <div class="desc-content p-l-20" style="font-size: 18px;">
+            <p>通过ISO管理体系认证</p>
             <p>立远恒通</p>
-            <p>墨西哥分站成立</p>
+            <p>广州子公司</p>
+            <p>墨西哥分站</p>
+            <p>郑州营销中心</p>
+            <p>成立</p>
           </div>
         </div>
       </div>
