@@ -3,7 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/liyuan/',
+  // 部署在根路径时使用 /（不要带子目录前缀）
+  base: '/',
   plugins: [vue()],
   resolve: {
     alias: {

@@ -7,7 +7,8 @@ import Solution from '../views/Solution.vue'
 import Contact from '../views/Contact.vue'
 
 const router = createRouter({
-  history: createWebHistory('/liyuan/'),
+  // 跟随 Vite 的 base（vite.config.js 的 base 会体现在 BASE_URL 上）
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
